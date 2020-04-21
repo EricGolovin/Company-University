@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(int, FlightDurationOptions) {
     tooShort = 1 << 0,
-    tooNormal = 1 << 3,
+    tooNormal = 1 << 1,
     tooLong = 1 << 2
 };
 

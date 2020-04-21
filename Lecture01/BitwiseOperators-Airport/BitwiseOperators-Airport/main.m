@@ -17,6 +17,15 @@ int main(int argc, const char * argv[]) {
         // setting airport adress
         NSLog(@"%@", [londonAirport address]);
         
+//        typedef durCalcualte (FlightDurationOptions)^(void) {
+//            if (randomInteger < 30) {
+//                return tooShort;
+//            } else if (randomInteger < 60) {
+//                return tooShort | tooNormal;
+//            } else {
+//                return tooShort | tooNormal | tooLong;
+//            }
+//        };
         // setting airport planes
         for (int i = 0; i < 10; i++) {
             int randomInteger = arc4random_uniform(90);
@@ -41,15 +50,7 @@ int main(int argc, const char * argv[]) {
             Plane *somePlane = [[Plane alloc] initWithModel:[NSString stringWithFormat:@"MD-%i", randomInteger] duration:dur];
             
             /*
-             (FlightDurationOptions)^(void) {
-                 if (randomInteger < 30) {
-                     return tooShort;
-                 } else if (randomInteger < 60) {
-                     return tooShort | tooNormal;
-                 } else {
-                     return tooShort | tooNormal | tooLong;
-                 }
-             }
+
              */
             
             [londonAirport addPlane: somePlane];
