@@ -10,13 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Binary : NSObject
+@interface QuickSort : NSObject
 
 - (instancetype)init;
-- (NSArray *)quickSortArray:(NSArray *)unsortedArray;
-- (void)addNumber:(NSNumber *)number;
-- (NSMutableArray *)getIntegers;
-- (int) getTotalBytes;
+- (NSMutableArray *)quickSortArray:(NSMutableArray *)unsortedArray;
+- (int)getTotalBytes;
 
 @end
 

@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E968CFE6245A04A500B9C15D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E968CFE5245A04A500B9C15D /* main.m */; };
-		E968CFF1245A05A000B9C15D /* Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = E968CFF0245A05A000B9C15D /* Binary.m */; };
+		E968CFF1245A05A000B9C15D /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = E968CFF0245A05A000B9C15D /* QuickSort.m */; };
+		E9F2FE04245B811000458657 /* BubbleSort.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F2FE03245B811000458657 /* BubbleSort.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +27,10 @@
 /* Begin PBXFileReference section */
 		E968CFE2245A04A500B9C15D /* EPAM-HW03-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "EPAM-HW03-2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E968CFE5245A04A500B9C15D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E968CFEF245A05A000B9C15D /* Binary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Binary.h; sourceTree = "<group>"; };
-		E968CFF0245A05A000B9C15D /* Binary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Binary.m; sourceTree = "<group>"; };
+		E968CFEF245A05A000B9C15D /* QuickSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
+		E968CFF0245A05A000B9C15D /* QuickSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSort.m; sourceTree = "<group>"; };
+		E9F2FE02245B811000458657 /* BubbleSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleSort.h; sourceTree = "<group>"; };
+		E9F2FE03245B811000458657 /* BubbleSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleSort.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				E968CFE5245A04A500B9C15D /* main.m */,
-				E968CFEF245A05A000B9C15D /* Binary.h */,
-				E968CFF0245A05A000B9C15D /* Binary.m */,
+				E968CFEF245A05A000B9C15D /* QuickSort.h */,
+				E968CFF0245A05A000B9C15D /* QuickSort.m */,
+				E9F2FE02245B811000458657 /* BubbleSort.h */,
+				E9F2FE03245B811000458657 /* BubbleSort.m */,
 			);
 			path = "EPAM-HW03-2";
 			sourceTree = "<group>";
@@ -124,8 +129,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E968CFF1245A05A000B9C15D /* Binary.m in Sources */,
+				E968CFF1245A05A000B9C15D /* QuickSort.m in Sources */,
 				E968CFE6245A04A500B9C15D /* main.m in Sources */,
+				E9F2FE04245B811000458657 /* BubbleSort.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

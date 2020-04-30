@@ -6,10 +6,9 @@
 //  Copyright © 2020 com.ericgolovin-university. All rights reserved.
 //
 
-#import "Binary.h"
+#import "QuickSort.h"
 
-@implementation Binary {
-    NSMutableArray *arrayOfNumbers;
+@implementation QuickSort {
     int totalBytesUsed;
 }
 
@@ -17,14 +16,13 @@
     self = [super init];
     
     if (self) {
-        arrayOfNumbers = [NSMutableArray array];
         totalBytesUsed = 0;
     }
     
     return self;
 }
 
-- (NSArray *) quickSortArray:(NSArray *)unsortedArray {
+- (NSMutableArray *) quickSortArray:(NSMutableArray *)unsortedArray {
  
     // Time complexity: O(n^2).
     //  * First time arround is to separate the entire array.
@@ -69,15 +67,6 @@
     totalBytesUsed += sizeof(returnArray);
     
     return returnArray;
-}
-
-- (void)addNumber:(NSNumber *)number {
-    [arrayOfNumbers addObject:number];
-    NSLog(@"Count: %lu", (unsigned long)[arrayOfNumbers count]);
-}
-
-- (NSMutableArray *)getIntegers {
-    return arrayOfNumbers;
 }
 
 - (int)getTotalBytes {

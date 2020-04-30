@@ -7,25 +7,42 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Binary.h"
+#import "QuickSort.h"
+#import "BubbleSort.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSDate *startTime = [NSDate date];
-        Binary *binary = [Binary new];
         
+        NSMutableArray *unsortedArray = [NSMutableArray array];
+        NSMutableArray *sortedArray = [NSMutableArray array];
+        QuickSort *quickSort = [QuickSort new];
+        BubbleSort *bubbleSort = [BubbleSort new];
+        
+        NSDate *startTime = [NSDate date];
         for (int i = 0; i < 10000; i++) {
-            [binary addNumber:@(arc4random_uniform(200000) - 100000)];
+            [unsortedArray addObject:@(arc4random_uniform(200000) - 100000)];
         }
         
-        [binary quickSortArray:[binary getIntegers]];
-        
+        sortedArray = [quickSort quickSortArray:unsortedArray];
         NSDate *endTime = [NSDate date];
+        
         NSTimeInterval executionTime = [endTime timeIntervalSinceDate: startTime];
-        NSLog(@"Timing: %f", executionTime);
+        NSLog(@"QuickSort Timing: %f", executionTime);
         
         // TODO: This does not work, try to recode
-        NSLog(@"Size: %i", [binary getTotalBytes] / 8);
+        NSLog(@"QuickSort Size: %f", (double)[quickSort getTotalBytes] / 8000000.0);
+        printf("\n");
+        
+        startTime = [NSDate date];
+        
+        sortedArray = [bubbleSort bubbleSortArray:unsortedArray];
+        endTime = [NSDate date];
+        
+        executionTime = [endTime timeIntervalSinceDate: startTime];
+        NSLog(@"BubbleSort Timing: %f", executionTime);
+        
+        // TODO: This does not work, try to recode
+        NSLog(@"BubbleSort Size: %f", (double)[bubbleSort getTotalBytes] / 8000000.0);
         
         printf("\n");
     }
