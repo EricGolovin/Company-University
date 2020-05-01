@@ -9,60 +9,49 @@ enum Coordinate {
     case coordinate(CoordinateType)
     indirect case distanceBetween(Coordinate, Coordinate)
     
-    init?(distanceBetweeenInRadian: Coordinate) {
-        if let inDegree = Coordinate.init(distanceBetweenInDegrees: distanceBetweeenInRadian) {
-            switch inDegree {
-            case let .coordinate(degreeType):
-                if case let .degree(degree, minute) = degreeType {
-                    let decimalRepresentation: Double = Double(degree + minute) / 60
-                    self = .coordinate(.radian(decimalRepresentation * Double.pi / 180))
-                    break
-                }
-                fallthrough
-            default:
-                return nil
+    func distanceInRadiansTo(coordinate: Coordinate) -> Coordinate {
+        let inDegree = self.distanceInDegreesTo(coordinate: coordinate)
+        
+        switch inDegree {
+        case let .coordinate(degreeType):
+            if case let .degree(degree, minute) = degreeType {
+                let decimalRepresentation: Double = Double(degree + minute) / 60
+                return Coordinate.coordinate(.radian(decimalRepresentation * Double.pi / 180))
             }
-        } else {
-            return nil
+            fallthrough
+        default:
+            return Coordinate.coordinate(.radian(0))
         }
     }
     
-    init?(distanceBetweenInDegrees: Coordinate) {
-        if case let .distanceBetween(first, second) = distanceBetweenInDegrees {
-            if case let .coordinate(firstType) = first, case let .coordinate(secondType) = second {
-                if case let .degree(firstDegree, firstMinute) = firstType, case let .degree(secondDegree, secondMinute) = secondType {
-                    var minutes = firstMinute - secondMinute
-                    if minutes < 0 {
-                        minutes += 60
-                        self = Coordinate.coordinate(.degree(firstDegree - secondDegree - 1, minutes))
-                    } else {
-                        self = Coordinate.coordinate(.degree(firstDegree - secondDegree, minutes))
-                    }
+    func distanceInDegreesTo(coordinate: Coordinate) -> Coordinate {
+        if case let .coordinate(firstType) = self, case let .coordinate(secondType) = coordinate {
+            if case let .degree(firstDegree, firstMinute) = firstType, case let .degree(secondDegree, secondMinute) = secondType {
+                var minutes = firstMinute - secondMinute
+                if minutes < 0 {
+                    minutes += 60
+                    return Coordinate.coordinate(.degree(firstDegree - secondDegree - 1, minutes))
+                } else {
+                    return Coordinate.coordinate(.degree(firstDegree - secondDegree, minutes))
                 }
             }
-        } else {
-            print("Error: not passed .distanceBetween")
-            return nil
         }
-        // TODO: fix "'self' used before 'self.init' call or assignment to 'self'"
+        print("Error: not passed .distanceBetween")
+        return Coordinate.coordinate(.degree(0, 0))
     }
 }
 
 let SanFrancisco = Coordinate.coordinate(.degree(37, 19))
 let LosAngeles = Coordinate.coordinate(.degree(33, 42))
 
-let distanceInDegrees = Coordinate.init(distanceBetweenInDegrees: .distanceBetween(SanFrancisco, LosAngeles))
-//let distanceInRadians = Coordinate.init(distanceBetweeenInRadian:.distanceBetween(SanFrancisco, LosAngeles))
+let distanceInDegrees = SanFrancisco.distanceInDegreesTo(coordinate: LosAngeles)
+let distanceInRadians = SanFrancisco.distanceInRadiansTo(coordinate: LosAngeles)
 
-if let distance = distanceInDegrees {
-    switch distance {
-    case let .coordinate(.degree(degree, minute)):
-        print("Degree: \(degree), Minute: \(minute)")
-    default:
-        break
-    }
+if case let .coordinate(.degree(degree, minute)) = distanceInDegrees {
+    print("Degree: \(degree), Minute: \(minute)")
 }
 
-//if let distance = distanceInRadians, case let .coordinate(radian) = distance {
-//    print("Distance in Radians: \(radian.self)")
-//}
+if case let .coordinate(.radian(radian)) = distanceInRadians {
+    print("Distance in Radians: \(radian)")
+}
+
