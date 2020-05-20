@@ -1,0 +1,28 @@
+Tasks
+- Create custom view
+    - Create CustomButtonView
+        - with gradient subclassing UIView
+        - without gesture recognizers
+    - Create UserImageView
+        - Circle Image with border color
+- View controller
+    - Create some MainViewController that will hold other ViewControllers
+    - Create AnonymusUserViewController
+        - With text not happy image and text Sorry, you should be registered
+        - And CustomButton “Registration” by tapping which shows RegisterViewController modally
+        - added as child to MainViewController
+        - When user changes to registered, remove AnonymusUserViewController
+    - Create RegisterViewController
+        - Contains login, first name, last name, password fields and login custom button
+        - Can register if login field contains only digits and letters.
+        - By tapping on Register button the app shows UserProfileViewController
+    - Create UserProfileViewController added as child to MainViewController
+        - Contains User Image View
+        - User’s first name and last name labels
+
+Restrictions:
+- The layout can’t be used. Use just frame, bounds, etc properties.
+Thus views can support only one device size
+- The storyboard, nib and other interface tools can’t be used. Everything should be done in code
+
+Deadline is Jun 1 at 14:00
