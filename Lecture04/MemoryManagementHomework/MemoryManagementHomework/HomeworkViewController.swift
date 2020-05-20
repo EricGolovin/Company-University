@@ -30,11 +30,29 @@ class HomeworkViewController: UIViewController {
     func changePictures() {
         pictures = []
         guard let url = URL(string: Const.url) else { return }
-        for _ in 11..<20 {
-            guard let image = UIImage(url: url) else { continue }
-            pictures.append(image)
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            for _ in 11..<20 {
+                        guard let image = UIImage(url: url) else { continue }
+                self.pictures.append(image)
+//                        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+//                            guard let self = self, let data = data, let image = UIImage(data: data) else {
+//                                return
+//                            }
+//                            self.pictures.append(image)
+//                        }
         }
-        tableView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {
+                    return
+                }
+                self.tableView.reloadData()
+            }
+        }
+        
+//        tableView.reloadData()
     }
     
     private func setupSubview() {
@@ -65,13 +83,14 @@ class HomeworkViewController: UIViewController {
     }
     
     private func setupTransition(from indexPath: IndexPath) {
-        let viewController = DetailsViewController(image: pictures[indexPath.row], viewController: self)
-        
-        navigationController?.present(viewController, animated: true) { [weak self] in
-            if let self = self {
-                viewController.setupText(text: self.randomString(length: 1200))
+        let viewController = DetailsViewController(image: pictures[indexPath.row], viewController: self, action: { [weak self] (leght: Int) in
+            guard let self = self else {
+                return "no text"
             }
-        }
+            return self.randomString(length: leght)
+        })
+        
+        navigationController?.present(viewController, animated: true)
     }
     
     private func randomString(length: Int) -> String {

@@ -17,8 +17,9 @@ class DetailsViewController: UIViewController {
     private lazy var stackView = UIStackView()
     private var getImageAction: (() -> UIImage)?
     private var onDoneAction: (() -> ())?
+    private var configureTextAction: ((Int) -> String)?
     
-    init(image: UIImage, viewController: HomeworkViewController) {
+    init(image: UIImage, viewController: HomeworkViewController, action: @escaping (Int) -> String) {
         self.image = image
         self.viewController = viewController
         super.init(nibName: nil, bundle: nil)
@@ -30,6 +31,7 @@ class DetailsViewController: UIViewController {
                 return UIImage()
             }
         }
+        configureTextAction = action
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +63,7 @@ class DetailsViewController: UIViewController {
         imageView.image = getImageAction?()
         viewController?.changePictures()
         textLabel.numberOfLines = 0
+        self.textLabel.text = configureTextAction!(1200)
         
         // MARK: - Possible Memory Leak
         onDoneAction = { [weak self] in
