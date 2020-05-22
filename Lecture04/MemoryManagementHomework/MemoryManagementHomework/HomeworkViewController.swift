@@ -30,12 +30,15 @@ class HomeworkViewController: UIViewController {
     func changePictures() {
         pictures = []
         guard let url = URL(string: Const.url) else { return }
-        DispatchQueue.global(qos: .utility).async { [weak self] in
+        DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else {
                 return
             }
-            for _ in 11..<20 {
-                        guard let image = UIImage(url: url) else { continue }
+            // MARK: - Solve
+            for _ in 0..<20 {
+                guard let image = UIImage(url: url) else { continue }
+                
+                // TODO: Is not working
                 self.pictures.append(image)
 //                        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
 //                            guard let self = self, let data = data, let image = UIImage(data: data) else {
@@ -44,12 +47,9 @@ class HomeworkViewController: UIViewController {
 //                            self.pictures.append(image)
 //                        }
         }
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else {
-                    return
-                }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.tableView.reloadData()
-            }
+            })
         }
         
 //        tableView.reloadData()
@@ -73,7 +73,7 @@ class HomeworkViewController: UIViewController {
     }
 
     private func setupPictures() {
-        if pictures.count < 0 {
+        if pictures.count > 0 {
             pictures.removeAll()
         }
         for i in 1...10 {

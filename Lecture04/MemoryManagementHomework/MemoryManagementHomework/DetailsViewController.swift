@@ -25,11 +25,7 @@ class DetailsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         getImageAction = { [weak self] in
-            if let self = self {
-                return self.image
-            } else {
-                return UIImage()
-            }
+            return self?.image ?? UIImage()
         }
         configureTextAction = action
     }
@@ -63,9 +59,9 @@ class DetailsViewController: UIViewController {
         imageView.image = getImageAction?()
         viewController?.changePictures()
         textLabel.numberOfLines = 0
-        self.textLabel.text = configureTextAction!(1200)
+        self.textLabel.text = configureTextAction?(1200)
         
-        // MARK: - Possible Memory Leak
+        // MARK: - Possible Memory Leak (Guard)
         onDoneAction = { [weak self] in
             if let self = self {
                 self.viewController?.callAlert()
