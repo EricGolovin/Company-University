@@ -6,17 +6,31 @@
 //  Copyright © 2020 Dmytro Kolesnyk. All rights reserved.
 //
 
+protocol DetailsSetupProtocol: class {
+    func randomString(length: Int) -> String
+    func changePictures()
+    func callAlert()
+}
+
+extension DetailsSetupProtocol {
+    func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in (letters.randomElement() ?? " ") })
+    }
+}
+
 import UIKit
 
-class HomeworkViewController: UIViewController {
+class HomeworkViewController: UIViewController, DetailsSetupProtocol {
     enum Const {
         static let title = "Homework"
         static let cellReuseIdentifier = "HomeworkCellReuseIdentifier"
-        static let url = "https://picsum.photos/200/300"
+        //        static let url = "https://picsum.photos/200/300"  not working
     }
     
     private var tableView = UITableView(frame: .zero, style: .grouped)
     private var pictures: [UIImage] = []
+    private var imageFlag = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,34 +39,6 @@ class HomeworkViewController: UIViewController {
         setupPictures()
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    func changePictures() {
-        pictures = []
-        guard let url = URL(string: Const.url) else { return }
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let self = self else {
-                return
-            }
-            // MARK: - Solve
-            for _ in 0..<20 {
-                guard let image = UIImage(url: url) else { continue }
-                
-                // TODO: Is not working
-                self.pictures.append(image)
-//                        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-//                            guard let self = self, let data = data, let image = UIImage(data: data) else {
-//                                return
-//                            }
-//                            self.pictures.append(image)
-//                        }
-        }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                self.tableView.reloadData()
-            })
-        }
-        
-//        tableView.reloadData()
     }
     
     private func setupSubview() {
@@ -71,32 +57,34 @@ class HomeworkViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
+    
     private func setupPictures() {
+        var range: ClosedRange<Int> {
+            defer {
+                imageFlag.toggle()
+            }
+            return imageFlag ? 0...10 : 10...20
+        }
         if pictures.count > 0 {
             pictures.removeAll()
         }
-        for i in 1...10 {
+        for i in range {
             guard let image = UIImage(named: "picture\(i)") else { continue }
             pictures.append(image)
         }
     }
     
+    func changePictures() {
+        setupPictures()
+        tableView.reloadData()
+        print("Table was Reloaded")
+    }
+    
     private func setupTransition(from indexPath: IndexPath) {
-        let viewController = DetailsViewController(image: pictures[indexPath.row], viewController: self, action: { [weak self] (leght: Int) in
-            guard let self = self else {
-                return "no text"
-            }
-            return self.randomString(length: leght)
-        })
-        
+        let viewController = DetailsViewController(image: pictures[indexPath.row], delegate: self)
         navigationController?.present(viewController, animated: true)
     }
     
-    private func randomString(length: Int) -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in (letters.randomElement() ?? " ") })
-    }
 }
 
 extension HomeworkViewController: UITableViewDelegate, UITableViewDataSource {

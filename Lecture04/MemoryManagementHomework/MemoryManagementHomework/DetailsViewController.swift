@@ -9,27 +9,20 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    
     private let image: UIImage
-
-    weak private var viewController: HomeworkViewController?
     private lazy var imageView = UIImageView()
     private lazy var textLabel = UILabel()
     private lazy var stackView = UIStackView()
-    private var getImageAction: (() -> UIImage)?
-    private var onDoneAction: (() -> ())?
-    private var configureTextAction: ((Int) -> String)?
+    weak var delegate: DetailsSetupProtocol?
     
-    init(image: UIImage, viewController: HomeworkViewController, action: @escaping (Int) -> String) {
+    init(image: UIImage, delegate: DetailsSetupProtocol) {
         self.image = image
-        self.viewController = viewController
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
-        
-        getImageAction = { [weak self] in
-            return self?.image ?? UIImage()
-        }
-        configureTextAction = action
     }
     
+    // Question "Why we so importantly need this?"
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -38,13 +31,12 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         setupSubviews()
         setupAutoLayout()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        onDoneAction?()
-        onDoneAction = nil
-        viewController = nil
-        getImageAction = nil
+        delegate?.changePictures()
+        delegate?.callAlert()
     }
     
     func setupText(text: String) {
@@ -55,19 +47,13 @@ class DetailsViewController: UIViewController {
         view.addSubview(stackView)
         stackView.addSubview(imageView)
         stackView.addSubview(textLabel)
-        view.backgroundColor = .white
-        imageView.image = getImageAction?()
-        viewController?.changePictures()
-        textLabel.numberOfLines = 0
-        self.textLabel.text = configureTextAction?(1200)
         
-        // MARK: - Possible Memory Leak (Guard)
-        onDoneAction = { [weak self] in
-            if let self = self {
-                self.viewController?.callAlert()
-                self.viewController?.changePictures()
-            }
-        }
+        view.backgroundColor = .white
+        
+        self.imageView.image = image
+        
+        textLabel.numberOfLines = 0
+        self.textLabel.text = delegate?.randomString(length: 1000)
     }
     
     func setupAutoLayout() {

@@ -1,7 +1,7 @@
 import UIKit
 
 let maxMatrixElement = 10
-let numberOfQueues = 5
+let numberOfQueues = 10
 let matrixSize = 10
 
 if matrixSize % 2 != 0 {
