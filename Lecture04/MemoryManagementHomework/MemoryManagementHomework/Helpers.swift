@@ -14,6 +14,7 @@ extension UIImage {
     }
 }
 
+/*
 extension UIImage {
     convenience init?(url: URL?) {
         guard let url = url else { return nil }
@@ -28,3 +29,4 @@ extension UIImage {
         }
     }
 }
+*/
