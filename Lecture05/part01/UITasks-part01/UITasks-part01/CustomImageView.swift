@@ -23,7 +23,7 @@ class CustomImageView: UIImageView {
     private func configure() {
         self.layer.masksToBounds = true
         
-        // TODO: How to make flexible to all sizes
+        // TODO: How to make flexible to all sizes (this one only work with size 300 by 300)
         self.layer.cornerRadius = 150
         
         self.layer.borderColor = UIColor.purple.cgColor

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E976E28824859A0F00D0B018 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976E28724859A0F00D0B018 /* UserProfileViewController.swift */; };
 		E99F024A2485190400F8208A /* AnonymusUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F02492485190400F8208A /* AnonymusUserViewController.swift */; };
 		E99F024C2485373800F8208A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99F024B2485373800F8208A /* RegisterViewController.swift */; };
 		E9FF5C5624844DAD00C4A7EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF5C5524844DAD00C4A7EB /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E976E28724859A0F00D0B018 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E99F02492485190400F8208A /* AnonymusUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymusUserViewController.swift; sourceTree = "<group>"; };
 		E99F024B2485373800F8208A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E9FF5C5224844DAD00C4A7EB /* UITasks-part01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITasks-part01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,7 @@
 				E9FF5C5924844DAD00C4A7EB /* MainViewController.swift */,
 				E99F02492485190400F8208A /* AnonymusUserViewController.swift */,
 				E99F024B2485373800F8208A /* RegisterViewController.swift */,
+				E976E28724859A0F00D0B018 /* UserProfileViewController.swift */,
 				E9FF5C6924844DFA00C4A7EB /* CustomButton.swift */,
 				E9FF5C6D2484547C00C4A7EB /* CustomImageView.swift */,
 				E9FF5C5E24844DAF00C4A7EB /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9FF5C5A24844DAD00C4A7EB /* MainViewController.swift in Sources */,
+				E976E28824859A0F00D0B018 /* UserProfileViewController.swift in Sources */,
 				E9FF5C5624844DAD00C4A7EB /* AppDelegate.swift in Sources */,
 				E99F024C2485373800F8208A /* RegisterViewController.swift in Sources */,
 				E9FF5C6A24844DFA00C4A7EB /* CustomButton.swift in Sources */,

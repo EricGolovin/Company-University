@@ -79,6 +79,7 @@ class AnonymusUserViewController: UIViewController {
     @objc func buttonTapped(_ sender: UIButton) {
         if let registerVC = delegate?.registerViewController {
             registerVC.modalPresentationStyle = .fullScreen
+            registerVC.delegate = self.delegate
             present(registerVC, animated: true, completion: nil)
         }
     }

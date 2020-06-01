@@ -27,7 +27,7 @@ class CustomButton: UIButton {
     
      private func configure() {
 //        applyGradient(colors: [UIColor.blue.cgColor, UIColor.yellow.cgColor])
-        self.backgroundColor = .blue
+        self.backgroundColor = UIColor(red: 0, green: 0.2, blue: 0.8, alpha: 0.6)
         configureTitle()
         self.layer.cornerRadius = 5
         print("customButton configured")
@@ -36,6 +36,7 @@ class CustomButton: UIButton {
     private func configureTitle() {
         setTitleColor(.white, for: .normal)
         setTitleColor(.gray, for: .highlighted)
+        setTitleColor(.black, for: .disabled)
         
         titleLabel?.layer.shadowColor = UIColor.black.cgColor
         titleLabel?.layer.shadowOffset = CGSize(width: -0.5, height: 0.5)
@@ -47,6 +48,8 @@ class CustomButton: UIButton {
 
 extension UIButton {
     func applyGradient(colors: [CGColor]) {
+        
+        // TODO: Only works when we specify frame in init; Not working in AutoLayout
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
         gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.white.cgColor]

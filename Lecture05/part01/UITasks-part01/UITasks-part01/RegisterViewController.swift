@@ -10,6 +10,8 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
+    weak var delegate: RegistrationProtocol?
+    
     private lazy var textFields: Array<UITextField> = {
         var array = Array<UITextField>()
         for i in 0..<3 {
@@ -46,6 +48,8 @@ class RegisterViewController: UIViewController {
     
     private lazy var customButton: CustomButton = {
         let button = CustomButton()
+        button.isEnabled = false
+        button.backgroundColor = .gray
         button.setTitle("Register", for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 25)
         return button
@@ -92,11 +96,28 @@ class RegisterViewController: UIViewController {
     
     @objc func buttonTapped(_ sender: UIButton) {
         print("Register button tapped")
+        if let userVC = delegate?.userProfileViewController {
+            userVC.setTitles(loginName: textFields[1].text!, name: textFields[0].text!)
+            userVC.modalPresentationStyle = .fullScreen
+            present(userVC, animated: true, completion: nil)
+        }
     }
     
     @objc func userTapped(_ sender: UITapGestureRecognizer) {
         print("User tapped")
         
+        
+        if let login = textFields[0].text, let name = textFields[1].text, let password = textFields.last?.text {
+            let charSet = CharacterSet.alphanumerics.union(CharacterSet.decimalDigits)
+            if password.rangeOfCharacter(from: charSet) != nil && login != "" && name != "" {
+                // TODO: How to make background color auto for button state?
+                customButton.isEnabled = true
+                customButton.backgroundColor = .blue
+            } else {
+                customButton.isEnabled = false
+                customButton.backgroundColor = .gray
+            }
+        }
         // TODO: Fix to not loop through all textFields
         textFields.forEach { $0.resignFirstResponder() }
     }

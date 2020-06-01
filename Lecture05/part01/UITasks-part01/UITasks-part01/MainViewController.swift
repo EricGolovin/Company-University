@@ -11,12 +11,14 @@ import UIKit
 protocol RegistrationProtocol: class {
     var anonymusUserViewController: AnonymusUserViewController { get set}
     var registerViewController: RegisterViewController { get set }
+    var userProfileViewController: UserProfileViewController { get set }
 }
 
 class MainViewController: UIViewController, RegistrationProtocol {
     
     var anonymusUserViewController = AnonymusUserViewController()
     var registerViewController = RegisterViewController()
+    var userProfileViewController = UserProfileViewController()
     
     private lazy var button: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
