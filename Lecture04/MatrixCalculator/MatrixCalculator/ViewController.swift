@@ -62,6 +62,12 @@ class ViewController: UIViewController {
             print("Warning: Some textFields have wrong input")
             return
         }
+        view.endEditing(true)
+        
+        if matrixSize % 2 != 0 {
+            matrix01TextView.text = "Change \(matrixSize) to even Number"
+            return
+        }
         
         self.matrixMaxElement = matrixMaxElement
         self.numberOfQueues = numberOfQueues
@@ -79,8 +85,6 @@ class ViewController: UIViewController {
         
         matrix01TextView.text = getStringMatrix(from: matrixes?.first ?? [[]])
         matrix02TextView.text = getStringMatrix(from: matrixes?.second ?? [[]])
-        
-        view.endEditing(true)
         updateUI()
     }
     
