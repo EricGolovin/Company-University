@@ -11,6 +11,7 @@ import UIKit
 class AnonymusUserViewController: UIViewController {
     
     weak var delegate: RegistrationProtocol?
+    var constraint: NSLayoutConstraint?
     
     private lazy var imageView: UIImageView = {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 150, weight: .medium, scale: .large)
@@ -41,7 +42,7 @@ class AnonymusUserViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 25)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -49,6 +50,22 @@ class AnonymusUserViewController: UIViewController {
         updateUI()
         
         customButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.update()
+        }
+    }
+    
+    func update() {
+        self.constraint?.constant = -200
+        UIView.animate(withDuration: 5, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
     }
     
     private func updateUI() {
@@ -63,14 +80,17 @@ class AnonymusUserViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         customButton.translatesAutoresizingMaskIntoConstraints = false
         
+        constraint = customButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40)
+        
         let constraits = [
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             customButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             customButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            customButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
-            customButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20)
+            //            customButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
+            //            customButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20)
+            constraint!
         ]
         
         NSLayoutConstraint.activate(constraits)
@@ -83,6 +103,6 @@ class AnonymusUserViewController: UIViewController {
             present(registerVC, animated: true, completion: nil)
         }
     }
-
-
+    
+    
 }

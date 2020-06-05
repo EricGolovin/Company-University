@@ -119,6 +119,7 @@ class RegisterViewController: UIViewController {
             }
         }
         // TODO: Fix to not loop through all textFields
-        textFields.forEach { $0.resignFirstResponder() }
+        view.endEditing(true)
+//        textFields.forEach { $0.resignFirstResponder() }
     }
 }

@@ -36,17 +36,17 @@ class HomeworkCell: UITableViewCell {
     
     private func setupSubview() {
         addSubview(cellImageView)
-        cellImageView.contentMode = .scaleAspectFit
+        cellImageView.contentMode = .scaleAspectFill
     }
     
     private func setupAutoLayout() {
         cellImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cellImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            cellImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cellImageView.topAnchor.constraint(equalTo: topAnchor),
-            cellImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            cellImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            cellImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            cellImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            cellImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             cellImageView.heightAnchor.constraint(greaterThanOrEqualToConstant: Const.Layout.defaultCellHeightConstraint)
         ])
     }

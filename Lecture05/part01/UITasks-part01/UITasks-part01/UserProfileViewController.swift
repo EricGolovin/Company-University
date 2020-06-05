@@ -16,7 +16,7 @@ class UserProfileViewController: UIViewController {
     private var name: String!
     
     private lazy var profileImageView: UIImageView = {
-        let imageView = CustomImageView(image: UIImage(named: "smily"))
+        let imageView = CustomImageView(image: UIImage(named: "spaceX"))
         return imageView
     }()
     
@@ -72,8 +72,8 @@ class UserProfileViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         let constaints = [
-            profileImageView.widthAnchor.constraint(equalToConstant: 300),
-            profileImageView.heightAnchor.constraint(equalToConstant: 300),
+            profileImageView.widthAnchor.constraint(equalToConstant: 400),
+            profileImageView.heightAnchor.constraint(equalToConstant: 400),
             profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             stackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 50),

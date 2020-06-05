@@ -2,7 +2,7 @@
 //  TestView.swift
 //  TemplateExample
 //
-//  Created by Eric Golovin on 29.05.2020.
+//  Created by Eric Golovin on 02.06.2020.
 //  Copyright © 2020 com.ericgolovin. All rights reserved.
 //
 
@@ -62,10 +62,10 @@ class TestView: UIView {
     private func setupAutoLayout() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         let constraits = [
-            stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: self.leftAnchor)
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor)
         ]
         
         NSLayoutConstraint.activate(constraits)

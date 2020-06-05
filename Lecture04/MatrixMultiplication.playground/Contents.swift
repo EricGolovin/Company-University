@@ -1,8 +1,8 @@
 import UIKit
 
 let maxMatrixElement = 10
-let numberOfQueues = 10
-let matrixSize = 10
+let numberOfQueues = 5
+let matrixSize = 100
 
 if matrixSize % 2 != 0 {
     fatalError("Please, enter even matrix size")
@@ -76,9 +76,9 @@ dispatchGroup.notify(queue: .main) {
     print("Result Linear:")
     resultMatrix.forEach { print($0) }
     
-    print("\nGCD multiplication took \(gcdTiming)")
+//    print("\nGCD multiplication took \(gcdTiming)")
     print("Linear multiplication took \(linearTiming)\n")
-}
+//}
 
 extension Array where Element == Int {
     static func make2D(with option: MatrixContentOptions, size: Int) -> [[Int]] {

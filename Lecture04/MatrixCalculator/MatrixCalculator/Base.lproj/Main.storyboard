@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MatrixCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3zA-WL-77i">
+                                <rect key="frame" x="0.0" y="44" width="394" height="797.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jvS-w4-LDt">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="395"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oWn-Dk-Nfu">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MaxElement" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tjq-QW-8aJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="126" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# of Queues " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLa-ab-Ixy">
+                                                        <rect key="frame" x="134" y="0.0" width="126" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MatrixSize" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxq-j2-pgT">
+                                                        <rect key="frame" x="268" y="0.0" width="126" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCb-K4-bRG">
+                                                <rect key="frame" x="0.0" y="42" width="394" height="30"/>
+                                                <state key="normal" title="Generate Radom Matrixes"/>
+                                                <connections>
+                                                    <action selector="generateMatrixes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ytJ-30-YKQ"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="58S-Bs-nmx">
+                                                <rect key="frame" x="0.0" y="80" width="394" height="315"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="MATRIX 01" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIr-kB-RcU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="153.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="MATRIX 02" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6LN-mL-Fyt">
+                                                        <rect key="frame" x="0.0" y="161.5" width="394" height="153.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a7u-nH-o10">
+                                        <rect key="frame" x="0.0" y="403" width="394" height="394.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KTS-5B-qaK">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dB4-0K-CWS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
+                                                        <state key="normal" title="Linear Calculation"/>
+                                                        <connections>
+                                                            <action selector="calculateLinear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDu-wG-ELK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9M-7I-Jfo">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="30"/>
+                                                        <state key="normal" title="GCD Calculation"/>
+                                                        <connections>
+                                                            <action selector="calculateGCD:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1AB-nq-N8R"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="RESULT MATRIX" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cYP-DA-e0O">
+                                                <rect key="frame" x="0.0" y="30" width="394" height="364.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 12 sec" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3F-zb-Auu">
+                                <rect key="frame" x="0.0" y="841.5" width="414" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="3zA-WL-77i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8fP-0j-92g"/>
+                            <constraint firstItem="M3F-zb-Auu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GCC-G2-00A"/>
+                            <constraint firstItem="3zA-WL-77i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Okh-hc-ufF"/>
+                            <constraint firstItem="M3F-zb-Auu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="iJI-mS-fUl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M3F-zb-Auu" secondAttribute="trailing" id="nxH-oJ-fFg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3zA-WL-77i" secondAttribute="trailing" id="x7P-eM-SI7"/>
+                            <constraint firstItem="M3F-zb-Auu" firstAttribute="top" secondItem="3zA-WL-77i" secondAttribute="bottom" id="yE4-jR-pjw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kCA-eQ-0ts" appends="YES" id="KKI-1Q-ieq"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="gcdButton" destination="r9M-7I-Jfo" id="yrS-IC-WRW"/>
+                        <outlet property="linearButton" destination="dB4-0K-CWS" id="SKw-ib-hH4"/>
+                        <outlet property="matrix01TextView" destination="mIr-kB-RcU" id="dPd-nI-7C3"/>
+                        <outlet property="matrix02TextView" destination="6LN-mL-Fyt" id="Ec2-Og-uu6"/>
+                        <outlet property="matrixSizeTextField" destination="hxq-j2-pgT" id="DJz-uj-cqE"/>
+                        <outlet property="maxElementTextField" destination="Tjq-QW-8aJ" id="tQj-oa-Uhd"/>
+                        <outlet property="numberOfQueuesTextField" destination="cLa-ab-Ixy" id="mFY-mv-Dek"/>
+                        <outlet property="randomButton" destination="yCb-K4-bRG" id="uAa-v5-yld"/>
+                        <outlet property="resultMatrixTextView" destination="cYP-DA-e0O" id="VJh-VA-abx"/>
+                        <outlet property="timeLabel" destination="M3F-zb-Auu" id="p6h-xr-Kd3"/>
+                        <outletCollection property="textFields" destination="Tjq-QW-8aJ" collectionClass="NSMutableArray" id="4u7-mS-Pl8"/>
+                        <outletCollection property="textFields" destination="cLa-ab-Ixy" collectionClass="NSMutableArray" id="cgl-Gq-DIl"/>
+                        <outletCollection property="textFields" destination="hxq-j2-pgT" collectionClass="NSMutableArray" id="OrQ-E9-jld"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kCA-eQ-0ts">
+                    <connections>
+                        <action selector="userTapped:" destination="BYZ-38-t0r" id="IrD-f3-S36"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-93" y="-122"/>
+        </scene>
+    </scenes>
+</document>

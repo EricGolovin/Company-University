@@ -12,7 +12,7 @@ class CustomImageView: UIImageView {
 
     override init(image: UIImage?) {
         super.init(image: image)
-        configure()
+//        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -20,11 +20,16 @@ class CustomImageView: UIImageView {
         configure()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configure()
+    }
+    
     private func configure() {
         self.layer.masksToBounds = true
         
         // TODO: How to make flexible to all sizes (this one only work with size 300 by 300)
-        self.layer.cornerRadius = 150
+        self.layer.cornerRadius = bounds.width / 2
         
         self.layer.borderColor = UIColor.purple.cgColor
         self.layer.borderWidth = 4

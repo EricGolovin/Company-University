@@ -15,19 +15,24 @@ class CustomButton: UIButton {
         configure()
     }
     
-    override func setNeedsDisplay() {
-        super.setNeedsDisplay()
-        configure()
-    }
+//    override func setNeedsDisplay() {
+//        super.setNeedsDisplay()
+//        configure()
+//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configure()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        applyGradient(colors: [UIColor.blue.cgColor, UIColor.yellow.cgColor])
+    }
+    
      private func configure() {
 //        applyGradient(colors: [UIColor.blue.cgColor, UIColor.yellow.cgColor])
-        self.backgroundColor = UIColor(red: 0, green: 0.2, blue: 0.8, alpha: 0.6)
+//        self.backgroundColor = UIColor(red: 0, green: 0.2, blue: 0.8, alpha: 0.6)
         configureTitle()
         self.layer.cornerRadius = 5
         print("customButton configured")
@@ -48,9 +53,15 @@ class CustomButton: UIButton {
 
 extension UIButton {
     func applyGradient(colors: [CGColor]) {
-        
+        for layer in layer.sublayers ?? [] {
+            if layer.name == "123" {
+                layer.removeFromSuperlayer()
+                break
+            }
+        }
         // TODO: Only works when we specify frame in init; Not working in AutoLayout
         let gradientLayer = CAGradientLayer()
+        gradientLayer.name = "123"
         gradientLayer.frame = self.bounds
         gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.white.cgColor]
         layer.insertSublayer(gradientLayer, at: 0)

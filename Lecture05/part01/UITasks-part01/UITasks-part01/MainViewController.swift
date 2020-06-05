@@ -34,6 +34,12 @@ class MainViewController: UIViewController, RegistrationProtocol {
         super.viewDidLoad()
         
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+//        addChild()
+        
+        // MARK: UI Interactions
+        DispatchQueue.main.async {
+            self.buttonTapped(UIButton())
+        }
         
         updateUI()
     }
@@ -46,7 +52,7 @@ class MainViewController: UIViewController, RegistrationProtocol {
     @objc func buttonTapped(_ sender: UIButton) {
         anonymusUserViewController.modalPresentationStyle = .fullScreen
         anonymusUserViewController.delegate = self
-        present(anonymusUserViewController, animated: true, completion: nil)
+        present(anonymusUserViewController, animated: false, completion: nil)
     }
 
 
