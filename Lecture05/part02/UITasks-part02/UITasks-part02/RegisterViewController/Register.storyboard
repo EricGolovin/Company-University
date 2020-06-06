@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ms-3p-vfL">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="k24-Sg-vm6">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ms-3p-vfL" customClass="RegisterViewController" customModule="UITasks_part02" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jC4-ch-mL5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIg-MY-FdJ" customClass="CustomButton" customModule="UITasks_part02" customModuleProvider="target">
+                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UiO-kI-sMh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Register"/>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerTapped:" destination="1ms-3p-vfL" eventType="touchUpInside" id="RNd-A4-5Wm"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zzx-dc-30r">
+                                <rect key="frame" x="20" y="64" width="374" height="230"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sok-1o-QsS">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjD-cn-CXf">
+                                        <rect key="frame" x="0.0" y="60" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nol-6X-uZt">
+                                        <rect key="frame" x="0.0" y="120" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEF-CV-Pie">
+                                        <rect key="frame" x="0.0" y="180" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="28X-eb-ayj"/>
+                                        </constraints>
+                                        <state key="normal" title="Choose Profile Image"/>
+                                        <connections>
+                                            <action selector="chooseProfileTapped:" destination="1ms-3p-vfL" eventType="touchUpInside" id="lLI-Yq-12R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vDV-hg-GTy">
+                                <rect key="frame" x="82" y="314.5" width="250" height="249"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="5Kv-hP-9Dd"/>
+                                    <constraint firstAttribute="width" constant="250" id="obm-8B-GS4"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Zzx-dc-30r" firstAttribute="leading" secondItem="1Ie-pr-G7P" secondAttribute="leading" constant="20" id="5Ad-Zw-nSK"/>
+                            <constraint firstItem="vDV-hg-GTy" firstAttribute="top" secondItem="Zzx-dc-30r" secondAttribute="bottom" constant="20" id="73c-3A-hBV"/>
+                            <constraint firstItem="vDV-hg-GTy" firstAttribute="centerX" secondItem="jC4-ch-mL5" secondAttribute="centerX" id="FSI-uS-PH9"/>
+                            <constraint firstItem="1Ie-pr-G7P" firstAttribute="trailing" secondItem="Zzx-dc-30r" secondAttribute="trailing" constant="20" id="jvV-aq-aqx"/>
+                            <constraint firstItem="1Ie-pr-G7P" firstAttribute="trailing" secondItem="fIg-MY-FdJ" secondAttribute="trailing" constant="20" id="rbv-ci-oc3"/>
+                            <constraint firstItem="fIg-MY-FdJ" firstAttribute="bottom" secondItem="1Ie-pr-G7P" secondAttribute="bottom" id="sZr-JB-Idp"/>
+                            <constraint firstItem="Zzx-dc-30r" firstAttribute="top" secondItem="1Ie-pr-G7P" secondAttribute="top" constant="20" id="w3b-sC-geW"/>
+                            <constraint firstItem="fIg-MY-FdJ" firstAttribute="leading" secondItem="1Ie-pr-G7P" secondAttribute="leading" constant="20" id="zeF-1e-042"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Ie-pr-G7P"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kxe-xt-CJy" appends="YES" id="Y0Y-i6-wRY"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="sok-1o-QsS" id="uWU-sh-ARZ"/>
+                        <outlet property="nameTextField" destination="hjD-cn-CXf" id="DDb-Uh-swc"/>
+                        <outlet property="passwordTextField" destination="nol-6X-uZt" id="Waj-gY-Ynt"/>
+                        <outlet property="profileButton" destination="KEF-CV-Pie" id="wEd-L9-jlD"/>
+                        <outlet property="profileImageView" destination="vDV-hg-GTy" id="Wu1-nw-tHI"/>
+                        <outlet property="registerButton" destination="fIg-MY-FdJ" id="630-iu-AnR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXC-Yo-R1N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kxe-xt-CJy">
+                    <connections>
+                        <action selector="userTapped:" destination="1ms-3p-vfL" id="YtS-fC-Pb9"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="111.59420289855073" y="110.49107142857143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

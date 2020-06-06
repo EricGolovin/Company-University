@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Profile View Controller-->
+        <scene sceneID="z8C-4P-XzF">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewContoller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h05-aX-hK2" customClass="UserProfileViewController" customModule="UITasks_part02" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c8m-19-sD2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dKm-Mz-2FF" customClass="CustomImageView" customModule="UITasks_part02" customModuleProvider="target">
+                                <rect key="frame" x="82" y="64.5" width="250" height="249"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Xat-Gn-xwa"/>
+                                    <constraint firstAttribute="height" constant="250" id="i2b-GN-aG8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Zf-BQ-nVH">
+                                <rect key="frame" x="129.5" y="404.5" width="155" height="87"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login: Some" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfn-eE-Y9K">
+                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: Some" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q46-l5-y6O">
+                                        <rect key="frame" x="0.0" y="53.5" width="155" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E57-To-fUw">
+                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="T4j-pF-XTK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutTapped:" destination="h05-aX-hK2" eventType="touchUpInside" id="czn-FI-wjL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Zf-BQ-nVH" firstAttribute="centerX" secondItem="c8m-19-sD2" secondAttribute="centerX" id="InK-WN-Res"/>
+                            <constraint firstItem="E57-To-fUw" firstAttribute="leading" secondItem="tiv-GC-GRZ" secondAttribute="leading" constant="20" id="LUl-F8-RcY"/>
+                            <constraint firstItem="tiv-GC-GRZ" firstAttribute="bottom" secondItem="E57-To-fUw" secondAttribute="bottom" id="Mxj-u5-sBu"/>
+                            <constraint firstItem="dKm-Mz-2FF" firstAttribute="top" secondItem="tiv-GC-GRZ" secondAttribute="top" constant="20" id="avb-1o-Od4"/>
+                            <constraint firstItem="tiv-GC-GRZ" firstAttribute="trailing" secondItem="E57-To-fUw" secondAttribute="trailing" constant="20" id="dpU-GS-XKG"/>
+                            <constraint firstItem="7Zf-BQ-nVH" firstAttribute="centerY" secondItem="c8m-19-sD2" secondAttribute="centerY" id="jXX-xd-1WK"/>
+                            <constraint firstItem="dKm-Mz-2FF" firstAttribute="centerX" secondItem="c8m-19-sD2" secondAttribute="centerX" id="jze-yi-zvq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tiv-GC-GRZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginLabel" destination="Jfn-eE-Y9K" id="R2Y-46-PaP"/>
+                        <outlet property="nameLabel" destination="q46-l5-y6O" id="gnR-xw-M4z"/>
+                        <outlet property="profileImageView" destination="dKm-Mz-2FF" id="e2J-Ad-YS6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Q0-M0-6vG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BZf-du-rAw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Anonymus User View Controller-->
+        <scene sceneID="Ufw-8G-uPE">
+            <objects>
+                <viewController storyboardIdentifier="AnonymusUserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BZf-du-rAw" customClass="AnonymusUserViewController" customModule="UITasks_part02" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fu6-O2-5po">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.badge.xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fei-fb-ANy" customClass="CustomImageView" customModule="UITasks_part02" customModuleProvider="target">
+                                <rect key="frame" x="82" y="64.5" width="250" height="249"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Cmr-UG-6iT"/>
+                                    <constraint firstAttribute="height" constant="250" id="R2e-qR-FTi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, register please" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfT-cf-hGg">
+                                <rect key="frame" x="116.5" y="436" width="181" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odu-eP-q9h" customClass="CustomButton" customModule="UITasks_part02" customModuleProvider="target">
+                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6C4-Ji-q6i"/>
+                                </constraints>
+                                <state key="normal" title="Registration"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registrationButtonTapped:" destination="BZf-du-rAw" eventType="touchUpInside" id="5Dh-SY-tb0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hfT-cf-hGg" firstAttribute="centerX" secondItem="fu6-O2-5po" secondAttribute="centerX" id="3si-Pf-fkX"/>
+                            <constraint firstItem="hfT-cf-hGg" firstAttribute="centerY" secondItem="fu6-O2-5po" secondAttribute="centerY" id="6mX-ne-t1J"/>
+                            <constraint firstItem="odu-eP-q9h" firstAttribute="leading" secondItem="EBa-UW-tfE" secondAttribute="leading" constant="20" id="ICw-iz-YMW"/>
+                            <constraint firstItem="EBa-UW-tfE" firstAttribute="trailing" secondItem="odu-eP-q9h" secondAttribute="trailing" constant="20" id="Nws-FF-OJA"/>
+                            <constraint firstItem="odu-eP-q9h" firstAttribute="bottom" secondItem="EBa-UW-tfE" secondAttribute="bottom" id="fy9-GN-QJP"/>
+                            <constraint firstItem="fei-fb-ANy" firstAttribute="top" secondItem="EBa-UW-tfE" secondAttribute="top" constant="20" id="rpl-ed-OwE"/>
+                            <constraint firstItem="fei-fb-ANy" firstAttribute="centerX" secondItem="fu6-O2-5po" secondAttribute="centerX" id="wNd-DY-apf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EBa-UW-tfE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uhj-nD-KUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1881.1594202898552" y="132.58928571428572"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.crop.circle.badge.xmark" catalog="system" width="128" height="101"/>
+    </resources>
+</document>
