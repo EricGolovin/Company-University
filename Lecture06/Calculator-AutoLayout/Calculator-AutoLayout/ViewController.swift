@@ -25,16 +25,17 @@ class ViewController: UIViewController {
         longPressed(UILongPressGestureRecognizer())
     }
     
-    var operation = Operations()
+    var operation: Performer!
     
     @IBAction func deleteKeypadTapped(_ sender: KeypadButton) {
         resultLabel.text = "0"
-        operation.clear()
+        operation = Performer()
     }
     
     @IBAction func keypadTapped(_ sender: KeypadButton) {
         if resultLabel.text!.contains("Result") || resultLabel.text! == "0" {
             resultLabel.text = ""
+            operation = Performer()
         }
         
         if operation.isOperator(sender.titleLabel!.text!) {
