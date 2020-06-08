@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li7-iQ-gjm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="li7-iQ-gjm">
                                 <rect key="frame" x="64" y="-5" width="684" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,7 +30,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="azd-iB-kTi">
                                         <rect key="frame" x="0.0" y="0.0" width="337" height="52"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-lR-8y9" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-lR-8y9" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="76.666666666666671" height="52"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -45,8 +45,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="deleteKeypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G9K-by-Wfi"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vio-Xu-lTE" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vio-Xu-lTE" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="86.666666666666686" y="0.0" width="77" height="52"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -61,8 +64,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ULf-mf-d4H"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65x-sT-QNk" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65x-sT-QNk" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="173.66666666666663" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -77,8 +83,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EXP-tq-dXM"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oei-MK-JYJ" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oei-MK-JYJ" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="260.33333333333337" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.58489404970000003" blue="0.21165632130000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -93,13 +102,16 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EVM-U4-eON"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cvu-bW-bc5">
                                         <rect key="frame" x="0.0" y="62" width="337" height="52"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJA-Vh-W35" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJA-Vh-W35" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="76.666666666666671" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -114,8 +126,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9vx-vr-OfL"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buE-Uz-fGz" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buE-Uz-fGz" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="86.666666666666686" y="0.0" width="77" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -130,8 +145,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qrq-00-W2K"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9F-L8-ZtR" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9F-L8-ZtR" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="173.66666666666663" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -146,8 +164,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iGb-sN-gSe"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCu-fm-TDH" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCu-fm-TDH" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="260.33333333333337" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.58489404970000003" blue="0.21165632130000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -162,13 +183,16 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B2Z-BL-yO6"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xXb-Ag-qdR">
                                         <rect key="frame" x="0.0" y="124" width="337" height="52"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVi-EQ-YW2" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVi-EQ-YW2" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="76.666666666666671" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -183,8 +207,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YTn-PN-u9Q"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgM-G4-uRR" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgM-G4-uRR" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="86.666666666666686" y="0.0" width="77" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -199,8 +226,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BFH-33-G7s"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1r-tt-gqK" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1r-tt-gqK" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="173.66666666666663" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -215,8 +245,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0nw-ma-KHf"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAx-W1-DYV" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAx-W1-DYV" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="260.33333333333337" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.58489404970000003" blue="0.21165632130000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -231,13 +264,16 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KuR-nZ-MmC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RFX-uO-BJC">
                                         <rect key="frame" x="0.0" y="186" width="337" height="52"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eo-Wq-SAc" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eo-Wq-SAc" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="76.666666666666671" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -252,8 +288,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7n8-c8-dH9"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXr-fC-gUT" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXr-fC-gUT" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="86.666666666666686" y="0.0" width="77" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -268,8 +307,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ZN-87-DKC"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J62-n9-4W8" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J62-n9-4W8" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="173.66666666666663" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -284,8 +326,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eUe-aJ-Ty0"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxS-in-BLI" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxS-in-BLI" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="260.33333333333337" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.58489404970000003" blue="0.21165632130000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -300,13 +345,16 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NJ0-Q6-B17"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dOn-j1-DKP">
                                         <rect key="frame" x="0.0" y="248" width="337" height="52"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lZ-Oo-9Rx" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lZ-Oo-9Rx" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -321,8 +369,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b4K-lV-9oy"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x15-nt-nmf" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x15-nt-nmf" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="173.66666666666663" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -337,8 +388,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwK-Ez-Pam"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffy-6a-PbO" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffy-6a-PbO" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="260.33333333333337" y="0.0" width="76.666666666666686" height="52"/>
                                                 <color key="backgroundColor" red="1" green="0.58489404970000003" blue="0.21165632130000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -353,6 +407,9 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nuX-EQ-Z7C"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -381,17 +438,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-zy-N3H">
                                 <rect key="frame" x="64" y="55" width="337" height="300"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Calculation History" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-0D-lbB">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Calculation History" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-0D-lbB">
                                         <rect key="frame" x="0.0" y="0.0" width="251.66666666666666" height="300"/>
                                         <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="QBw-ih-lLu" appends="YES" id="dei-g8-hAA"/>
+                                        </connections>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zgj-Sd-isM">
                                         <rect key="frame" x="261.66666666666669" y="0.0" width="75.333333333333314" height="300"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvY-yk-Vln" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvY-yk-Vln" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="93.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -406,8 +467,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vW-En-uCc"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkR-PK-yFm" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkR-PK-yFm" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="103.33333333333334" width="75.333333333333329" height="93.333333333333343"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -422,8 +486,11 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lgM-hf-VsC"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLh-eZ-qdm" customClass="KeypadUIButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLh-eZ-qdm" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="206.66666666666669" width="75.333333333333329" height="93.333333333333314"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
@@ -438,6 +505,9 @@
                                                 <variation key="heightClass=compact">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sc0-h2-gaa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -569,8 +639,40 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="deleteKeypadButton" destination="A9y-lR-8y9" id="BQu-YL-nA2"/>
+                        <outlet property="historyTextView" destination="oTC-0D-lbB" id="WZN-ig-wCl"/>
+                        <outlet property="resultLabel" destination="li7-iQ-gjm" id="ZQm-eE-ywq"/>
+                        <outletCollection property="keypadButtons" destination="8lZ-Oo-9Rx" collectionClass="NSMutableArray" id="b1o-EQ-RdO"/>
+                        <outletCollection property="keypadButtons" destination="9eo-Wq-SAc" collectionClass="NSMutableArray" id="RQK-94-29c"/>
+                        <outletCollection property="keypadButtons" destination="oXr-fC-gUT" collectionClass="NSMutableArray" id="Po6-jB-v54"/>
+                        <outletCollection property="keypadButtons" destination="J62-n9-4W8" collectionClass="NSMutableArray" id="TbM-Cz-TYR"/>
+                        <outletCollection property="keypadButtons" destination="fVi-EQ-YW2" collectionClass="NSMutableArray" id="Hux-U7-d9K"/>
+                        <outletCollection property="keypadButtons" destination="qgM-G4-uRR" collectionClass="NSMutableArray" id="hxK-fq-d10"/>
+                        <outletCollection property="keypadButtons" destination="i1r-tt-gqK" collectionClass="NSMutableArray" id="NZv-Q7-sFw"/>
+                        <outletCollection property="keypadButtons" destination="EJA-Vh-W35" collectionClass="NSMutableArray" id="nXv-OC-Qs4"/>
+                        <outletCollection property="keypadButtons" destination="buE-Uz-fGz" collectionClass="NSMutableArray" id="lLQ-4S-eS4"/>
+                        <outletCollection property="keypadButtons" destination="m9F-L8-ZtR" collectionClass="NSMutableArray" id="Ix0-Jc-Z7d"/>
+                        <outletCollection property="keypadButtons" destination="Vio-Xu-lTE" collectionClass="NSMutableArray" id="Jcq-qS-UPY"/>
+                        <outletCollection property="keypadButtons" destination="65x-sT-QNk" collectionClass="NSMutableArray" id="gEW-b5-khO"/>
+                        <outletCollection property="keypadButtons" destination="oei-MK-JYJ" collectionClass="NSMutableArray" id="Eus-bw-fuk"/>
+                        <outletCollection property="keypadButtons" destination="lCu-fm-TDH" collectionClass="NSMutableArray" id="5W1-21-pyK"/>
+                        <outletCollection property="keypadButtons" destination="JAx-W1-DYV" collectionClass="NSMutableArray" id="2kG-dE-Kwk"/>
+                        <outletCollection property="keypadButtons" destination="SxS-in-BLI" collectionClass="NSMutableArray" id="dyU-ZT-Ogo"/>
+                        <outletCollection property="keypadButtons" destination="ffy-6a-PbO" collectionClass="NSMutableArray" id="Gxn-hY-gdA"/>
+                        <outletCollection property="keypadButtons" destination="x15-nt-nmf" collectionClass="NSMutableArray" id="DCQ-LE-ai9"/>
+                        <outletCollection property="keypadButtons" destination="RLh-eZ-qdm" collectionClass="NSMutableArray" id="zc5-wj-eQ3"/>
+                        <outletCollection property="keypadButtons" destination="NkR-PK-yFm" collectionClass="NSMutableArray" id="cRm-kc-bNK"/>
+                        <outletCollection property="keypadButtons" destination="PvY-yk-Vln" collectionClass="NSMutableArray" id="HXX-lc-7Hn"/>
+                        <outletCollection property="keypadButtons" destination="ffy-6a-PbO" collectionClass="NSMutableArray" id="7pG-6W-W39"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="QBw-ih-lLu">
+                    <connections>
+                        <action selector="longPressed:" destination="BYZ-38-t0r" id="pH0-Du-cYx"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="132" y="138"/>
         </scene>

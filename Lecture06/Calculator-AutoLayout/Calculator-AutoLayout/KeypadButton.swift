@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class KeypadUIButton: UIButton {
+class KeypadButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
