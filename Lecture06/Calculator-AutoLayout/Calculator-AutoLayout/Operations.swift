@@ -37,20 +37,25 @@ class Operations {
     
     private var numbers: [String] = []
     private var twoNumberOperation: (first: Double?, second: Double?)
+    
     private var operation: Operation? {
         willSet {
             if twoNumberOperation.first == nil {
                 self.twoNumberOperation.first = makeDouble(from: numbers)
-                numbers = []
             } else if twoNumberOperation.second == nil {
                 self.twoNumberOperation.second = makeDouble(from: numbers)
                 resultValue = performOperation(operation ?? .none, with: twoNumberOperation)
-                numbers = []
+            } else {
+                print(numbers)
+                resultValue = performOperation(operation ?? .none, with: twoNumberOperation)
+                self.twoNumberOperation.first = resultValue
+                // TODO: Fix Error Message (and do not crack app)
+                self.twoNumberOperation.second = makeDouble(from: numbers)
             }
             if newValue == .equal {
                 resultValue = performOperation(operation ?? .none, with: twoNumberOperation)
             }
-
+            numbers = []
         }
     }
     private var resultValue: Double = 0.0
@@ -67,11 +72,26 @@ class Operations {
         }
     }
     
-    private func makeDouble(from array: [String]) -> Double? {
-        if let firtValue = Double(array.joined()) {
-            return firtValue
+    func isOperator(_ symbol: String) -> Bool {
+        if let _ = Operation(operation: symbol) {
+            return true
         } else {
-            print("Error: Couldn't make double from array")
+            return false
+        }
+    }
+    
+    func clear() {
+        numbers = []
+        twoNumberOperation = (nil, nil)
+        operation = nil
+        resultValue = 0.0
+    }
+    
+    private func makeDouble(from array: [String]) -> Double? {
+        if let value = Double(array.joined()) {
+            return value
+        } else {
+            print("Error \"func makeDouble()\": Couldn't make double from array")
             return nil
         }
     }

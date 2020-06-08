@@ -51,10 +51,13 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vio-Xu-lTE" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="86.666666666666686" y="0.0" width="77" height="52"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="1" green="0.58489404970000003" blue="0.21165632130000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <state key="normal" title="+/-">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -70,10 +73,13 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65x-sT-QNk" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
                                                 <rect key="frame" x="173.66666666666663" y="0.0" width="76.666666666666686" height="52"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="1" green="0.58489404970000003" blue="0.21165632130000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <state key="normal" title="%">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -93,6 +99,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <state key="normal" title="/">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -175,6 +184,9 @@
                                                 <state key="normal" title="x">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="26"/>
@@ -255,6 +267,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <state key="normal" title="-">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -337,6 +352,9 @@
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="26"/>
@@ -399,6 +417,9 @@
                                                 <state key="normal" title="=">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="26"/>
@@ -453,7 +474,7 @@
                                         <rect key="frame" x="261.66666666666669" y="0.0" width="75.333333333333314" height="300"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvY-yk-Vln" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="67.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="sin">
@@ -472,7 +493,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkR-PK-yFm" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="103.33333333333334" width="75.333333333333329" height="93.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="77.666666666666657" width="75.333333333333329" height="67.333333333333343"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="cos">
@@ -491,7 +512,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLh-eZ-qdm" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="206.66666666666669" width="75.333333333333329" height="93.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="155" width="75.333333333333329" height="67.666666666666686"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <state key="normal" title="sqrt">
@@ -507,6 +528,25 @@
                                                 </variation>
                                                 <connections>
                                                     <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sc0-h2-gaa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydf-Lb-heD" customClass="KeypadButton" customModule="Calculator_AutoLayout" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="232.66666666666671" width="75.333333333333329" height="67.333333333333343"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                                <state key="normal" title="x^2">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="26"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="keypadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FCP-tw-qjs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -665,6 +705,18 @@
                         <outletCollection property="keypadButtons" destination="NkR-PK-yFm" collectionClass="NSMutableArray" id="cRm-kc-bNK"/>
                         <outletCollection property="keypadButtons" destination="PvY-yk-Vln" collectionClass="NSMutableArray" id="HXX-lc-7Hn"/>
                         <outletCollection property="keypadButtons" destination="ffy-6a-PbO" collectionClass="NSMutableArray" id="7pG-6W-W39"/>
+                        <outletCollection property="keypadButtons" destination="Ydf-Lb-heD" collectionClass="NSMutableArray" id="88W-Se-DI9"/>
+                        <outletCollection property="keypadOperationButtons" destination="Ydf-Lb-heD" collectionClass="NSMutableArray" id="C4d-XS-Qup"/>
+                        <outletCollection property="keypadOperationButtons" destination="RLh-eZ-qdm" collectionClass="NSMutableArray" id="uZG-HC-sk7"/>
+                        <outletCollection property="keypadOperationButtons" destination="NkR-PK-yFm" collectionClass="NSMutableArray" id="USH-WF-ZTx"/>
+                        <outletCollection property="keypadOperationButtons" destination="PvY-yk-Vln" collectionClass="NSMutableArray" id="4CL-Q9-Vlo"/>
+                        <outletCollection property="keypadOperationButtons" destination="Vio-Xu-lTE" collectionClass="NSMutableArray" id="Kna-TK-csV"/>
+                        <outletCollection property="keypadOperationButtons" destination="65x-sT-QNk" collectionClass="NSMutableArray" id="QN4-u6-fQU"/>
+                        <outletCollection property="keypadOperationButtons" destination="oei-MK-JYJ" collectionClass="NSMutableArray" id="eR9-Qk-2fJ"/>
+                        <outletCollection property="keypadOperationButtons" destination="lCu-fm-TDH" collectionClass="NSMutableArray" id="zEX-78-taQ"/>
+                        <outletCollection property="keypadOperationButtons" destination="JAx-W1-DYV" collectionClass="NSMutableArray" id="rnu-qa-VNT"/>
+                        <outletCollection property="keypadOperationButtons" destination="SxS-in-BLI" collectionClass="NSMutableArray" id="4DR-GS-WCb"/>
+                        <outletCollection property="keypadOperationButtons" destination="ffy-6a-PbO" collectionClass="NSMutableArray" id="30w-j9-4Eq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -19,6 +19,20 @@ class KeypadButton: UIButton {
             layer.cornerRadius = 25
         }
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        updateUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        updateUI()
+    }
+    
+    func updateUI() {
+        setTitle("", for: .disabled)
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
