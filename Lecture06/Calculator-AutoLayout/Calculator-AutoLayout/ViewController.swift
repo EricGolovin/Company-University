@@ -48,8 +48,8 @@ class ViewController: UIViewController {
         
         switch sender.titleLabel?.text {
         case "=":
-            historyTextView.text += "\n" + resultLabel.text! + "\(operation.result)"
-            resultLabel.text = "Result: \(operation.result)"
+            historyTextView.text += "\n" + resultLabel.text! + operation.result
+            resultLabel.text = "Result: " + operation.result
             operation.clear()
         default:
             break

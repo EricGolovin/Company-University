@@ -60,8 +60,12 @@ class Operations {
     }
     private var resultValue: Double = 0.0
     
-    var result: Double {
-        resultValue
+    var result: String {
+        if resultValue.remainder(dividingBy: 1) == 0 {
+            return "\(Int(resultValue))"
+        } else {
+            return String(format: "%.3f", resultValue)
+        }
     }
     
     func passSymbol(_ symbol: String) {
