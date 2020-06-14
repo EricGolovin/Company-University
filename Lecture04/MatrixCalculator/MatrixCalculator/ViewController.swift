@@ -135,16 +135,16 @@ class ViewController: UIViewController {
         
         changeButtonsState()
         
-        dispatchGroup.notify(queue: .main) {
-            self.timeLabel.text! += "Current Time: \(self.time)"
-            self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
-            self.changeButtonsState()
-        }
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-        //            self.timeLabel.text = "Time: \(self.time)"
-        //            self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
-        //            self.changeButtonsState()
-        //        })
+//        dispatchGroup.notify(queue: .main) {
+//            self.timeLabel.text! += "Current Time: \(self.time)"
+//            self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
+//            self.changeButtonsState()
+//        }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    self.timeLabel.text = "Time: \(self.time)"
+                    self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
+                    self.changeButtonsState()
+                })
     }
     
     @IBAction func userTapped(_ sender: UITapGestureRecognizer) {
