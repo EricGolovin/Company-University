@@ -9,7 +9,6 @@
 import UIKit
 
 class UserImageView: UIImageView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -25,7 +24,8 @@ class UserImageView: UIImageView {
         configure()
     }
     
-    func configure() {
+    private func configure() {
         layer.cornerRadius = bounds.size.width / 2
+        clipsToBounds = true
     }
 }
