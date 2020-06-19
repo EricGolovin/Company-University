@@ -17,6 +17,7 @@
 		E9C9FCF5249BFE5200EE449F /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9FCF4249BFE5200EE449F /* Name.swift */; };
 		E9C9FCF7249BFEE700EE449F /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9FCF6249BFEE700EE449F /* UserProfile.swift */; };
 		E9C9FCF9249C1C9C00EE449F /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9FCF8249C1C9C00EE449F /* LoginButton.swift */; };
+		E9C9FCFB249CBA2A00EE449F /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9FCFA249CBA2A00EE449F /* StarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E9C9FCF4249BFE5200EE449F /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		E9C9FCF6249BFEE700EE449F /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E9C9FCF8249C1C9C00EE449F /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		E9C9FCFA249CBA2A00EE449F /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				E9C9FCF8249C1C9C00EE449F /* LoginButton.swift */,
 				E9C9FCF6249BFEE700EE449F /* UserProfile.swift */,
 				E9C9FCF4249BFE5200EE449F /* Name.swift */,
+				E9C9FCFA249CBA2A00EE449F /* StarView.swift */,
 				E97BAB7D249BF283008AB2D4 /* Main.storyboard */,
 				E97BAB8B249BF6E4008AB2D4 /* UserImageView.swift */,
 				E97BAB80249BF285008AB2D4 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 				E9C9FCF7249BFEE700EE449F /* UserProfile.swift in Sources */,
 				E97BAB7A249BF283008AB2D4 /* SceneDelegate.swift in Sources */,
 				E97BAB8C249BF6E4008AB2D4 /* UserImageView.swift in Sources */,
+				E9C9FCFB249CBA2A00EE449F /* StarView.swift in Sources */,
 				E9C9FCF5249BFE5200EE449F /* Name.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

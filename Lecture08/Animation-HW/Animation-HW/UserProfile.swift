@@ -127,9 +127,14 @@ extension UIImageView {
                 return
             }
             DispatchQueue.main.async {
-                components.1.stopAnimating()
-                components.0.removeFromSuperview()
-                self.image = image
+                UIView.animate(withDuration: 1, animations: {
+                    components.0.alpha = 0.0
+                    components.1.alpha = 0.0
+                    self.image = image
+                }, completion: { _ in
+                    components.1.stopAnimating()
+                    components.0.removeFromSuperview()
+                })
                 completion?(image)
             }
         })
