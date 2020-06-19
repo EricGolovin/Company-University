@@ -95,8 +95,8 @@ extension UIImageView {
     var blurEffectView: UIVisualEffectView {
         let blurEffect = UIBlurEffect(style: .light)
         let visualAffectView = UIVisualEffectView(effect: blurEffect)
-        visualAffectView.layer.cornerRadius = layer.cornerRadius
         visualAffectView.frame = bounds
+        visualAffectView.layer.cornerRadius = 10
         insertSubview(visualAffectView, at: 0)
         return visualAffectView
     }

@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let resetViewController = ResetViewController() as UIViewController
         
         let tabBarController = UITabBarController()
-        let navVCNavigationController = UINavigationController(rootViewController: NavigationViewController())
+        let navVCNavigationController = UINavigationController(rootViewController: FirstNavigationViewController())
         
         let mainTabBarItem = UITabBarItem(title: "Image", image: UIImage(systemName: "smiley"), selectedImage: UIImage(systemName: "smiley.fill"))
         let navigationTabBarItem = UITabBarItem(title: "Navigation", image: UIImage(systemName: "square.grid.3x2"), selectedImage: UIImage(systemName: "square.grid.3x2.fill"))
