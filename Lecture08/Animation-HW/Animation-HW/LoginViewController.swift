@@ -10,6 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    enum ArrowType {
+        case left
+        case right
+    }
+    
     @IBOutlet private weak var userImageView: UserImageView!
     
     @IBOutlet private weak var backButton: UIButton!
@@ -31,7 +36,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         userProfile.loadNextImage(to: userImageView, with: imageName)
+        
+        let buttonConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .large)
+        
+        backButton.setImage(UIImage(systemName: "arrow.left.circle", withConfiguration: buttonConfig)!, for: .normal)
         backButton.isEnabled = false
+        
+        nextButton.setImage(UIImage(systemName: "arrow.right.circle", withConfiguration: buttonConfig)!, for: .normal)
         
         startImageNameCenter = imageName.center
         startLoginCenter = loginTextField.center
@@ -68,6 +79,8 @@ class LoginViewController: UIViewController {
                 self.animateLogin(successfully: true)
             })
         } else {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
             UIView.animate(withDuration: 2, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.2, options: [.curveEaseInOut], animations: {
                 self.loginButton.backgroundColor = .red
                 self.loginButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
@@ -91,29 +104,33 @@ class LoginViewController: UIViewController {
     
     @IBAction private func backTapped(_ sender: UIButton) {
         userProfile.getPreviousImage(to: userImageView, with: imageName) ? sender.isEnabled(true) : sender.isEnabled(false)
-        animateButton(sender)
+        animateButton(sender, arrowType: .left)
     }
     
     @IBAction private func nextTapped(_ sender: UIButton) {
         backButton.isEnabled = true
         userProfile.loadNextImage(to: userImageView, with: imageName)
-        animateButton(sender)
+        animateButton(sender, arrowType: .right)
     }
 
 
-    func animateButton(_ button: UIButton) {
+    func animateButton(_ button: UIButton, arrowType: ArrowType) {
         let initialTintColor = button.tintColor
-        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
-            button.transform = CGAffineTransform(scaleX: 3, y: 3)
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
+            button.transform = CGAffineTransform(scaleX: 2, y: 2)
             button.tintColor = .red
         }, completion: nil)
-        UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
             button.transform = CGAffineTransform(scaleX: 1, y: 1)
             button.tintColor = initialTintColor
         }, completion: nil)
     }
     
     func animateLogin(successfully: Bool) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         UIView.transition(with: loginTextField, duration: 0.5, options: [], animations: {
             self.loginTextField.center.y += self.view.bounds.width
             self.loginTextField.alpha = 0.0

@@ -73,18 +73,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSi-uq-Ng2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="910"/>
+            <point key="canvasLocation" x="-4" y="781"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="OHK-N0-a7E">
             <objects>
                 <viewController id="Uiz-ru-fdd" customClass="NavigationViewController" customModule="TabBar_HW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0V-j1-3Ma">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double tap to the next Screen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcO-wT-oBX">
-                                <rect key="frame" x="88.666666666666671" y="411" width="236.66666666666663" height="20.333333333333314"/>
+                                <rect key="frame" x="88.666666666666671" y="438" width="236.66666666666663" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -119,11 +119,11 @@
             <objects>
                 <viewController id="9rz-Le-Z8S" customClass="NavSecondViewController" customModule="TabBar_HW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kaW-AJ-A7q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUd-Wb-cgY">
-                                <rect key="frame" x="111" y="404.66666666666669" width="192" height="33"/>
+                                <rect key="frame" x="111" y="431.66666666666669" width="192" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -191,7 +191,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fkc-1c-abN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kn8-ni-IKB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -201,11 +201,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSk-Xu-ifR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037.68115942029" y="52.901785714285715"/>
+            <point key="canvasLocation" x="1038" y="53"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mIq-VH-phu"/>
+        <segue reference="L2y-Gd-k2d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clear" catalog="system" width="128" height="114"/>

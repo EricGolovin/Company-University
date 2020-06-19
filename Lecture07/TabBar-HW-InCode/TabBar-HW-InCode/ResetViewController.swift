@@ -34,7 +34,7 @@ class ResetViewController: UIViewController {
     }
     
     @objc private func buttonPressed(_ sender: UIButton) {
-        let navVCs = UINavigationController(rootViewController: NavigationViewController())
+        let navVCs = UINavigationController(rootViewController: FirstNavigationViewController())
         let barItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(barButtonItemTapped))
         
         navVCs.navigationBar.topItem?.rightBarButtonItem = barItem
