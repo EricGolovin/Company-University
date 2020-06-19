@@ -2,6 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
+<<<<<<< HEAD
       location = "self:">
+=======
+      location = "self:Animation-HW.xcodeproj">
+>>>>>>> 3a65927fd61b015f0c291bf160d31f5e63981994
    </FileRef>
 </Workspace>

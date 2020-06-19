@@ -14,7 +14,7 @@
 		E90CFE58248D8385008709F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90CFE57248D8385008709F2 /* Assets.xcassets */; };
 		E90CFE5B248D8385008709F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90CFE59248D8385008709F2 /* LaunchScreen.storyboard */; };
 		E90CFE63248D8BF2008709F2 /* KeypadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90CFE62248D8BF2008709F2 /* KeypadButton.swift */; };
-		E9567826248E46EF007C521A /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9567825248E46EF007C521A /* Operations.swift */; };
+		E9567826248E46EF007C521A /* Performer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9567825248E46EF007C521A /* Performer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		E90CFE5A248D8385008709F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E90CFE5C248D8385008709F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E90CFE62248D8BF2008709F2 /* KeypadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadButton.swift; sourceTree = "<group>"; };
-		E9567825248E46EF007C521A /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		E9567825248E46EF007C521A /* Performer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 				E90CFE50248D8381008709F2 /* SceneDelegate.swift */,
 				E90CFE52248D8381008709F2 /* ViewController.swift */,
 				E90CFE54248D8381008709F2 /* Main.storyboard */,
-				E9567825248E46EF007C521A /* Operations.swift */,
+				E9567825248E46EF007C521A /* Performer.swift */,
 				E90CFE62248D8BF2008709F2 /* KeypadButton.swift */,
 				E90CFE57248D8385008709F2 /* Assets.xcassets */,
 				E90CFE59248D8385008709F2 /* LaunchScreen.storyboard */,
@@ -148,7 +148,7 @@
 				E90CFE63248D8BF2008709F2 /* KeypadButton.swift in Sources */,
 				E90CFE4F248D8381008709F2 /* AppDelegate.swift in Sources */,
 				E90CFE51248D8381008709F2 /* SceneDelegate.swift in Sources */,
-				E9567826248E46EF007C521A /* Operations.swift in Sources */,
+				E9567826248E46EF007C521A /* Performer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,23 +25,20 @@ class ViewController: UIViewController {
         longPressed(UILongPressGestureRecognizer())
     }
     
-    var operation = Operations()
+    var operation: Performer!
     
     @IBAction func deleteKeypadTapped(_ sender: KeypadButton) {
         resultLabel.text = "0"
-        operation.clear()
+        operation = Performer()
     }
     
     @IBAction func keypadTapped(_ sender: KeypadButton) {
         if resultLabel.text!.contains("Result") || resultLabel.text! == "0" {
             resultLabel.text = ""
+            operation = Performer()
         }
         
-        if operation.isOperator(sender.titleLabel!.text!) {
-            keypadOperationButtons.forEach { $0.isEnabled = false }
-        } else {
-            keypadOperationButtons.forEach { $0.isEnabled = true }
-        }
+        keypadOperationButtons.forEach { $0.isEnabled = !operation.isOperator(sender.titleLabel!.text!) }
         
         resultLabel.text! += sender.titleLabel!.text!
         operation.passSymbol(sender.titleLabel!.text!)

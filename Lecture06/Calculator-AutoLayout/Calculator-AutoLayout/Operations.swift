@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Operations {
-    enum Operation: String {
+class Performer {
+    enum Operation: String, CaseIterable {
         case divide = "/"
         case multiply = "x"
         case minus = "-"
@@ -35,6 +35,7 @@ class Operations {
         }
     }
     
+    private var expression: String = ""
     private var numbers: [String] = []
     private var twoNumberOperation: (first: Double?, second: Double?)
     
@@ -69,10 +70,20 @@ class Operations {
     }
     
     func passSymbol(_ symbol: String) {
-        if let operation = Operation(operation: symbol) {
-            self.operation = operation
-        } else {
-            numbers.append(symbol)
+//        if let operation = Operation(operation: symbol) {
+//            self.operation = operation
+//        } else {
+//            numbers.append(symbol)
+//        }
+        expression += symbol
+    }
+    
+    func formatExpression(_ string: String) {
+        var temp = ""
+        var numArray = [String]()
+        for char in string.lowercased() {
+            if Performer.a
+            temp += String(char)
         }
     }
     
