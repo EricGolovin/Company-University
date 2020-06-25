@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     enum CellIdentifiers: String {
         case searchResultCell = "SearchResultCell"
+        case resultsCountCell = "ResultsCountCell"
     }
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,8 +22,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellNib = UINib(nibName: CellIdentifiers.searchResultCell.rawValue, bundle: nil)
+        var cellNib = UINib(nibName: CellIdentifiers.searchResultCell.rawValue, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: CellIdentifiers.searchResultCell.rawValue)
+        
+        cellNib = UINib(nibName: CellIdentifiers.resultsCountCell.rawValue, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: CellIdentifiers.resultsCountCell.rawValue)
         
         let editButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(commitTableViewEditing(_:)))
         editButtonItem.possibleTitles = ["Edit", "Done"]

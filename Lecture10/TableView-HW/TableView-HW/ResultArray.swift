@@ -64,7 +64,7 @@ class SearchResult: Codable, CustomStringConvertible {
         return ""
     }
     
-    var type:String {
+    var type: String {
         let kind = self.kind ?? "audiobook"
         switch kind {
         case "album": return "Album"

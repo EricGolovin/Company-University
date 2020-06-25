@@ -12,7 +12,7 @@ class Search {
     
     var itemSearchCount = "10"
     private var dataTask: URLSessionDataTask?
-    private(set) var results = Array<SearchResult>()
+    var results = Array<SearchResult>()
     
     
     func performSearch(for text: String, completion: @escaping SearchComplete) {
