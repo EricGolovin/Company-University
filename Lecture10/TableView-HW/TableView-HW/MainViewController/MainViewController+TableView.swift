@@ -14,11 +14,14 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.searchResultCell.rawValue, for: indexPath) as! SearchResultCell
-        
-        cell.configure(for: search.results[indexPath.row])
-        
-        return cell
+        if search.results.count != 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.searchResultCell.rawValue, for: indexPath) as! SearchResultCell
+            
+            cell.configure(for: search.results[indexPath.row])
+            
+            return cell
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
