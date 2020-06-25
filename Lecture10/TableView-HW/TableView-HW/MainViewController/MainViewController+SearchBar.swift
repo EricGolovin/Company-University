@@ -20,7 +20,7 @@ extension MainViewController: UISearchBarDelegate {
         })
     }
     
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
+//    func position(for bar: UIBarPositioning) -> UIBarPosition {
+//        return .topAttached
+//    }
 }

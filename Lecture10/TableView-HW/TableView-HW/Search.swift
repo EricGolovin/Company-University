@@ -10,8 +10,10 @@ import Foundation
 class Search {
     typealias SearchComplete = (Bool) -> Void
     
+    var itemSearchCount = "10"
     private var dataTask: URLSessionDataTask?
     private(set) var results = Array<SearchResult>()
+    
     
     func performSearch(for text: String, completion: @escaping SearchComplete) {
         if !text.isEmpty {
@@ -41,9 +43,13 @@ class Search {
         }
     }
     
+    func deleteResult(at indexPath: IndexPath) {
+        results.remove(at: indexPath.row)
+    }
+    
     private func iTunesURL(searchText: String) -> URL {
         let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = "https://itunes.apple.com/search?term=\(encodedText)&limit=500"
+        let urlString = "https://itunes.apple.com/search?term=\(encodedText)&limit=" + itemSearchCount
         let url = URL(string: urlString)
         
         return url!
