@@ -19,6 +19,7 @@ extension Folder {
     @NSManaged public var creationDate: Date?
     @NSManaged public var information: String?
     @NSManaged public var name: String?
+    @NSManaged public var modificationDate: Date?
     @NSManaged public var notes: NSOrderedSet?
     @NSManaged public var user: User?
 

@@ -3,6 +3,7 @@
     <entity name="Folder" representedClassName="Folder" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="information" optional="YES" attributeType="String"/>
+        <attribute name="modificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Notes" inverseName="folder" inverseEntity="Notes"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="folders" inverseEntity="User"/>
@@ -18,7 +19,7 @@
         <relationship name="folders" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Folder" inverseName="user" inverseEntity="Folder"/>
     </entity>
     <elements>
-        <element name="Folder" positionX="-45" positionY="0" width="128" height="104"/>
+        <element name="Folder" positionX="-45" positionY="0" width="128" height="119"/>
         <element name="Notes" positionX="-112.5499267578125" positionY="-269.6590576171875" width="128" height="89"/>
         <element name="User" positionX="-81" positionY="-108" width="128" height="59"/>
     </elements>

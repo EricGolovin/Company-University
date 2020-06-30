@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="FolderTableViewCell" customModule="Notes_HW" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="476" height="96"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQU-EC-i3I">
+                        <rect key="frame" x="20" y="20" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="Noa-kt-3n0"/>
+                            <constraint firstAttribute="height" constant="70" id="i5b-yk-3Wf"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RNE-nF-jqQ">
+                        <rect key="frame" x="98" y="29" width="82.5" height="52.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-fL-S5B">
+                                <rect key="frame" x="0.0" y="0.0" width="41" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cretion date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adO-PZ-BUh">
+                                <rect key="frame" x="0.0" y="34.5" width="82.5" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0H-ys-gPQ">
+                        <rect key="frame" x="412" y="33" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="2Cs-M3-pPg"/>
+                            <constraint firstAttribute="height" constant="44" id="axg-iR-2rm"/>
+                        </constraints>
+                        <connections>
+                            <action selector="infoButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NeC-cg-JCl"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="RNE-nF-jqQ" firstAttribute="leading" secondItem="sQU-EC-i3I" secondAttribute="trailing" constant="8" symbolic="YES" id="Aos-aW-YPQ"/>
+                    <constraint firstAttribute="trailing" secondItem="H0H-ys-gPQ" secondAttribute="trailing" constant="20" symbolic="YES" id="B8e-h2-iqm"/>
+                    <constraint firstItem="sQU-EC-i3I" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BCb-rJ-E72"/>
+                    <constraint firstItem="sQU-EC-i3I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="Fd9-Jp-oCe"/>
+                    <constraint firstItem="H0H-ys-gPQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VyQ-Ek-Fg8"/>
+                    <constraint firstItem="sQU-EC-i3I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="ZdS-4m-z9B"/>
+                    <constraint firstItem="RNE-nF-jqQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rIf-Sc-34f"/>
+                    <constraint firstAttribute="bottom" secondItem="sQU-EC-i3I" secondAttribute="bottom" constant="20" symbolic="YES" id="yJC-2t-XnX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="folderCreationLabel" destination="adO-PZ-BUh" id="kkI-pL-vRR"/>
+                <outlet property="folderImageView" destination="sQU-EC-i3I" id="xx7-Fs-ufx"/>
+                <outlet property="folderTitleLabel" destination="AyG-fL-S5B" id="5Js-QS-3xd"/>
+            </connections>
+            <point key="canvasLocation" x="294" y="165"/>
+        </tableViewCell>
+    </objects>
+</document>

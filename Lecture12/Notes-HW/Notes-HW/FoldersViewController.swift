@@ -18,13 +18,23 @@ class FoldersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
+    
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    
     var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // TableView Configuration
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifiers.cell.rawValue)
+//        let nibFile = Bundle.main.loadNibNamed("FolderTableViewCell", owner: self, options: nil)!.first as! FolderTableViewCell
+        tableView.register(UINib(nibName: "FolderTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.cell.rawValue)
+        
         
         // Setting Up CoreData Stack
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -63,12 +73,20 @@ class FoldersViewController: UIViewController {
         
         let newFolder = Folder(context: managedContext)
         
-        let alert = UIAlertController(title: "Add Folder", message: "Type Folder Info", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "Add Folder", message: "Type Folder Information", preferredStyle: .alert)
         alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Enter Title"
+        })
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Enter Details"
         })
         
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ in
             newFolder.name = alert.textFields?.first?.text
+            newFolder.information = alert.textFields?.last?.text
+            newFolder.creationDate = Date()
+            
             self.currentUser?.addToFolders(newFolder)
             self.tableView.reloadData()
         })
@@ -89,13 +107,37 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.cell.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.cell.rawValue, for: indexPath) as! FolderTableViewCell
         
-        guard let folder = currentUser?.folders?[indexPath.row] as? Folder, let folderName = folder.name else {
+        guard let folder = currentUser?.folders?[indexPath.row] as? Folder,
+              let folderName = folder.name,
+              let folderCreationDate = folder.creationDate else {
             return cell
         }
         
-        cell.textLabel?.text = folderName
+        cell.folderTitleLabel.text = folderName
+        cell.folderCreationLabel.text = dateFormatter.string(from: folderCreationDate)
+        cell.infoAction = { [weak self] in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let selectedFolder = self?.currentUser?.folders?[indexPath.row] as? Folder else {
+                return
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            let folderDetailsTableViewController = UIStoryboard(name: "FolderInfo", bundle: nil).instantiateViewController(identifier: "FolderInfo") as FolderInfoTableViewController
+            folderDetailsTableViewController.currentFolder = selectedFolder
+            folderDetailsTableViewController.dismissAction = {
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not fetch \(error), \(error.userInfo)")
+                }
+                self?.tableView.reloadData()
+            }
+            let navigationController = UINavigationController(rootViewController: folderDetailsTableViewController)
+            
+            self?.present(navigationController, animated: true, completion: nil)
+        }
         
         return cell
     }
@@ -135,22 +177,6 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let selectedFolder = currentUser?.folders?[indexPath.row] as? Folder else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let folderDetailsTableViewController = UIStoryboard(name: "FolderInfo", bundle: nil).instantiateViewController(identifier: "FolderInfo") as FolderInfoTableViewController
-        folderDetailsTableViewController.currentFolder = selectedFolder
-        folderDetailsTableViewController.dismissAction = {
-            // TODO: Update Folder in CoreData Stack
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not fetch \(error), \(error.userInfo)")
-            }
-            self.tableView.reloadData()
-        }
-       present(folderDetailsTableViewController, animated: true, completion: nil)
+
     }
 }
