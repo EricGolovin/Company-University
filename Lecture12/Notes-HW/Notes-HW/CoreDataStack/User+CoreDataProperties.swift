@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Notes-HW
 //
-//  Created by Eric Golovin on 6/30/20.
+//  Created by Eric Golovin on 7/1/20.
 //
 //
 

@@ -5,10 +5,10 @@
         <attribute name="information" optional="YES" attributeType="String"/>
         <attribute name="modificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Notes" inverseName="folder" inverseEntity="Notes"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Note" inverseName="folder" inverseEntity="Note"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="folders" inverseEntity="User"/>
     </entity>
-    <entity name="Notes" representedClassName="Notes" syncable="YES">
+    <entity name="Note" representedClassName="Note" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="information" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -20,7 +20,7 @@
     </entity>
     <elements>
         <element name="Folder" positionX="-45" positionY="0" width="128" height="119"/>
-        <element name="Notes" positionX="-112.5499267578125" positionY="-269.6590576171875" width="128" height="89"/>
+        <element name="Note" positionX="-112.5499267578125" positionY="-269.6590576171875" width="128" height="89"/>
         <element name="User" positionX="-81" positionY="-108" width="128" height="59"/>
     </elements>
 </model>
