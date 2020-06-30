@@ -177,6 +177,10 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let notesCollectionView = NotesViewController()
+        notesCollectionView.currentFolder = currentUser?.folders?[indexPath.row] as? Folder
         
+        navigationController?.pushViewController(notesCollectionView, animated: true)
     }
 }

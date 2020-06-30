@@ -26,6 +26,9 @@
 		E9CF95B524AB969A00A679B4 /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CF95AF24AB969A00A679B4 /* Notes+CoreDataClass.swift */; };
 		E9CF95B624AB969A00A679B4 /* Notes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CF95B024AB969A00A679B4 /* Notes+CoreDataProperties.swift */; };
 		E9CF95BB24ABA8DE00A679B4 /* FolderInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9CF95BA24ABA8DE00A679B4 /* FolderInfo.storyboard */; };
+		E9D0CED724ABD5A000BE7932 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D0CED524ABD5A000BE7932 /* NoteCollectionViewCell.xib */; };
+		E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */; };
+		E9D0CEDB24ABDB7100BE7932 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEDA24ABDB7100BE7932 /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		E9CF95AF24AB969A00A679B4 /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E9CF95B024AB969A00A679B4 /* Notes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9CF95BA24ABA8DE00A679B4 /* FolderInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FolderInfo.storyboard; sourceTree = "<group>"; };
+		E9D0CED524ABD5A000BE7932 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9D0CEDA24ABDB7100BE7932 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +127,9 @@
 		E92B7BFB24AB8F7200A990DA /* Notes-HW */ = {
 			isa = PBXGroup;
 			children = (
+				E9D0CEC924ABD48100BE7932 /* FolderNotes */,
 				E95CB98624ABCA8600F892E7 /* FolderCell */,
-				E9CF95B724ABA8BB00A679B4 /* Folder */,
+				E9CF95B724ABA8BB00A679B4 /* FolderInfo */,
 				E9CF958C24AB959100A679B4 /* CoreDataStack */,
 				E92B7BFC24AB8F7200A990DA /* AppDelegate.swift */,
 				E92B7BFE24AB8F7200A990DA /* SceneDelegate.swift */,
@@ -176,13 +183,31 @@
 			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
-		E9CF95B724ABA8BB00A679B4 /* Folder */ = {
+		E9CF95B724ABA8BB00A679B4 /* FolderInfo */ = {
 			isa = PBXGroup;
 			children = (
 				E9CF95BA24ABA8DE00A679B4 /* FolderInfo.storyboard */,
 				E95CB97E24ABAE7500F892E7 /* FolderInfoTableViewController.swift */,
 			);
-			path = Folder;
+			path = FolderInfo;
+			sourceTree = "<group>";
+		};
+		E9D0CEC924ABD48100BE7932 /* FolderNotes */ = {
+			isa = PBXGroup;
+			children = (
+				E9D0CEDA24ABDB7100BE7932 /* NotesViewController.swift */,
+				E9D0CED924ABD5A400BE7932 /* NoteCell */,
+			);
+			path = FolderNotes;
+			sourceTree = "<group>";
+		};
+		E9D0CED924ABD5A400BE7932 /* NoteCell */ = {
+			isa = PBXGroup;
+			children = (
+				E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */,
+				E9D0CED524ABD5A000BE7932 /* NoteCollectionViewCell.xib */,
+			);
+			path = NoteCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +317,7 @@
 				E9CF95BB24ABA8DE00A679B4 /* FolderInfo.storyboard in Resources */,
 				E95CB98524ABCA8000F892E7 /* FolderTableViewCell.xib in Resources */,
 				E92B7C0924AB8F7900A990DA /* Assets.xcassets in Resources */,
+				E9D0CED724ABD5A000BE7932 /* NoteCollectionViewCell.xib in Resources */,
 				E92B7C0424AB8F7200A990DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,9 +349,11 @@
 				E95CB97F24ABAE7500F892E7 /* FolderInfoTableViewController.swift in Sources */,
 				E92B7C3924AB912D00A990DA /* FoldersViewController.swift in Sources */,
 				E9CF95B524AB969A00A679B4 /* Notes+CoreDataClass.swift in Sources */,
+				E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */,
 				E9CF95B224AB969A00A679B4 /* User+CoreDataProperties.swift in Sources */,
 				E92B7BFD24AB8F7200A990DA /* AppDelegate.swift in Sources */,
 				E92B7BFF24AB8F7200A990DA /* SceneDelegate.swift in Sources */,
+				E9D0CEDB24ABDB7100BE7932 /* NotesViewController.swift in Sources */,
 				E9CF95B124AB969A00A679B4 /* User+CoreDataClass.swift in Sources */,
 				E9CF95B624AB969A00A679B4 /* Notes+CoreDataProperties.swift in Sources */,
 				E95CB98424ABCA8000F892E7 /* FolderTableViewCell.swift in Sources */,
