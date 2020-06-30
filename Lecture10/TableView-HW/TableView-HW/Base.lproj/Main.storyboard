@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H8v-50-lYc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--iTunes Results-->
+        <scene sceneID="EKC-RB-oJy">
+            <objects>
+                <viewController id="gcR-h6-Qdq" customClass="MainViewController" customModule="TableView_HW" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d04-hT-laU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5h-s2-Nie">
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gcR-h6-Qdq" id="FmI-QU-dqx"/>
+                                    <outlet property="delegate" destination="gcR-h6-Qdq" id="B5E-Xc-glF"/>
+                                </connections>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="L31-6k-Ysb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search in iTunes" translatesAutoresizingMaskIntoConstraints="NO" id="UC0-hT-1dg">
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="gcR-h6-Qdq" id="5qR-34-b5x"/>
+                                        </connections>
+                                    </searchBar>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Items" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="htl-5v-4k6">
+                                        <rect key="frame" x="276" y="11" width="138" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="gcR-h6-Qdq" eventType="editingChanged" id="fcS-Uj-JZh"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="htl-5v-4k6" firstAttribute="width" secondItem="UC0-hT-1dg" secondAttribute="width" multiplier="1:2" id="y6E-fg-uCt"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JOS-o2-cgE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L31-6k-Ysb" firstAttribute="leading" secondItem="d04-hT-laU" secondAttribute="leading" id="6mv-7e-Vdr"/>
+                            <constraint firstItem="L31-6k-Ysb" firstAttribute="top" secondItem="JOS-o2-cgE" secondAttribute="top" id="KX9-ph-Dst"/>
+                            <constraint firstAttribute="trailing" secondItem="L31-6k-Ysb" secondAttribute="trailing" id="t8C-IT-XKJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="iTunes Results" id="qWI-Kq-I2l"/>
+                    <connections>
+                        <outlet property="numberTextField" destination="htl-5v-4k6" id="14Y-KR-8zv"/>
+                        <outlet property="searchBar" destination="UC0-hT-1dg" id="gdc-an-Ncz"/>
+                        <outlet property="tableView" destination="L5h-s2-Nie" id="L8S-d9-o7q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UzW-jg-mqN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489.8550724637682" y="39.508928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dfr-nw-e0O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H8v-50-lYc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UcO-Ru-xWt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gcR-h6-Qdq" kind="relationship" relationship="rootViewController" id="zyp-3c-owY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nhl-H7-fyP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579.71014492753625" y="39.508928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
