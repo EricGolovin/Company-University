@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,7 +39,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nxo-4Y-9A3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pJp-D5-rQE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="pJp-D5-rQE">
+                            <imageReference key="image" image="folder.fill.badge.plus" catalog="system" symbolScale="large" renderingMode="original"/>
                             <connections>
                                 <action selector="addFolder:" destination="BYZ-38-t0r" id="WLP-2g-Rre"/>
                             </connections>
@@ -72,6 +74,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="folder.fill.badge.plus" catalog="system" width="128" height="91"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -21,7 +21,7 @@ class FolderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        folderImageView.image = UIImage(systemName: "folder.badge.questionmark")
+        folderImageView.image = UIImage(systemName: "folder")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
