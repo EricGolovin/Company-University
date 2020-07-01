@@ -32,7 +32,6 @@ class FoldersViewController: UIViewController {
         super.viewDidLoad()
         
         // TableView Configuration
-//        let nibFile = Bundle.main.loadNibNamed("FolderTableViewCell", owner: self, options: nil)!.first as! FolderTableViewCell
         tableView.register(UINib(nibName: "FolderTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.cell.rawValue)
         
         
@@ -178,6 +177,9 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        navigationItem.backButtonTitle = "\((currentUser?.folders?[indexPath.row] as? Folder)?.name ?? "None")"
+        
         let notesCollectionView = NotesViewController()
         notesCollectionView.currentFolder = currentUser?.folders?[indexPath.row] as? Folder
         

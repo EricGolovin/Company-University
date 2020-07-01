@@ -49,7 +49,7 @@ class NoteTableViewController: UITableViewController {
 
     
     @objc func saveNote() {
-        currentNote?.name = nameTextField.text
+        currentNote?.name = nameTextField.text != "" ? nameTextField.text : "No Title"
         currentNote?.information = informationTexView.text
         completeAction?()
         dismiss(animated: true, completion: nil)
