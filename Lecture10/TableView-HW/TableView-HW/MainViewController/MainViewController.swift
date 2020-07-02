@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var numberTextField: UITextField!
     
     var search = Search()
+    var resultLabelIndexPath: IndexPath = IndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()

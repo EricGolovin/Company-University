@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="82" id="MJ7-AB-FuK" customClass="SearchResultCell" customModule="StoreSearch" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="MJ7-AB-FuK" customClass="SearchResultCell" customModule="TableView_HW" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MJ7-AB-FuK" id="0jU-TL-XeY">
@@ -23,27 +23,25 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY3-pc-UEK">
-                        <rect key="frame" x="84" y="17.5" width="275" height="20.5"/>
+                        <rect key="frame" x="84" y="17.5" width="46.5" height="20.5"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edF-IO-tul">
-                        <rect key="frame" x="84" y="46" width="275" height="18"/>
+                        <rect key="frame" x="84" y="46" width="81.5" height="18"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <color key="textColor" white="0.0" alpha="0.50382598458904104" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="edF-IO-tul" secondAttribute="trailing" constant="16" id="19L-R2-Mji"/>
                     <constraint firstItem="edF-IO-tul" firstAttribute="top" secondItem="iY3-pc-UEK" secondAttribute="bottom" constant="8" id="84N-NK-0MT"/>
                     <constraint firstItem="zTM-h6-Q43" firstAttribute="leading" secondItem="0jU-TL-XeY" secondAttribute="leading" constant="16" id="9xn-sj-PEA"/>
                     <constraint firstItem="iY3-pc-UEK" firstAttribute="leading" secondItem="zTM-h6-Q43" secondAttribute="trailing" constant="8" id="W8T-SC-6Ga"/>
                     <constraint firstItem="iY3-pc-UEK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0jU-TL-XeY" secondAttribute="top" constant="16" id="Wyr-bt-aok"/>
                     <constraint firstItem="edF-IO-tul" firstAttribute="leading" secondItem="zTM-h6-Q43" secondAttribute="trailing" constant="8" id="bTS-6L-r7V"/>
                     <constraint firstItem="zTM-h6-Q43" firstAttribute="top" secondItem="0jU-TL-XeY" secondAttribute="top" constant="10" id="dUo-TG-u2r"/>
-                    <constraint firstAttribute="trailing" secondItem="iY3-pc-UEK" secondAttribute="trailing" constant="16" id="kkm-4s-F5B"/>
                     <constraint firstAttribute="bottom" secondItem="edF-IO-tul" secondAttribute="bottom" constant="16" id="tCh-c7-wbw"/>
                 </constraints>
             </tableViewCellContentView>

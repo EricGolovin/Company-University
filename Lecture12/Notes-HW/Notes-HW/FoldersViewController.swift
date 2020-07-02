@@ -32,10 +32,11 @@ class FoldersViewController: UIViewController {
         super.viewDidLoad()
         
         // TableView Configuration
-        tableView.register(UINib(nibName: "FolderTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.cell.rawValue)
-        
+        configureTableView()
         
         // Setting Up CoreData Stack
+        
+        // TODO: - To Model File
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -62,6 +63,10 @@ class FoldersViewController: UIViewController {
         navigationItem.title = currentUser?.name ?? "Failed to Load Name"
     }
     
+    
+    func configureTableView() {
+        tableView.register(UINib(nibName: "FolderTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.cell.rawValue)
+    }
     // MARK: - Actions
     
     @IBAction func addFolder(_ sender: UIBarButtonItem) {
@@ -116,7 +121,10 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.folderTitleLabel.text = folderName
         cell.folderCreationLabel.text = dateFormatter.string(from: folderCreationDate)
+        
         cell.infoAction = { [weak self] in
+            // TODO: To Method
+            // TODO: Give Folder
             self?.tableView.deselectRow(at: indexPath, animated: true)
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let selectedFolder = self?.currentUser?.folders?[indexPath.row] as? Folder else {
                 return
@@ -165,7 +173,6 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
             } catch let error as NSError {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
-            tableView.reloadData()
         case .none:
             break
         case .insert:
@@ -173,6 +180,8 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
         @unknown default:
             break
         }
+        
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

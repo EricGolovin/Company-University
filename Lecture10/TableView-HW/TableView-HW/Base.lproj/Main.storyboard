@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5h-s2-Nie">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5h-s2-Nie">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gcR-h6-Qdq" id="FmI-QU-dqx"/>
@@ -52,8 +51,12 @@
                         <viewLayoutGuide key="safeArea" id="JOS-o2-cgE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="L5h-s2-Nie" secondAttribute="bottom" id="2rV-wH-wCv"/>
                             <constraint firstItem="L31-6k-Ysb" firstAttribute="leading" secondItem="d04-hT-laU" secondAttribute="leading" id="6mv-7e-Vdr"/>
                             <constraint firstItem="L31-6k-Ysb" firstAttribute="top" secondItem="JOS-o2-cgE" secondAttribute="top" id="KX9-ph-Dst"/>
+                            <constraint firstItem="L5h-s2-Nie" firstAttribute="leading" secondItem="JOS-o2-cgE" secondAttribute="leading" id="NOr-u8-5jo"/>
+                            <constraint firstItem="L5h-s2-Nie" firstAttribute="top" secondItem="L31-6k-Ysb" secondAttribute="bottom" id="fEX-JL-ao1"/>
+                            <constraint firstItem="L5h-s2-Nie" firstAttribute="trailing" secondItem="JOS-o2-cgE" secondAttribute="trailing" id="rHz-Rx-k4i"/>
                             <constraint firstAttribute="trailing" secondItem="L31-6k-Ysb" secondAttribute="trailing" id="t8C-IT-XKJ"/>
                         </constraints>
                     </view>

@@ -9,6 +9,7 @@ import UIKit
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         search.results.count + 1
     }
@@ -24,6 +25,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.resultsCountCell.rawValue, for: indexPath) as! ResultsCountCell
             
             cell.configure(for: search.results.count)
+            
+            resultLabelIndexPath = indexPath
             
             return cell
         }
@@ -43,25 +46,38 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if tableView.isEditing {
-            return .delete
+        /* To disable swipe to delete and enable delete only for edit mode
+         if tableView.isEditing {
+         return .delete
+         }
+         return .none
+         */
+        if indexPath == resultLabelIndexPath {
+            return .none
         }
-        return .none
+        return .delete
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        if indexPath != resultLabelIndexPath {
+            return true
+        }
+        return false
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
+        if indexPath != resultLabelIndexPath {
+            return true
+        }
+        return false
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = search.results[sourceIndexPath.row]
-        search.deleteResult(at: sourceIndexPath)
-        search.results.insert(movedObject, at: destinationIndexPath.row)
-        
+        if sourceIndexPath != resultLabelIndexPath && destinationIndexPath != resultLabelIndexPath {
+            let movedObject = search.results[sourceIndexPath.row]
+            search.deleteResult(at: sourceIndexPath)
+            search.results.insert(movedObject, at: destinationIndexPath.row)
+        }
     }
     
 }
