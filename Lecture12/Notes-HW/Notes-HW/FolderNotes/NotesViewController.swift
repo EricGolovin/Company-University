@@ -40,10 +40,49 @@ class NotesViewController: UIViewController, UICollectionViewDelegate, UICollect
         let addNoteImage = UIImage(systemName: "note.text.badge.plus")?.withRenderingMode(.alwaysOriginal)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: addNoteImage, style: .plain, target: self, action: #selector(addNote))
+        
+        let toolbarItem = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortNotes))
+        navigationController?.isToolbarHidden = false
+        setToolbarItems([toolbarItem], animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isToolbarHidden = true
     }
     
     
     // MARK: - Actions
+    
+    @objc func sortNotes() {
+        let alert = UIAlertController(title: "Sort Notes", message: "Choose sort option", preferredStyle: .actionSheet)
+        
+        let byNameAction = UIAlertAction(title: "by Name", style: .default, handler: { _ in
+            guard let currentFolderNotes = self.currentFolder?.notes,
+                  let sortedFolderNotes = currentFolderNotes.sorted(by: {
+                    ($0 as! Note).name ?? "" < ($1 as! Note).name ?? ""
+                  }) as? [Note] else {
+                        fatalError("Error: Cannot sort folder notes")
+                    }
+            self.currentFolder?.notes = NSOrderedSet(array: sortedFolderNotes)
+            self.collectionView.reloadData()
+        })
+        
+        let byDateAction = UIAlertAction(title: "by Date", style: .default, handler: { _ in
+            guard let currentFolderNotes = self.currentFolder?.notes,
+                  let sortedFolderNotes = currentFolderNotes.sorted(by: {
+                    ($0 as! Note).creationDate ?? Date() < ($1 as! Note).creationDate ?? Date()
+                  }) as? [Note] else {
+                        fatalError("Error: Cannot sort folder notes")
+                    }
+            self.currentFolder?.notes = NSOrderedSet(array: sortedFolderNotes)
+            self.collectionView.reloadData()
+        })
+        
+        alert.addAction(byNameAction)
+        alert.addAction(byDateAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     @objc func addNote() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

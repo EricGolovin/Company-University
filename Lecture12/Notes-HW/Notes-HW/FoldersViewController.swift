@@ -16,6 +16,7 @@ class FoldersViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortBarButton: UIBarButtonItem!
     
     // MARK: - Properties
     
@@ -61,6 +62,8 @@ class FoldersViewController: UIViewController {
         }
         
         navigationItem.title = currentUser?.name ?? "Failed to Load Name"
+        
+        navigationController?.isToolbarHidden = true
     }
     
     
@@ -69,6 +72,35 @@ class FoldersViewController: UIViewController {
     }
     // MARK: - Actions
     
+    @IBAction func sortTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Sort Folders", message: "Choose sort option", preferredStyle: .actionSheet)
+        
+        let byNameAction = UIAlertAction(title: "by Name", style: .default, handler: { _ in
+            guard let currentUserFolders = self.currentUser?.folders,
+                  let sortedUserFolders = currentUserFolders.sorted(by: {
+                    ($0 as! Folder).name ?? "" < ($1 as! Folder).name ?? ""
+                  }) as? [Folder] else {
+                        fatalError("Error: Cannot sort user folders")
+                    }
+            self.currentUser?.folders = NSOrderedSet(array: sortedUserFolders)
+            self.tableView.reloadData()
+        })
+        
+        let byDateAction = UIAlertAction(title: "by Date", style: .default, handler: { _ in
+            guard let currentUserFolders = self.currentUser?.folders,
+                  let sortedUserFolders = currentUserFolders.sorted(by: {
+                    ($0 as! Folder).creationDate ?? Date() < ($1 as! Folder).creationDate ?? Date()
+                  }) as? [Folder] else {
+                        fatalError("Error: Cannot sort user folders")
+                    }
+            self.currentUser?.folders = NSOrderedSet(array: sortedUserFolders)
+            self.tableView.reloadData()
+        })
+        
+        alert.addAction(byNameAction)
+        alert.addAction(byDateAction)
+        present(alert, animated: true, completion: nil)
+    }
     @IBAction func addFolder(_ sender: UIBarButtonItem) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
