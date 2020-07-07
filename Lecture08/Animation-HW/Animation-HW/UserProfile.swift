@@ -9,9 +9,7 @@
 import UIKit
 
 class UserProfile {
-    enum URLs: String {
-        case animal_720 = "https://source.unsplash.com/480x480/?cat"
-    }
+    private var animal_720URL: String = "https://source.unsplash.com/480x480/?cat"
     
     enum FlipSide {
         case left
@@ -37,9 +35,9 @@ class UserProfile {
         }, completion: nil)
     }
     
-    func loadNextImage(to imageView: UIImageView, with label: UILabel) {
+    func loadNextImage(to imageView: UIImageView, with label: UILabel, buttons: [UIButton]? = nil) {
         if backCounter == 0 {
-            
+            buttons?.forEach { $0.isEnabled.toggle() }
             let newTitle = Name.getRandomName()
             
             // TODO: Fix this mess
@@ -49,8 +47,10 @@ class UserProfile {
             
             UIView.transition(with: imageView, duration: 1.0, options: [.transitionFlipFromRight], animations: { // TODO: Fix this options so that blueView and indicator would be private
                 
-                imageView.setImageFrom(URLs.animal_720.rawValue, components: (nil, activityIndicator), completion: { image in
+                imageView.setImageFrom(self.animal_720URL, components: (nil, activityIndicator), completion: { image in
                     self.userCashedData.append((image: image, title: newTitle))
+                    self.toggleCat()
+                    buttons?.forEach { $0.isEnabled.toggle() }
                 })
             })
             UIView.transition(with: label, duration: 1, options: [.transitionFlipFromTop], animations: {
@@ -77,6 +77,14 @@ class UserProfile {
             }
         }
         return false
+    }
+    
+    private func toggleCat() {
+        if animal_720URL.contains("cat") {
+            animal_720URL = "https://source.unsplash.com/480x480/?dog"
+        } else {
+            animal_720URL = "https://source.unsplash.com/480x480/?cat"
+        }
     }
 }
 
@@ -116,14 +124,8 @@ extension UIImageView {
                 return
             }
             DispatchQueue.main.async {
-                UIView.animate(withDuration: 1, animations: {
-//                    components.0.alpha = 0.0
-                    components.1.alpha = 0.0
-                    self.image = image
-                }, completion: { _ in
-                    components.1.stopAnimating()
-//                    components.0.removeFromSuperview()
-                })
+                self.image = image
+                components.1.stopAnimating()
                 completion?(image)
             }
         })

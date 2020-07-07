@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userProfile.loadNextImage(to: userImageView, with: imageName)
+        userProfile.loadNextImage(to: userImageView, with: imageName, buttons: [nextButton])
         
         let buttonConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .large)
         
@@ -109,8 +109,8 @@ class LoginViewController: UIViewController {
     
     @IBAction private func nextTapped(_ sender: UIButton) {
         backButton.isEnabled = true
-        userProfile.loadNextImage(to: userImageView, with: imageName)
         animateButton(sender, arrowType: .right)
+        userProfile.loadNextImage(to: userImageView, with: imageName, buttons: [backButton, nextButton])
     }
 
 
