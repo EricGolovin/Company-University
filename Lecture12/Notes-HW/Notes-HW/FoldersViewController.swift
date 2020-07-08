@@ -58,6 +58,29 @@ class FoldersViewController: UIViewController {
         configureNewFolder(with: Folder(context: coreDataStack.managedContext))
     }
     
+    @IBAction func generateFoldersTapped(_ sender: UIBarButtonItem) {
+        let randomFolderCount = Int.random(in: 0...9)
+        for i in 0...randomFolderCount {
+            let newFolder = Folder(context: coreDataStack.managedContext)
+            newFolder.name = "Folder \(i * .random(in: 0...9))"
+            newFolder.creationDate = Date()
+            let randomNotesCount = Int.random(in: 0...9)
+            for j in 0...randomNotesCount {
+                let newNote = Note(context: coreDataStack.managedContext)
+                newNote.name = "Note \(i + j * .random(in: 0...9))"
+                newNote.creationDate = Date()
+                newFolder.addToNotes(newNote)
+            }
+            currentUser?.addToFolders(newFolder)
+        }
+        coreDataStack.saveContext()
+        tableView.reloadData()
+    }
+    @IBAction func clearDataTapped(_ sender: UIBarButtonItem) {
+        currentUser?.folders = nil
+        coreDataStack.saveContext()
+        tableView.reloadData()
+    }
 }
 
 // MARK: - TableView

@@ -35,8 +35,18 @@ class CoreDataStack {
     func saveContext() {
         guard managedContext.hasChanges else { return }
         
+        let privateManagedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        privateManagedObjectContext.parent = managedContext
+        
         do {
-            try managedContext.save()
+            try privateManagedObjectContext.save()
+            managedContext.performAndWait {
+                do {
+                    try self.managedContext.save()
+                } catch {
+                    fatalError("Failure to save context: \(error)")
+                }
+            }
         } catch let error as NSError {
             print("Unresolved error \(error), \(error.userInfo)")
         }
