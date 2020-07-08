@@ -8,50 +8,65 @@
 import UIKit
 
 class NoteTableViewController: UITableViewController {
-    
-    enum CellIdentifiers: String {
-        case cell = "Cell"
-        case infoCell = "InformationCell"
-    }
 
+    // MARK: - Outlets
+    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var informationTexView: UITextView!
     
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        return formatter
-    }()
-    
+    // MARK: - Properties
     var currentNote: Note?
     var completeAction: (() -> Void)?
-    
+    var interfaceCompletionAction: (() -> Void)?
+
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(title: "Cancel", handler: { _ in 
-            self.dismiss(animated: true, completion: nil)
-        }), menu: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveNote))
         
-        if let date = currentNote?.creationDate, let name = currentNote?.name, let information = currentNote?.information {
-            nameTextField.text = name
-            dateLabel.text = dateFormatter.string(from: date)
-            informationTexView.text = information
-        } else {
-            dateLabel.text = dateFormatter.string(from: Date())
-            currentNote?.creationDate = Date()
-        }
-        
+        configureUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interfaceCompletionAction?()
     }
 
+    // MARK: - Actions
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
     
-    @objc func saveNote() {
-        currentNote?.name = nameTextField.text != "" ? nameTextField.text : "No Title"
+    
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        currentNote?.name = nameTextField.text
         currentNote?.information = informationTexView.text
-        completeAction?()
+        
         dismiss(animated: true, completion: nil)
+        completeAction!()
+    }
+    
+    @IBAction func textFieldEdited(_ sender: UITextField) {
+        if !(sender.text == "") {
+            saveBarButtonItem.isEnabled = true
+        }
+    }
+}
+
+// MARK: - Helper Methods
+extension NoteTableViewController {
+    func configureUI() {
+        guard let _ = currentNote?.creationDate,
+              let stringDate = currentNote?.getStringDate(dateStyle: .medium, timeStyle: .short),
+              let name = currentNote?.name,
+              let information = currentNote?.information else {
+                currentNote?.creationDate = Date()
+                dateLabel.text = currentNote?.getStringDate(dateStyle: .medium, timeStyle: .short)
+            return
+        }
+        
+        nameTextField.text = name
+        dateLabel.text = stringDate
+        informationTexView.text = information
     }
 }

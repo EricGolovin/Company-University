@@ -11,7 +11,9 @@ import CoreData
 class FoldersViewController: UIViewController {
     
     // MARK: - Identifiers
-    private var folderCellIdentifier = "FolderCell"
+    private let folderCellIdentifier = "FolderCell"
+    private let showNotesSegueIdentifier = "showNotesSegue"
+    private let showFolderInfoSegueIdentifier = "showFolderInfoSegue"
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -44,8 +46,8 @@ class FoldersViewController: UIViewController {
         // TODO: - To Model File
         fetchUser(with: "TempUserName")
         
+ 
         navigationItem.title = currentUser?.name ?? "Failed to Load Name"
-        navigationController?.isToolbarHidden = true
     }
     
     // MARK: - Actions
@@ -58,6 +60,7 @@ class FoldersViewController: UIViewController {
     
 }
 
+// MARK: - TableView
 extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         currentUser?.folders?.count ?? 0
@@ -97,7 +100,7 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
             currentUser?.removeFromFolders(folderToRemove)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
-            coreDataStack.saveContext()
+            coreDataStack.delete(folderToRemove)
         case .none:
             break
         case .insert:
@@ -111,6 +114,8 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedIndexPath = indexPath
+        performSegue(withIdentifier: showNotesSegueIdentifier, sender: self)
     }
 }
 
@@ -118,7 +123,7 @@ extension FoldersViewController: UITableViewDataSource, UITableViewDelegate {
 extension FoldersViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "showNoteInfoSegue":
+        case showFolderInfoSegueIdentifier:
             guard let folderInfoVC = (segue.destination as? UINavigationController)?.viewControllers.first as? FolderInfoTableViewController,
                   let indexPath = selectedIndexPath else {
                 return
@@ -127,9 +132,18 @@ extension FoldersViewController {
             folderInfoVC.saveAction = { [weak self] in
                 self?.saveAndReloadTableView()
             }
+            
+        case showNotesSegueIdentifier:
+            guard let notesVC = segue.destination as? NotesCollectionViewController,
+                  let indexPath = selectedIndexPath else {
+                return
+            }
+            notesVC.currentFolder = getCurrentFolder(on: indexPath)
+            notesVC.navigationItem.title = "Hello"
         default:
             break
         }
+        selectedIndexPath = nil
     }
 }
 
@@ -139,7 +153,7 @@ extension FoldersViewController {
     func infoButtonTapped(on indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedIndexPath = indexPath
-        performSegue(withIdentifier: "showNoteInfoSegue", sender: nil)
+        performSegue(withIdentifier: showFolderInfoSegueIdentifier, sender: nil)
     }
     
     func saveAndReloadTableView() {
@@ -203,7 +217,6 @@ extension FoldersViewController {
         
         do {
             let results = try coreDataStack.managedContext.fetch(fetchRequest)
-            currentUser?.folders = nil
             currentUser?.folders = NSOrderedSet(array: results)
             tableView.reloadData()
         } catch let error as NSError {

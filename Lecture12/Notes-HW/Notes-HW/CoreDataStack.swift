@@ -14,7 +14,7 @@ class CoreDataStack {
     
     private let modelName: String
     
-    init(name: String) {
+    private init(name: String) {
         self.modelName = name
     }
     
@@ -40,5 +40,10 @@ class CoreDataStack {
         } catch let error as NSError {
             print("Unresolved error \(error), \(error.userInfo)")
         }
+    }
+    
+    func delete(_ object: NSManagedObject) {
+        managedContext.delete(object)
+        saveContext()
     }
 }
