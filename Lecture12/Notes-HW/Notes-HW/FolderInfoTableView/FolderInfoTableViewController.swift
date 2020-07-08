@@ -14,6 +14,8 @@ class FolderInfoTableViewController: UITableViewController {
     }
     
     // MARK: - Outlets
+    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
+    
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var detailsTextView: UITextView!
     @IBOutlet private weak var notesCountLabel: UILabel!
@@ -29,25 +31,10 @@ class FolderInfoTableViewController: UITableViewController {
     }()
     
     var currentFolder: Folder?
-    var dismissAction: (() -> Void)?
-    private var currentFolderEdited = false
+    var saveAction: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction(title: "Cancel", handler: { _ in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .save, primaryAction: UIAction(title: "Save", handler: { _ in
-            if self.currentFolderEdited || self.detailsTextView.text != self.currentFolder?.information {
-                self.currentFolder?.name = self.nameTextField.text
-                self.currentFolder?.information = self.detailsTextView.text
-                self.currentFolder?.modificationDate = Date()
-                self.dismissAction?()
-            }
-            self.dismiss(animated: true, completion: nil)
-        }))
         
         navigationItem.title = "Folder Info"
         
@@ -68,6 +55,17 @@ class FolderInfoTableViewController: UITableViewController {
     }
     
     @IBAction func textFieldEdited(_ sender: UITextField) {
-        currentFolderEdited = true
+        saveBarButtonItem.isEnabled = true
+    }
+    
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        currentFolder?.name = nameTextField.text
+        currentFolder?.information = detailsTextView.text
+        saveAction?()
+        dismiss(animated: true)
     }
 }

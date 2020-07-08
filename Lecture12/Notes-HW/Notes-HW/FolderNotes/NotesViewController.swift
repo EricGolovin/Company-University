@@ -16,6 +16,7 @@ class NotesViewController: UIViewController, UICollectionViewDelegate, UICollect
         return formatter
     }()
     
+    let coreDataStack = CoreDataStack.stack
     private var collectionView: UICollectionView!
     var currentFolder: Folder?
 
@@ -85,21 +86,13 @@ class NotesViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @objc func addNote() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
         
-        let newNote = Note(context: managedContext)
+        let newNote = Note(context: coreDataStack.managedContext)
         let noteViewController = UIStoryboard(name: "NoteTableViewController", bundle: nil).instantiateViewController(identifier: "NoteTableViewController") as NoteTableViewController
         noteViewController.currentNote = newNote
         noteViewController.completeAction = {
             self.currentFolder?.addToNotes(newNote)
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not fetch \(error), \(error.userInfo)")
-            }
+            self.coreDataStack.saveContext()
             self.collectionView.reloadData()
         }
         
@@ -124,22 +117,13 @@ class NotesViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return nil
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
             
             let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { action in
                 let viewMenu = UIAction(title: "View", image: UIImage(systemName: "eye.fill"), identifier: UIAction.Identifier(rawValue: "view")) { _ in
                     let noteViewController = UIStoryboard(name: "NoteTableViewController", bundle: nil).instantiateViewController(identifier: "NoteTableViewController") as NoteTableViewController
                     noteViewController.currentNote = self.currentFolder?.notes?[indexPath.row] as? Note
                     noteViewController.completeAction = {
-                        do {
-                            try managedContext.save()
-                        } catch let error as NSError {
-                            print("Could not fetch \(error), \(error.userInfo)")
-                        }
+                        self.coreDataStack.saveContext()
                         self.collectionView.reloadData()
                     }
                     let navigationController = UINavigationController(rootViewController: noteViewController)
@@ -153,11 +137,7 @@ class NotesViewController: UIViewController, UICollectionViewDelegate, UICollect
                     
                     self.currentFolder?.removeFromNotes(noteToDelete)
                     
-                    do {
-                        try managedContext.save()
-                    } catch let error as NSError {
-                        print("Could not fetch \(error), \(error.userInfo)")
-                    }
+                    self.coreDataStack.saveContext()
                     
                     self.collectionView.reloadData()
                 }
@@ -170,19 +150,10 @@ class NotesViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return 
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
         let noteViewController = UIStoryboard(name: "NoteTableViewController", bundle: nil).instantiateViewController(identifier: "NoteTableViewController") as NoteTableViewController
         noteViewController.currentNote = self.currentFolder?.notes?[indexPath.row] as? Note
         noteViewController.completeAction = {
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not fetch \(error), \(error.userInfo)")
-            }
+            self.coreDataStack.saveContext()
             self.collectionView.reloadData()
         }
         let navigationController = UINavigationController(rootViewController: noteViewController)

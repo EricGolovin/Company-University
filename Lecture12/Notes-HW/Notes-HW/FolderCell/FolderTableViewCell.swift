@@ -19,19 +19,16 @@ class FolderTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         folderImageView.image = UIImage(systemName: "folder")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
     // MARK: - Actions
-    
     @IBAction private func infoButtonTapped(_ sender: UIButton) {
         infoAction?()
     }
