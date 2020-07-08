@@ -18,6 +18,11 @@
 		E950F93524AC7A5F00DC1F06 /* FoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E950F93424AC7A5F00DC1F06 /* FoldersViewController.swift */; };
 		E95CB97F24ABAE7500F892E7 /* FolderInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CB97E24ABAE7500F892E7 /* FolderInfoTableViewController.swift */; };
 		E95CB98424ABCA8000F892E7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CB98224ABCA8000F892E7 /* FolderTableViewCell.swift */; };
+		E99772A324B670E60074D087 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A224B670E60074D087 /* StartViewController.swift */; };
+		E99772A524B672450074D087 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A424B672450074D087 /* UserCollectionViewCell.swift */; };
+		E99772A724B67B900074D087 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A624B67B900074D087 /* CreateUserViewController.swift */; };
+		E99772A924B67E0C0074D087 /* UserCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */; };
+		E99772AB24B6878F0074D087 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */; };
 		E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */; };
 		E9D0CEF124ABED5E00BE7932 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEB24ABED5E00BE7932 /* Note+CoreDataProperties.swift */; };
 		E9D0CEF224ABED5E00BE7932 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEC24ABED5E00BE7932 /* User+CoreDataProperties.swift */; };
@@ -65,6 +70,11 @@
 		E950F93424AC7A5F00DC1F06 /* FoldersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldersViewController.swift; sourceTree = "<group>"; };
 		E95CB97E24ABAE7500F892E7 /* FolderInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderInfoTableViewController.swift; sourceTree = "<group>"; };
 		E95CB98224ABCA8000F892E7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		E99772A224B670E60074D087 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		E99772A424B672450074D087 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		E99772A624B67B900074D087 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentialsManager.swift; sourceTree = "<group>"; };
+		E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9D0CEEB24ABED5E00BE7932 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9D0CEEC24ABED5E00BE7932 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -135,6 +145,11 @@
 				E9F2501024B5F38600FEE861 /* CoreDataStack.swift */,
 				E92B7BFE24AB8F7200A990DA /* SceneDelegate.swift */,
 				E92B7C0224AB8F7200A990DA /* Main.storyboard */,
+				E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */,
+				E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */,
+				E99772A624B67B900074D087 /* CreateUserViewController.swift */,
+				E99772A424B672450074D087 /* UserCollectionViewCell.swift */,
+				E99772A224B670E60074D087 /* StartViewController.swift */,
 				E92B7C0824AB8F7900A990DA /* Assets.xcassets */,
 				E92B7C0A24AB8F7900A990DA /* LaunchScreen.storyboard */,
 				E92B7C0524AB8F7200A990DA /* Notes_HW.xcdatamodeld */,
@@ -350,15 +365,20 @@
 				E9F2500F24B5DF8800FEE861 /* NotesCollectionViewController.swift in Sources */,
 				E95CB97F24ABAE7500F892E7 /* FolderInfoTableViewController.swift in Sources */,
 				E9D0CEF424ABED5E00BE7932 /* User+CoreDataClass.swift in Sources */,
+				E99772A724B67B900074D087 /* CreateUserViewController.swift in Sources */,
 				E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */,
 				E92B7BFD24AB8F7200A990DA /* AppDelegate.swift in Sources */,
 				E92B7BFF24AB8F7200A990DA /* SceneDelegate.swift in Sources */,
 				E9D0CF0124ABF53700BE7932 /* NoteTableViewController.swift in Sources */,
 				E9D0CEF224ABED5E00BE7932 /* User+CoreDataProperties.swift in Sources */,
+				E99772A324B670E60074D087 /* StartViewController.swift in Sources */,
 				E9D0CEF324ABED5E00BE7932 /* Note+CoreDataClass.swift in Sources */,
 				E9F2501124B5F38600FEE861 /* CoreDataStack.swift in Sources */,
 				E950F93524AC7A5F00DC1F06 /* FoldersViewController.swift in Sources */,
+				E99772A924B67E0C0074D087 /* UserCredentialsManager.swift in Sources */,
 				E95CB98424ABCA8000F892E7 /* FolderTableViewCell.swift in Sources */,
+				E99772AB24B6878F0074D087 /* UserDefaultsManager.swift in Sources */,
+				E99772A524B672450074D087 /* UserCollectionViewCell.swift in Sources */,
 				E9D0CEF624ABED5E00BE7932 /* Folder+CoreDataProperties.swift in Sources */,
 				E9D0CEF124ABED5E00BE7932 /* Note+CoreDataProperties.swift in Sources */,
 			);
