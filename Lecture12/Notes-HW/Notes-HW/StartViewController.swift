@@ -23,14 +23,16 @@ class StartViewController: UIViewController {
                                              right: 20.0)
     private let itemsPerRow: CGFloat = 2
     
-    private var logins: Array<String>!
+    private var logins = [String]()
+    private var images = [UIImage]()
+    private var selectedIndexPath: IndexPath?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logins = UserDefaultsManager.loadLogins() ?? [String]()
         configureCollectionView()
+        loadUserFromMemory()
     }
     
     func configureCollectionView() {
@@ -40,6 +42,21 @@ class StartViewController: UIViewController {
         collectionView.layer.shadowRadius = 10
         collectionView.layer.shadowOpacity = 1
         collectionView.layer.shadowOffset = CGSize(width: 1, height: 5)
+    }
+    
+    func loadUserFromMemory() {
+        guard let userLogins = UserDefaultsManager.loadUserLogins(),
+              let userImageURLs = UserDefaultsManager.loadUserImageURLs() else {
+            print("usersData = nil")
+            return
+        }
+        
+        logins = userLogins
+        
+        for url in userImageURLs {
+            let image = UserDefaultsManager.loadImage(from: URL(string: url)!) ?? UIImage()
+            images.append(image)
+        }
     }
     
     
@@ -85,8 +102,32 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             return UICollectionViewCell()
         }
         
-        cell.userImageView.image = UIImage(systemName: "person.circle")
+        cell.userImageView.image = images[indexPath.row]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        performSegue(withIdentifier: loginSegue, sender: self)
+    }
+}
+
+// MARK: - Navigation
+extension StartViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case loginSegue:
+            guard let loginUserVC = segue.destination as? LoginUserViewController,
+                  let indexPath = selectedIndexPath,
+                  let selectedCell = collectionView.cellForItem(at: indexPath) as? UserCollectionViewCell,
+                  let image = selectedCell.userImageView.image else {
+                return
+            }
+            loginUserVC.userData = UserLoginData(image: image, username: logins[indexPath.row])
+        default:
+            break
+        }
+        selectedIndexPath = nil
     }
 }

@@ -23,6 +23,9 @@
 		E99772A724B67B900074D087 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A624B67B900074D087 /* CreateUserViewController.swift */; };
 		E99772A924B67E0C0074D087 /* UserCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */; };
 		E99772AB24B6878F0074D087 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */; };
+		E99772AD24B72A110074D087 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AC24B72A110074D087 /* LoginUserViewController.swift */; };
+		E99772AF24B72AC10074D087 /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AE24B72AC10074D087 /* UserImageView.swift */; };
+		E99772B124B731560074D087 /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772B024B731560074D087 /* UserLoginData.swift */; };
 		E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */; };
 		E9D0CEF124ABED5E00BE7932 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEB24ABED5E00BE7932 /* Note+CoreDataProperties.swift */; };
 		E9D0CEF224ABED5E00BE7932 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEC24ABED5E00BE7932 /* User+CoreDataProperties.swift */; };
@@ -75,6 +78,9 @@
 		E99772A624B67B900074D087 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentialsManager.swift; sourceTree = "<group>"; };
 		E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		E99772AC24B72A110074D087 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
+		E99772AE24B72AC10074D087 /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
+		E99772B024B731560074D087 /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
 		E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9D0CEEB24ABED5E00BE7932 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9D0CEEC24ABED5E00BE7932 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 		E92B7BF024AB8F7200A990DA = {
 			isa = PBXGroup;
 			children = (
+				E99772B024B731560074D087 /* UserLoginData.swift */,
 				E92B7BFB24AB8F7200A990DA /* Notes-HW */,
 				E92B7C1524AB8F7900A990DA /* Notes-HWTests */,
 				E92B7C2024AB8F7900A990DA /* Notes-HWUITests */,
@@ -145,6 +152,8 @@
 				E9F2501024B5F38600FEE861 /* CoreDataStack.swift */,
 				E92B7BFE24AB8F7200A990DA /* SceneDelegate.swift */,
 				E92B7C0224AB8F7200A990DA /* Main.storyboard */,
+				E99772AC24B72A110074D087 /* LoginUserViewController.swift */,
+				E99772AE24B72AC10074D087 /* UserImageView.swift */,
 				E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */,
 				E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */,
 				E99772A624B67B900074D087 /* CreateUserViewController.swift */,
@@ -368,6 +377,7 @@
 				E99772A724B67B900074D087 /* CreateUserViewController.swift in Sources */,
 				E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */,
 				E92B7BFD24AB8F7200A990DA /* AppDelegate.swift in Sources */,
+				E99772B124B731560074D087 /* UserLoginData.swift in Sources */,
 				E92B7BFF24AB8F7200A990DA /* SceneDelegate.swift in Sources */,
 				E9D0CF0124ABF53700BE7932 /* NoteTableViewController.swift in Sources */,
 				E9D0CEF224ABED5E00BE7932 /* User+CoreDataProperties.swift in Sources */,
@@ -375,7 +385,9 @@
 				E9D0CEF324ABED5E00BE7932 /* Note+CoreDataClass.swift in Sources */,
 				E9F2501124B5F38600FEE861 /* CoreDataStack.swift in Sources */,
 				E950F93524AC7A5F00DC1F06 /* FoldersViewController.swift in Sources */,
+				E99772AD24B72A110074D087 /* LoginUserViewController.swift in Sources */,
 				E99772A924B67E0C0074D087 /* UserCredentialsManager.swift in Sources */,
+				E99772AF24B72AC10074D087 /* UserImageView.swift in Sources */,
 				E95CB98424ABCA8000F892E7 /* FolderTableViewCell.swift in Sources */,
 				E99772AB24B6878F0074D087 /* UserDefaultsManager.swift in Sources */,
 				E99772A524B672450074D087 /* UserCollectionViewCell.swift in Sources */,

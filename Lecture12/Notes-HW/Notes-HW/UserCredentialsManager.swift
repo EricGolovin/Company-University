@@ -5,12 +5,13 @@
 //  Created by Eric Golovin on 7/9/20.
 //
 
-import Foundation
+import UIKit
 
 
 struct Credentials {
     var username: String
     var password: String
+    var profileImage: UIImage
 }
 
 enum KeychainError: Error {
@@ -26,8 +27,8 @@ class UserCredentialsManager {
     
     private var userCredentials: Credentials?
     
-    func saveNewUser(username: String, password: String) {
-        userCredentials = Credentials(username: username, password: password)
+    func saveNewUser(username: String, password: String, userImage: UIImage) {
+        userCredentials = Credentials(username: username, password: password, profileImage: userImage)
         
         do {
             try save()
@@ -38,7 +39,8 @@ class UserCredentialsManager {
     
     private func save() throws {
         guard let username = userCredentials?.username,
-              let password = userCredentials?.password.data(using: String.Encoding.utf8) else {
+              let password = userCredentials?.password.data(using: String.Encoding.utf8),
+              let profileImage = userCredentials?.profileImage else {
             fatalError("UserCredentials are nil")
         }
         
@@ -46,7 +48,7 @@ class UserCredentialsManager {
             throw KeychainError.userAlreadyExist
         }
         
-        UserDefaultsManager.addLogin(username)
+        UserDefaultsManager.addUser(login: username, image: profileImage)
         
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrCreator as String: username,
