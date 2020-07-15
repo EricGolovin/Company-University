@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoteTableViewController: UITableViewController {
+class NoteDetailTableViewController: UITableViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
@@ -54,7 +54,7 @@ class NoteTableViewController: UITableViewController {
 }
 
 // MARK: - Helper Methods
-extension NoteTableViewController {
+extension NoteDetailTableViewController {
     func configureUI() {
         guard let _ = currentNote?.creationDate,
               let stringDate = currentNote?.getStringDate(dateStyle: .medium, timeStyle: .short),

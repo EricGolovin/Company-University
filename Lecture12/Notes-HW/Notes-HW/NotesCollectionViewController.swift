@@ -121,7 +121,7 @@ extension NotesCollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case addNoteSegueIdentifier:
-            guard let noteVC = (segue.destination as? UINavigationController)?.viewControllers.first as? NoteTableViewController else {
+            guard let noteVC = (segue.destination as? UINavigationController)?.viewControllers.first as? NoteDetailTableViewController else {
                 return
             }
             if let indexPath = selectedIndexPath,

@@ -20,12 +20,13 @@
 		E95CB98424ABCA8000F892E7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CB98224ABCA8000F892E7 /* FolderTableViewCell.swift */; };
 		E99772A324B670E60074D087 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A224B670E60074D087 /* StartViewController.swift */; };
 		E99772A524B672450074D087 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A424B672450074D087 /* UserCollectionViewCell.swift */; };
-		E99772A724B67B900074D087 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A624B67B900074D087 /* CreateUserViewController.swift */; };
+		E99772A724B67B900074D087 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A624B67B900074D087 /* SignUpViewController.swift */; };
 		E99772A924B67E0C0074D087 /* UserCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */; };
 		E99772AB24B6878F0074D087 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */; };
-		E99772AD24B72A110074D087 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AC24B72A110074D087 /* LoginUserViewController.swift */; };
+		E99772AD24B72A110074D087 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AC24B72A110074D087 /* LoginViewController.swift */; };
 		E99772AF24B72AC10074D087 /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772AE24B72AC10074D087 /* UserImageView.swift */; };
 		E99772B124B731560074D087 /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99772B024B731560074D087 /* UserLoginData.swift */; };
+		E9A2D7A724BF3E9A00B682F1 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2D7A624BF3E9A00B682F1 /* KeychainManager.swift */; };
 		E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */; };
 		E9D0CEF124ABED5E00BE7932 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEB24ABED5E00BE7932 /* Note+CoreDataProperties.swift */; };
 		E9D0CEF224ABED5E00BE7932 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEC24ABED5E00BE7932 /* User+CoreDataProperties.swift */; };
@@ -33,7 +34,7 @@
 		E9D0CEF424ABED5E00BE7932 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEE24ABED5E00BE7932 /* User+CoreDataClass.swift */; };
 		E9D0CEF524ABED5E00BE7932 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEEF24ABED5E00BE7932 /* Folder+CoreDataClass.swift */; };
 		E9D0CEF624ABED5E00BE7932 /* Folder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CEF024ABED5E00BE7932 /* Folder+CoreDataProperties.swift */; };
-		E9D0CF0124ABF53700BE7932 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CF0024ABF53700BE7932 /* NoteTableViewController.swift */; };
+		E9D0CF0124ABF53700BE7932 /* NoteDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D0CF0024ABF53700BE7932 /* NoteDetailTableViewController.swift */; };
 		E9F2500F24B5DF8800FEE861 /* NotesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F2500E24B5DF8800FEE861 /* NotesCollectionViewController.swift */; };
 		E9F2501124B5F38600FEE861 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F2501024B5F38600FEE861 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
@@ -75,12 +76,13 @@
 		E95CB98224ABCA8000F892E7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		E99772A224B670E60074D087 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		E99772A424B672450074D087 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
-		E99772A624B67B900074D087 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		E99772A624B67B900074D087 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentialsManager.swift; sourceTree = "<group>"; };
 		E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		E99772AC24B72A110074D087 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
+		E99772AC24B72A110074D087 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E99772AE24B72AC10074D087 /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
 		E99772B024B731560074D087 /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
+		E9A2D7A624BF3E9A00B682F1 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9D0CEEB24ABED5E00BE7932 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9D0CEEC24ABED5E00BE7932 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		E9D0CEEE24ABED5E00BE7932 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E9D0CEEF24ABED5E00BE7932 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E9D0CEF024ABED5E00BE7932 /* Folder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E9D0CF0024ABF53700BE7932 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
+		E9D0CF0024ABF53700BE7932 /* NoteDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailTableViewController.swift; sourceTree = "<group>"; };
 		E9F2500E24B5DF8800FEE861 /* NotesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesCollectionViewController.swift; path = "Notes-HW/NotesCollectionViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E9F2501024B5F38600FEE861 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +123,6 @@
 		E92B7BF024AB8F7200A990DA = {
 			isa = PBXGroup;
 			children = (
-				E99772B024B731560074D087 /* UserLoginData.swift */,
 				E92B7BFB24AB8F7200A990DA /* Notes-HW */,
 				E92B7C1524AB8F7900A990DA /* Notes-HWTests */,
 				E92B7C2024AB8F7900A990DA /* Notes-HWUITests */,
@@ -142,27 +143,22 @@
 		E92B7BFB24AB8F7200A990DA /* Notes-HW */ = {
 			isa = PBXGroup;
 			children = (
-				E9D0CEE024ABEB8200BE7932 /* NoteTableView */,
-				E9D0CEC924ABD48100BE7932 /* FolderNotes */,
-				E95CB98624ABCA8600F892E7 /* FolderCell */,
+				E9A2D7A224BF3A2000B682F1 /* Models */,
+				E9A2D7A124BF3A0A00B682F1 /* StartViewController */,
+				E9A2D7A324BF3A7100B682F1 /* LoginViewController */,
+				E9A2D7A424BF3AE800B682F1 /* SignUpViewController */,
+				E9A2D7A524BF3B0700B682F1 /* FoldersViewController */,
 				E9CF95B724ABA8BB00A679B4 /* FolderInfoTableView */,
-				E9CF958C24AB959100A679B4 /* CoreDataStack */,
+				E9D0CEC924ABD48100BE7932 /* NotesCollectionViewController */,
+				E9D0CEE024ABEB8200BE7932 /* NoteDetailTableViewController */,
 				E92B7BFC24AB8F7200A990DA /* AppDelegate.swift */,
-				E950F93424AC7A5F00DC1F06 /* FoldersViewController.swift */,
-				E9F2501024B5F38600FEE861 /* CoreDataStack.swift */,
 				E92B7BFE24AB8F7200A990DA /* SceneDelegate.swift */,
 				E92B7C0224AB8F7200A990DA /* Main.storyboard */,
-				E99772AC24B72A110074D087 /* LoginUserViewController.swift */,
-				E99772AE24B72AC10074D087 /* UserImageView.swift */,
-				E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */,
-				E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */,
-				E99772A624B67B900074D087 /* CreateUserViewController.swift */,
-				E99772A424B672450074D087 /* UserCollectionViewCell.swift */,
-				E99772A224B670E60074D087 /* StartViewController.swift */,
 				E92B7C0824AB8F7900A990DA /* Assets.xcassets */,
 				E92B7C0A24AB8F7900A990DA /* LaunchScreen.storyboard */,
 				E92B7C0524AB8F7200A990DA /* Notes_HW.xcdatamodeld */,
 				E92B7C0D24AB8F7900A990DA /* Info.plist */,
+				E9CF958C24AB959100A679B4 /* CoreDataStack */,
 			);
 			path = "Notes-HW";
 			sourceTree = "<group>";
@@ -185,15 +181,7 @@
 			path = "Notes-HWUITests";
 			sourceTree = "<group>";
 		};
-		E95CB98624ABCA8600F892E7 /* FolderCell */ = {
-			isa = PBXGroup;
-			children = (
-				E95CB98224ABCA8000F892E7 /* FolderTableViewCell.swift */,
-			);
-			path = FolderCell;
-			sourceTree = "<group>";
-		};
-		E9CF958C24AB959100A679B4 /* CoreDataStack */ = {
+		E9A2D7A024BF39C700B682F1 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
 				E9D0CEEF24ABED5E00BE7932 /* Folder+CoreDataClass.swift */,
@@ -202,6 +190,61 @@
 				E9D0CEEB24ABED5E00BE7932 /* Note+CoreDataProperties.swift */,
 				E9D0CEEE24ABED5E00BE7932 /* User+CoreDataClass.swift */,
 				E9D0CEEC24ABED5E00BE7932 /* User+CoreDataProperties.swift */,
+			);
+			path = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		E9A2D7A124BF3A0A00B682F1 /* StartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E99772A224B670E60074D087 /* StartViewController.swift */,
+				E99772A424B672450074D087 /* UserCollectionViewCell.swift */,
+			);
+			path = StartViewController;
+			sourceTree = "<group>";
+		};
+		E9A2D7A224BF3A2000B682F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E99772B024B731560074D087 /* UserLoginData.swift */,
+				E99772AA24B6878F0074D087 /* UserDefaultsManager.swift */,
+				E99772A824B67E0C0074D087 /* UserCredentialsManager.swift */,
+				E9A2D7A624BF3E9A00B682F1 /* KeychainManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9A2D7A324BF3A7100B682F1 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E99772AC24B72A110074D087 /* LoginViewController.swift */,
+				E99772AE24B72AC10074D087 /* UserImageView.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		E9A2D7A424BF3AE800B682F1 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E99772A624B67B900074D087 /* SignUpViewController.swift */,
+			);
+			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		E9A2D7A524BF3B0700B682F1 /* FoldersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E950F93424AC7A5F00DC1F06 /* FoldersViewController.swift */,
+				E95CB98224ABCA8000F892E7 /* FolderTableViewCell.swift */,
+			);
+			path = FoldersViewController;
+			sourceTree = "<group>";
+		};
+		E9CF958C24AB959100A679B4 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				E9F2501024B5F38600FEE861 /* CoreDataStack.swift */,
+				E9A2D7A024BF39C700B682F1 /* ManagedObjects */,
 			);
 			path = CoreDataStack;
 			sourceTree = "<group>";
@@ -214,29 +257,21 @@
 			path = FolderInfoTableView;
 			sourceTree = "<group>";
 		};
-		E9D0CEC924ABD48100BE7932 /* FolderNotes */ = {
+		E9D0CEC924ABD48100BE7932 /* NotesCollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E9D0CED924ABD5A400BE7932 /* NoteCell */,
 				E9F2500E24B5DF8800FEE861 /* NotesCollectionViewController.swift */,
-			);
-			path = FolderNotes;
-			sourceTree = "<group>";
-		};
-		E9D0CED924ABD5A400BE7932 /* NoteCell */ = {
-			isa = PBXGroup;
-			children = (
 				E9D0CED624ABD5A000BE7932 /* NoteCollectionViewCell.swift */,
 			);
-			path = NoteCell;
+			path = NotesCollectionViewController;
 			sourceTree = "<group>";
 		};
-		E9D0CEE024ABEB8200BE7932 /* NoteTableView */ = {
+		E9D0CEE024ABEB8200BE7932 /* NoteDetailTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E9D0CF0024ABF53700BE7932 /* NoteTableViewController.swift */,
+				E9D0CF0024ABF53700BE7932 /* NoteDetailTableViewController.swift */,
 			);
-			path = NoteTableView;
+			path = NoteDetailTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,19 +408,20 @@
 				E9D0CEF524ABED5E00BE7932 /* Folder+CoreDataClass.swift in Sources */,
 				E9F2500F24B5DF8800FEE861 /* NotesCollectionViewController.swift in Sources */,
 				E95CB97F24ABAE7500F892E7 /* FolderInfoTableViewController.swift in Sources */,
+				E9A2D7A724BF3E9A00B682F1 /* KeychainManager.swift in Sources */,
 				E9D0CEF424ABED5E00BE7932 /* User+CoreDataClass.swift in Sources */,
-				E99772A724B67B900074D087 /* CreateUserViewController.swift in Sources */,
+				E99772A724B67B900074D087 /* SignUpViewController.swift in Sources */,
 				E9D0CED824ABD5A000BE7932 /* NoteCollectionViewCell.swift in Sources */,
 				E92B7BFD24AB8F7200A990DA /* AppDelegate.swift in Sources */,
 				E99772B124B731560074D087 /* UserLoginData.swift in Sources */,
 				E92B7BFF24AB8F7200A990DA /* SceneDelegate.swift in Sources */,
-				E9D0CF0124ABF53700BE7932 /* NoteTableViewController.swift in Sources */,
+				E9D0CF0124ABF53700BE7932 /* NoteDetailTableViewController.swift in Sources */,
 				E9D0CEF224ABED5E00BE7932 /* User+CoreDataProperties.swift in Sources */,
 				E99772A324B670E60074D087 /* StartViewController.swift in Sources */,
 				E9D0CEF324ABED5E00BE7932 /* Note+CoreDataClass.swift in Sources */,
 				E9F2501124B5F38600FEE861 /* CoreDataStack.swift in Sources */,
 				E950F93524AC7A5F00DC1F06 /* FoldersViewController.swift in Sources */,
-				E99772AD24B72A110074D087 /* LoginUserViewController.swift in Sources */,
+				E99772AD24B72A110074D087 /* LoginViewController.swift in Sources */,
 				E99772A924B67E0C0074D087 /* UserCredentialsManager.swift in Sources */,
 				E99772AF24B72AC10074D087 /* UserImageView.swift in Sources */,
 				E95CB98424ABCA8000F892E7 /* FolderTableViewCell.swift in Sources */,
@@ -571,6 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U87X99UU87;
 				INFOPLIST_FILE = "Notes-HW/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,6 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U87X99UU87;
 				INFOPLIST_FILE = "Notes-HW/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,7 +647,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U87X99UU87;
 				INFOPLIST_FILE = "Notes-HWTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,7 +669,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U87X99UU87;
 				INFOPLIST_FILE = "Notes-HWTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,6 +690,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U87X99UU87;
 				INFOPLIST_FILE = "Notes-HWUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -672,6 +711,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U87X99UU87;
 				INFOPLIST_FILE = "Notes-HWUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

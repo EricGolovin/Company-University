@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateUserViewController: UIViewController {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var userImageView: UIImageView!
@@ -17,20 +17,19 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     // MARK: - Properties
-    let credentialManager = UserCredentialsManager()
+    private let credentialManager = UserCredentialsManager()
+    private let pickerController = UIImagePickerController()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configurePickerController()
     }
     
     // MARK: - Actions
-
-    
     @IBAction func chooseImageTapped(_ sender: UIButton) {
-        
+        present(pickerController, animated: true)
     }
     
     @IBAction func textFieldsEditingDidChanged(_ sender: UITextField) {
@@ -47,15 +46,25 @@ class CreateUserViewController: UIViewController {
         }
         credentialManager.saveNewUser(username: username, password: password, userImage: image)
     }
-    
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension SignUpViewController {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        userImageView.image = image
+        pickerController.dismiss(animated: true)
     }
-    */
 
+
+}
+
+extension SignUpViewController {
+    func configurePickerController() {
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.sourceType = .photoLibrary
+    }
 }

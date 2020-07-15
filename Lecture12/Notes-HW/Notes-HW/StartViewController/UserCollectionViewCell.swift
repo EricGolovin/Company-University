@@ -14,7 +14,7 @@ class UserCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let cornerRadius = userImageView.bounds.width / 2
+        let cornerRadius = self.bounds.width / 2
         userImageView.layer.cornerRadius = cornerRadius
         layer.cornerRadius = cornerRadius
     }
