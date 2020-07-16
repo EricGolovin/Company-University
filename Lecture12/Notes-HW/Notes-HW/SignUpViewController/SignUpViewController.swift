@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     // MARK: - Identifiers
     private let signUpUserSegueIdentifier = "Sign Up User"
+    
     // MARK: - Outlets
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var chooseImageButton: UIButton!
@@ -21,6 +22,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Properties
     private let credentialManager = UserCredentialsManager()
     private let pickerController = UIImagePickerController()
+    private let coreDataStack = CoreDataStack.stack
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -70,6 +72,24 @@ extension SignUpViewController {
 
 }
 
+// MARK: - Navigation
+extension SignUpViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case signUpUserSegueIdentifier:
+            guard let destinationNavigationController = segue.destination as? UINavigationController,
+                let foldersVC = destinationNavigationController.viewControllers[0] as? FoldersViewController else {
+                return
+            }
+            foldersVC.currentUser = addNewUser()
+        default:
+            return
+        }
+    }
+
+}
+
 // MARK: - Helper Methods
 extension SignUpViewController {
     
@@ -91,4 +111,11 @@ extension SignUpViewController {
         })
     }
     
+    func addNewUser() -> User {
+        let newUser = User(context: coreDataStack.managedContext)
+        newUser.name = usernameTextField.text!
+        coreDataStack.saveContext()
+        
+        return newUser
+    }
 }

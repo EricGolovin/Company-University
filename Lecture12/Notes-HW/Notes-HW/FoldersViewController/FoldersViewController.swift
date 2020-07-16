@@ -31,6 +31,7 @@ class FoldersViewController: UIViewController {
     var currentUser: User?
     var selectedIndexPath: IndexPath?
     
+    // MARK: Sort Descriptors
     lazy var nameSortDescriptor: NSSortDescriptor = {
         let compareSelector = #selector(NSString.localizedStandardCompare(_:))
         return NSSortDescriptor(key: #keyPath(Folder.name
@@ -40,12 +41,9 @@ class FoldersViewController: UIViewController {
         return NSSortDescriptor(key: #keyPath(Folder.creationDate), ascending: true)
     }()
     
+    // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: - To Model File
-        fetchUser(with: "TempUserName")
-        
  
         navigationItem.title = currentUser?.name ?? "Failed to Load Name"
     }
@@ -222,27 +220,9 @@ extension FoldersViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func fetchUser(with userName: String) {
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        
-        do {
-            let results = try coreDataStack.managedContext.fetch(request)
-            
-            if results.count > 0 {
-                currentUser = results.first
-            } else {
-                currentUser = User(context: coreDataStack.managedContext)
-                currentUser?.name = userName
-                try coreDataStack.managedContext.save()
-            }
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-    }
-    
     func filterViewController(sortDescriptor: NSSortDescriptor) {
         let fetchRequest = NSFetchRequest<Folder>(entityName: "Folder")
-        
+        fetchRequest.predicate = NSPredicate(format: "%K == %@", #keyPath(Folder.user.name), currentUser!.name!)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {

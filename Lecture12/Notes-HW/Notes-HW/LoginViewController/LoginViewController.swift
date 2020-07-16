@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
     
@@ -20,7 +21,8 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     var userData: UserLoginData?
-    private var userCredentialsManager = UserCredentialsManager()
+    private let userCredentialsManager = UserCredentialsManager()
+    private let coreDataStack = CoreDataStack.stack
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +55,28 @@ class LoginViewController: UIViewController {
     
 }
 
+// MARK: - Navigation
 extension LoginViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case logInSegueIdentifier:
+            guard let destinationNavigationController = segue.destination as? UINavigationController,
+            let foldersVC = destinationNavigationController.viewControllers[0] as? FoldersViewController,
+                let username = usernameLabel.text,
+                let fetchedUser = fetchUser(with: username) else {
+                return
+            }
+            foldersVC.currentUser = fetchedUser
+        default:
+            return
+        }
+    }
+    
+}
+
+extension LoginViewController {
+    
     func performWrongPasswordAnimation() {
         UIView.animate(withDuration: 1, animations: {
             self.passwordTextField.backgroundColor = .red
@@ -62,5 +85,21 @@ extension LoginViewController {
                 self.passwordTextField.backgroundColor = .white
             })
         })
+    }
+    
+    func fetchUser(with userName: String) -> User? {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "%K == %@", #keyPath(User.name), userName)
+        
+        do {
+            let results = try coreDataStack.managedContext.fetch(request)
+            if results.count > 0 {
+                return results[0]
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        return nil
     }
 }
