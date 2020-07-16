@@ -9,6 +9,8 @@ import UIKit
 
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // MARK: - Identifiers
+    private let signUpUserSegueIdentifier = "Sign Up User"
     // MARK: - Outlets
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var chooseImageButton: UIButton!
@@ -44,10 +46,17 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
               let image = userImageView.image else {
             fatalError("TextFields Text are nil")
         }
-        credentialManager.saveNewUser(username: username, password: password, userImage: image)
+        credentialManager.saveNewUser(username: username, password: password, userImage: image, completion: { saved in
+            if saved {
+                self.performSegue(withIdentifier: self.signUpUserSegueIdentifier, sender: self)
+            } else {
+                self.userSignUpErrorAnimation()
+            }
+        })
     }
 }
 
+// MARK: - Image Picker Delegate
 extension SignUpViewController {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -61,10 +70,25 @@ extension SignUpViewController {
 
 }
 
+// MARK: - Helper Methods
 extension SignUpViewController {
+    
     func configurePickerController() {
         pickerController.delegate = self
         pickerController.allowsEditing = true
         pickerController.sourceType = .photoLibrary
     }
+    
+    func userSignUpErrorAnimation() {
+        UIView.animate(withDuration: 1, animations: {
+            self.usernameTextField.backgroundColor = .red
+            self.passwordTextField.backgroundColor = .red
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.5, animations: {
+            self.usernameTextField.backgroundColor = .white
+            self.passwordTextField.backgroundColor = .white
+            })
+        })
+    }
+    
 }

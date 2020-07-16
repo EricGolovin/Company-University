@@ -17,5 +17,11 @@ class UserCollectionViewCell: UICollectionViewCell {
         let cornerRadius = self.bounds.width / 2
         userImageView.layer.cornerRadius = cornerRadius
         layer.cornerRadius = cornerRadius
+        
+        clipsToBounds = false
+        layer.shadowColor = UIColor.white.cgColor
+        layer.shadowRadius = 20
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 5, height: 5)
     }
 }

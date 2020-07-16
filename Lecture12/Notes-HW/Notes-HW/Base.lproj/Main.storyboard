@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rfH-Uo-gbz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rfH-Uo-gbz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -102,14 +102,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Generate Folders" width="100" id="f8L-n1-CnT">
+                        <barButtonItem title="Generate Folders" width="165" id="f8L-n1-CnT">
                             <connections>
                                 <action selector="generateFoldersTapped:" destination="BYZ-38-t0r" id="V95-mv-beB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="ClearData" image="clear" catalog="system" width="100" id="aVb-CS-H9N">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fxf-ki-9f8"/>
+                        <barButtonItem title="ClearData" image="clear" catalog="system" id="aVb-CS-H9N">
                             <connections>
                                 <action selector="clearDataTapped:" destination="BYZ-38-t0r" id="SKi-4d-5q9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9zj-Hi-l8U"/>
+                        <barButtonItem title="Sign Out" id="GQh-00-U7p">
+                            <connections>
+                                <action selector="signOutTapped:" destination="BYZ-38-t0r" id="oTv-EL-k5j"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -131,6 +138,7 @@
                         <outlet property="sortBarButton" destination="0uD-gl-HVE" id="ysS-UD-fxu"/>
                         <outlet property="tableView" destination="adB-Hi-SVW" id="ht8-bi-1NQ"/>
                         <segue destination="VbV-Cw-z9u" kind="show" identifier="showNotesSegue" id="mJa-bt-S8E"/>
+                        <segue destination="abd-Rh-Jdh" kind="unwind" identifier="Unwind to StartVC" unwindAction="unwind:" id="OUi-DU-aM9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -167,7 +175,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vfx-UF-5VS">
-                                            <rect key="frame" x="62.5" y="136" width="35.5" height="20.5"/>
+                                            <rect key="frame" x="20" y="136" width="120" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -183,9 +191,10 @@
                                         <constraint firstAttribute="bottom" secondItem="7oW-4U-qYY" secondAttribute="bottom" constant="8" id="0F9-V4-Dup"/>
                                         <constraint firstItem="Vfx-UF-5VS" firstAttribute="top" secondItem="9Rz-jN-7NF" secondAttribute="bottom" constant="8" id="3pa-9H-IdY"/>
                                         <constraint firstItem="9Rz-jN-7NF" firstAttribute="centerX" secondItem="g5b-H6-ul8" secondAttribute="centerX" id="9Ed-P6-rCj"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vfx-UF-5VS" secondAttribute="trailing" constant="20" id="ITi-eE-tge"/>
                                         <constraint firstItem="9Rz-jN-7NF" firstAttribute="leading" secondItem="g5b-H6-ul8" secondAttribute="leading" constant="20" id="TeC-3d-Hmo"/>
-                                        <constraint firstItem="Vfx-UF-5VS" firstAttribute="centerX" secondItem="g5b-H6-ul8" secondAttribute="centerX" id="Tg0-Nb-zZ8"/>
                                         <constraint firstItem="7oW-4U-qYY" firstAttribute="centerX" secondItem="g5b-H6-ul8" secondAttribute="centerX" id="Wjm-WE-uHB"/>
+                                        <constraint firstItem="Vfx-UF-5VS" firstAttribute="leading" secondItem="g5b-H6-ul8" secondAttribute="leading" constant="20" id="sjr-C7-mHu"/>
                                         <constraint firstAttribute="trailing" secondItem="9Rz-jN-7NF" secondAttribute="trailing" constant="20" id="vcE-i6-iqF"/>
                                         <constraint firstItem="7oW-4U-qYY" firstAttribute="top" secondItem="Vfx-UF-5VS" secondAttribute="bottom" constant="8" id="wjj-U2-Xn3"/>
                                         <constraint firstItem="9Rz-jN-7NF" firstAttribute="top" secondItem="g5b-H6-ul8" secondAttribute="top" constant="8" id="zgm-14-tVG"/>
@@ -307,9 +316,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-YK-zPH">
+                                <rect key="frame" x="20" y="802" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Yzr-JJ-nvk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <state key="normal" title="Create User">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="createUserTapped:" destination="mEU-zD-Kvj" eventType="touchUpInside" id="uXJ-Yv-9tq"/>
+                                    <segue destination="Bw9-GB-49r" kind="showDetail" id="aSy-Uc-psU"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hPj-Ld-Sag">
                                 <rect key="frame" x="20" y="64" width="374" height="718"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.19611451617885509" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gEO-AL-7XT">
                                     <size key="itemSize" width="182" height="231"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -350,21 +373,6 @@
                                     <outlet property="delegate" destination="mEU-zD-Kvj" id="c4u-Ij-plj"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-YK-zPH">
-                                <rect key="frame" x="20" y="802" width="374" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Yzr-JJ-nvk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <state key="normal" title="Create User">
-                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="createUserTapped:" destination="mEU-zD-Kvj" eventType="touchUpInside" id="uXJ-Yv-9tq"/>
-                                    <segue destination="Bw9-GB-49r" kind="showDetail" id="aSy-Uc-psU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -389,13 +397,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YF-Ee-iQn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="abd-Rh-Jdh" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="m0Z-H9-LVa">
                     <connections>
                         <action selector="userDoubleTapped:" destination="mEU-zD-Kvj" id="7wE-JZ-rYs"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-200.00000000000003" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-961" y="138"/>
         </scene>
         <!--New User-->
         <scene sceneID="N8O-XR-xKN">
@@ -501,11 +510,12 @@
                         <outlet property="signUpButton" destination="MjP-0d-eob" id="K8k-UF-OLS"/>
                         <outlet property="userImageView" destination="9Lj-6D-P9G" id="B1u-GH-hvH"/>
                         <outlet property="usernameTextField" destination="Hki-ip-yZ1" id="sqJ-rs-znH"/>
+                        <segue destination="B5O-wE-Vvg" kind="presentation" identifier="Sign Up User" modalPresentationStyle="fullScreen" id="Jdo-g1-ozl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAA-m2-Xef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-200" y="844"/>
+            <point key="canvasLocation" x="-200" y="848"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5e7-u9-6dV">
@@ -909,9 +919,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqK-wh-Axs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110.144927536232" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-1949" y="138"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tmo-Hy-wN8"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="clear" catalog="system" width="128" height="114"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="86"/>

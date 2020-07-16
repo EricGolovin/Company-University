@@ -77,9 +77,16 @@ class FoldersViewController: UIViewController {
         tableView.reloadData()
     }
     @IBAction func clearDataTapped(_ sender: UIBarButtonItem) {
+        currentUser?.folders?.forEach { folder in
+            coreDataStack.delete(folder as! Folder)
+        }
         currentUser?.folders = nil
         coreDataStack.saveContext()
         tableView.reloadData()
+    }
+    
+    @IBAction func signOutTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "Unwind to StartVC", sender: self)
     }
 }
 

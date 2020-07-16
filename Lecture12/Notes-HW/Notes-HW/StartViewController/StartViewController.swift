@@ -34,29 +34,19 @@ class StartViewController: UIViewController {
 
         configureCollectionView()
         loadUserFromMemory()
-    }
-    
-    func configureCollectionView() {
-        collectionView.layer.cornerRadius = 20
-        collectionView.clipsToBounds = false
-        collectionView.layer.shadowColor = UIColor.gray.cgColor
-        collectionView.layer.shadowRadius = 10
-        collectionView.layer.shadowOpacity = 1
-        collectionView.layer.shadowOffset = CGSize(width: 1, height: 5)
-    }
-    
-    func loadUserFromMemory() {
-        guard let loadedUsersData = userDefaultsManager.loadUsers() else {
-            print("No saved users")
-            return
-        }
-        logins = loadedUsersData.logins
-        images = loadedUsersData.images
         collectionView.reloadData()
     }
     
-    
     // MARK: - Actions
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.loadUserFromMemory()
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     @IBAction func createUserTapped(_ sender: UIButton) {
     }
     
@@ -68,8 +58,7 @@ class StartViewController: UIViewController {
             self.collectionView.reloadData()
         })
         let reloadAlertAction = UIAlertAction(title: "Reload CollectionView", style: .default, handler: { _ in
-            self.loadUserFromMemory()
-            self.collectionView.reloadData()
+            self.loadUserUpdateCollectionView()
         })
         let alertController = UIAlertController(title: "Perform Action", message: nil, preferredStyle: .actionSheet)
         alertController.addAction(resetAlertAction)
@@ -161,5 +150,60 @@ extension StartViewController {
             break
         }
         selectedIndexPath = nil
+    }
+}
+
+// MARK: - Helper Methods
+extension StartViewController {
+    
+    func configureCollectionView() {
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = collectionView.bounds
+        gradient.colors = [
+            UIColor(red: 0/255, green: 191/255, blue: 255/255, alpha: 1).cgColor,
+            UIColor(red: 0/255, green: 33/255, blue: 71/255, alpha: 1).cgColor
+        ]
+        gradient.startPoint = CGPoint(x:0, y:0)
+        gradient.endPoint = CGPoint(x:1, y:1)
+        
+        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
+        gradientChangeAnimation.duration = 5.0
+        gradientChangeAnimation.toValue = [
+            UIColor(red: 123/255, green: 104/255, blue: 238/255, alpha: 1).cgColor,
+            UIColor(red: 127/255, green: 255/255, blue: 212/255, alpha: 1).cgColor,
+            ]
+        gradientChangeAnimation.autoreverses = true
+        gradientChangeAnimation.repeatCount = Float.greatestFiniteMagnitude
+        gradientChangeAnimation.isRemovedOnCompletion = false
+        gradient.add(gradientChangeAnimation, forKey: "colorChange")
+        
+        collectionView.layer.cornerRadius = 20
+        collectionView.clipsToBounds = false
+        collectionView.layer.shadowColor = UIColor.gray.cgColor
+        collectionView.layer.shadowRadius = 10
+        collectionView.layer.shadowOpacity = 1
+        collectionView.layer.shadowOffset = CGSize(width: 1, height: 5)
+        
+        collectionView.backgroundView = UIView()
+        collectionView.backgroundView?.clipsToBounds = true
+        collectionView.backgroundView?.layer.cornerRadius = 20
+        collectionView.backgroundView?.layer.addSublayer(gradient)
+        
+//        subCollectionView.layer.cornerRadius = collectionView.layer.cornerRadius
+    }
+    
+    func loadUserFromMemory() {
+        guard let loadedUsersData = userDefaultsManager.loadUsers() else {
+            print("No saved users")
+            return
+        }
+        logins = loadedUsersData.logins
+        images = loadedUsersData.images
+    }
+    
+    func loadUserUpdateCollectionView() {
+        self.loadUserFromMemory()
+        self.collectionView.reloadData()
     }
 }
