@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d91-hE-AeQ">
+                                <rect key="frame" x="20" y="64" width="374" height="597.5"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value Route" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-jK-LPu">
+                                <rect key="frame" x="20" y="681.5" width="374" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O0L-Yu-zib">
+                                <rect key="frame" x="20" y="798" width="374" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pyramide Size" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4b-yM-cfd">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqj-ZO-XVU">
+                                        <rect key="frame" x="130" y="0.0" width="244" height="44"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="Generate and Find"/>
+                                        <connections>
+                                            <action selector="generateAndFindTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Omy-tx-PVS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OSz-7o-mkJ"/>
+                                    <constraint firstItem="f4b-yM-cfd" firstAttribute="width" secondItem="dqj-ZO-XVU" secondAttribute="width" multiplier="1:2" id="QhY-GW-lK9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="eoy-jK-LPu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1ao-BV-TD5"/>
+                            <constraint firstItem="d91-hE-AeQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="56r-aR-gdU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eoy-jK-LPu" secondAttribute="trailing" constant="20" id="DEd-9P-QxW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O0L-Yu-zib" secondAttribute="bottom" constant="20" id="bLp-0O-wSo"/>
+                            <constraint firstItem="O0L-Yu-zib" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gYh-r8-aAl"/>
+                            <constraint firstItem="d91-hE-AeQ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="2:3" id="mmE-K8-U8Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d91-hE-AeQ" secondAttribute="trailing" constant="20" id="rfe-Zu-gAd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eoy-jK-LPu" secondAttribute="trailing" constant="20" id="s9n-Ou-QLW"/>
+                            <constraint firstItem="eoy-jK-LPu" firstAttribute="top" secondItem="d91-hE-AeQ" secondAttribute="bottom" constant="20" id="uuJ-K2-UWP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O0L-Yu-zib" secondAttribute="trailing" constant="20" id="wVO-hB-XPL"/>
+                            <constraint firstItem="d91-hE-AeQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="y7B-pB-Xyd"/>
+                            <constraint firstItem="eoy-jK-LPu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ypQ-vr-CX2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="WrH-rZ-mcw" appends="YES" id="mly-n7-F1m"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="pyramideSizeTextField" destination="f4b-yM-cfd" id="dt2-Jf-ITb"/>
+                        <outlet property="pyramideStackView" destination="d91-hE-AeQ" id="tKN-OO-bPa"/>
+                        <outlet property="routeLabel" destination="eoy-jK-LPu" id="yEW-Tc-UDz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WrH-rZ-mcw">
+                    <connections>
+                        <action selector="userTapped:" destination="BYZ-38-t0r" id="dM2-69-KIx"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-223" y="82"/>
+        </scene>
+    </scenes>
+</document>
