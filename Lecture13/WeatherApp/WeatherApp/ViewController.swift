@@ -51,14 +51,17 @@ private extension ViewController {
                     self.temperatureLabel.text = "\(Int(weather.data.first?.currentTemperature ?? 0.0))°"
                     
                     self.api.loadWeatherStateImage(abbriviation: weather.data.first!.stateImageID, size: .large, to: self.conditionImageView)
-                    self.dateLabel.text = self.getFormattedDate(from: weather.data.first!.date, format: ("yyyy-MM-dd", "MMM dd")) ?? "None"
+                    self.dateLabel.text = self.getFormattedDate(from: weather.data.first!.date, output: "MMM dd")
+//                    getFormattedDate(from: weather.data.first!.date, format: ("yyyy-MM-dd", "MMM dd")) ?? "None"
                     self.todayDayTemperature.text = "D: \(Int(weather.data.first?.maxTemperature ?? 0.0))"
                     self.todayDayTemperature.textColor = .red
                     self.todayNightTemperature.text = "N: \(Int(weather.data.first?.minTemperature ?? 0.0))"
                     self.todayNightTemperature.textColor = .blue
                     
-                    self.sunriseLabel.text = self.getFormattedDate(from: weather.sunriseTime, format: ("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", "H:m")) ?? "None"
-                    self.sunsetLabel.text = self.getFormattedDate(from: weather.sunsetTime, format: ("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", "H:m")) ?? "None"
+                    self.sunriseLabel.text = self.getFormattedDate(from: weather.sunriseDate, output: "H:m")
+//                    getFormattedDate(from: weather.sunriseTime, format: ("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", "H:m")) ?? "None"
+                    self.sunsetLabel.text = self.self.getFormattedDate(from: weather.sunsetDate, output: "H:m")
+//                    getFormattedDate(from: weather.sunsetTime, format: ("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", "H:m")) ?? "None"
                     
                     self.windSpeedLabel.text = "\(weather.data.first?.windDirection ?? "None") \(Int(weather.data.first?.windSpeed ?? 0.0)) km/h"
                     self.humidityLabel.text = "\(weather.data.first?.humidity ?? 0)%"
@@ -76,25 +79,20 @@ private extension ViewController {
 }
 
 private extension ViewController {
-    func getFormattedDate(from date: String, format: (input: String, output: String)) -> String? {
+    func getFormattedDate(from date: Date, output format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = format.input
+        dateFormatter.dateFormat = format
         
-        guard let convertedDate = dateFormatter.date(from: date) else {
-            return nil
-        }
-        
-        dateFormatter.dateFormat = format.output
-        
-        return dateFormatter.string(from: convertedDate)
+        return dateFormatter.string(from: date)
     }
     
     func set(weather: Weather, for dayStack: UIStackView) {
         if let stackView = dayStack.arrangedSubviews[0] as? UIStackView {
             guard let dayLabel = stackView.arrangedSubviews.first as? UILabel,
                 let dayConditionImageView = stackView.arrangedSubviews.last as? UIImageView else { return }
-            dayLabel.text = getFormattedDate(from: weather.date, format: ("yyyy-MM-dd", "EEEE")) ?? "None"
+            dayLabel.text = getFormattedDate(from: weather.date, output: "EEEE")
+                //getFormattedDate(from: weather.date, format: ("yyyy-MM-dd", "EEEE")) ?? "None"
             api.loadWeatherStateImage(abbriviation: weather.stateImageID, size: .small, to: dayConditionImageView)
         }
         

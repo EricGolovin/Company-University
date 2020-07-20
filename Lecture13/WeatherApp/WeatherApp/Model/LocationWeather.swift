@@ -10,18 +10,33 @@ import Foundation
 
 struct WeatherForDay: Codable {
     var data: [Weather]
-    var sunriseTime: String
-    var sunsetTime: String
+    var sun_rise: String
+    var sun_set: String
 
     enum CodingKeys: String, CodingKey {
         case data = "consolidated_weather"
-        case sunriseTime = "sun_rise"
-        case sunsetTime = "sun_set"
+        case sun_rise, sun_set
+    }
+    
+    var sunriseDate: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+        
+        return dateFormatter.date(from: sun_rise)!
+    }
+    
+    var sunsetDate: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+        
+        return dateFormatter.date(from: sun_set)!
     }
 }
 
 struct Weather: Codable {
-    var date: String
+    var applicable_date: String
     var maxTemperature: Double
     var minTemperature: Double
     var currentTemperature: Double
@@ -32,7 +47,6 @@ struct Weather: Codable {
     var stateImageID: String
     
     enum CodingKeys: String, CodingKey {
-        case date = "applicable_date"
         case maxTemperature = "max_temp"
         case minTemperature = "min_temp"
         case currentTemperature = "the_temp"
@@ -40,7 +54,15 @@ struct Weather: Codable {
         case windSpeed = "wind_speed"
         case condition = "weather_state_name"
         case stateImageID = "weather_state_abbr"
-        case humidity
+        case applicable_date, humidity
+    }
+    
+    var date: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter.date(from: applicable_date)!
     }
 }
 

@@ -41,6 +41,7 @@ extension APIService: WeatherAPIServiceRequest {
         guard let url = URL(string: "\(APIService.api)/api/location/search/?query=kharkiv") else {
             return
         }
+        print("\(APIService.api)/api/location/search/?query=kharkiv")
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
