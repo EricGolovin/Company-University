@@ -28,17 +28,18 @@ enum WeatherImageSize: String {
 }
 
 typealias WeatherComplition = (_ result: ServiceResult<WeatherForDay, ServiceError>) -> Void
-typealias LocationComplition = (_ result: ServiceResult<Location?, ServiceError>) -> Void
+typealias LocationComplition = (_ result: ServiceResult<Location, ServiceError>) -> Void
+typealias ConditionImageComplition = (_ result: ServiceResult<UIImage, ServiceError>) -> Void
 
 protocol WeatherAPIServiceRequest {
-    func loadLocation(_ completion: @escaping LocationComplition)
-    func loadWeather(_ completion: @escaping WeatherComplition)
+    func loadLocation(name: String, _ completion: @escaping LocationComplition)
+    func loadWeather(location: Location, _ completion: @escaping WeatherComplition)
 }
 
 extension APIService: WeatherAPIServiceRequest {
     
-    func loadLocation(_ completion: @escaping LocationComplition) {
-        guard let url = URL(string: "\(APIService.api)/api/location/search/?query=kharkiv") else {
+    func loadLocation(name: String, _ completion: @escaping LocationComplition) {
+        guard let url = URL(string: "\(APIService.api)/api/location/search/?query=\(CityID(name: name).rawValue)") else {
             return
         }
         print("\(APIService.api)/api/location/search/?query=kharkiv")
@@ -68,22 +69,9 @@ extension APIService: WeatherAPIServiceRequest {
         task.resume()
     }
     
-    func loadWeather(_ completion: @escaping WeatherComplition) {
-        guard let location = self.currentLocation,
-            let url = URL(string: "\(APIService.api)/api/location/\(location.id)/") else {
-                loadLocation { [weak self] result in
-                    switch result {
-                    case .success(let location):
-                        self?.currentLocation = location
-                        self?.loadWeather { result in
-                            completion(result)
-                        }
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-                return
-        }
+    func loadWeather(location: Location, _ completion: @escaping WeatherComplition) {
+        
+        guard let url = URL(string: "\(APIService.api)/api/location/\(location.id)/") else { return }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else { return }
@@ -112,7 +100,25 @@ extension APIService: WeatherAPIServiceRequest {
         task.resume()
     }
     
-    func loadWeatherStateImage(abbriviation: String, size: WeatherImageSize, to imageView: UIImageView) {
+    func getWeather(city: String, _ completion: @escaping (WeatherForDay) -> Void) {
+        loadLocation(name: city) { locationResult in
+            switch locationResult {
+            case .success(let locationValue):
+                self.loadWeather(location: locationValue) { weatherResult in
+                    switch weatherResult {
+                    case .success(let weatherResult):
+                        completion(weatherResult)
+                    case .failure(let reason):
+                        print(reason)
+                    }
+                }
+            case .failure(let reason):
+                print(reason)
+            }
+        }
+    }
+    
+    func loadWeatherConditionImage(abbriviation: String, size: WeatherImageSize, _ completion: @escaping ConditionImageComplition) {
         guard let url = URL(string: "\(APIService.api)/static/img/weather/png\(size.rawValue)/\(abbriviation).png") else { return }
         print("\(APIService.api)/\(size.rawValue)/\(abbriviation).png")
         URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
@@ -123,10 +129,7 @@ extension APIService: WeatherAPIServiceRequest {
                 case .success:
                     guard let data = data,
                         let image = UIImage(data: data) else { return }
-                    DispatchQueue.main.async {
-                        imageView.image = image
-                    }
-                    
+                    completion(ServiceResult(image))
                 case .internalServerError:
                     print("internalServerError")
                 case .unknown:

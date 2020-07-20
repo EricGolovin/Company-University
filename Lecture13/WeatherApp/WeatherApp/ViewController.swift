@@ -9,11 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    // TODO: Implement City Search
     
     // MARK: - Outlets
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -31,28 +29,65 @@ class ViewController: UIViewController {
     
     private let api = APIService()
     
+    var currentCity: String = ""
+    
+    lazy var cities: [String] = {
+        return api.availableCities
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureTextField()
+        createCityPicker()
+        createToolBar()
         
         loadWeather()
     }
 
     @IBAction func userDoubleTapped(_ sender: UITapGestureRecognizer) {
-        loadWeather()
+    
     }
     
+    private func configureTextField() {
+        cityTextField.text = cities.first ?? "None"
+        cityTextField.tintColor = .clear
+    }
+    
+    private func createCityPicker() {
+        let picker = UIPickerView()
+        
+        picker.dataSource = self
+        picker.delegate = self
+        
+        cityTextField.inputView = picker
+    }
+    
+    private func createToolBar() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(endEditingAndUpdate))
+        
+        toolbar.setItems([doneButton], animated: true)
+        cityTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func endEditingAndUpdate() {
+        view.endEditing(true)
+        loadWeather()
+    }
 }
 
 private extension ViewController {
     func loadWeather() {
-        api.loadWeather { result in
-            switch result {
-            case .success(let weather):
-                DispatchQueue.main.async {
-                    self.updateUI(with: weather)
-                }
-            case .failure(let error):
-                print("Error: \(error)")
+        guard let cityName = self.cityTextField.text,
+            cityName != currentCity else { return }
+        currentCity = cityName
+        print(cityName)
+        api.getWeather(city: cityName) { weather in
+            DispatchQueue.main.async {
+                self.updateUI(with: weather)
             }
         }
     }
@@ -61,16 +96,23 @@ private extension ViewController {
 private extension ViewController {
     
     func updateUI(with weather: WeatherForDay) {
-        guard let data = weather.data.first,
-            let currentLocation = self.api.currentLocation else { return }
+        guard let data = weather.data.first else { return }
         var formattedDate = ""
         let animation: UIView.AnimationOptions = .transitionCrossDissolve
         
         conditionLabel.changeText(to: data.condition, duration: 2, option: animation)
         temperatureLabel.changeText(to: "\(Int(data.currentTemperature))°", duration: 2, option: animation)
-        cityLabel.changeText(to: currentLocation.name, duration: 2, option: animation)
         
-        api.loadWeatherStateImage(abbriviation: weather.data.first!.stateImageID, size: .large, to: conditionImageView)
+        api.loadWeatherConditionImage(abbriviation: data.stateImageID, size: .small) { result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.conditionImageView.changeImage(to: image, duration: 2, option: animation)
+                }
+            case .failure(let reason):
+                print(reason)
+            }
+        }
         
         formattedDate = DateManager.getFormattedDate(from: weather.data.first!.date, output: "MMM dd")
         dateLabel.changeText(to: formattedDate, duration: 2, option: animation)
@@ -105,7 +147,16 @@ private extension ViewController {
                 let dayConditionImageView = stackView.arrangedSubviews.last as? UIImageView else { return }
             let formattedDate = DateManager.getFormattedDate(from: weather.date, output: "EEEE")
             dayLabel.changeText(to: formattedDate, duration: 2, option: animation)
-            api.loadWeatherStateImage(abbriviation: weather.stateImageID, size: .small, to: dayConditionImageView)
+            api.loadWeatherConditionImage(abbriviation: weather.stateImageID, size: .small) { result in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        dayConditionImageView.changeImage(to: image, duration: 2, option: animation)
+                    }
+                case .failure(let reason):
+                    print(reason)
+                }
+            }
         }
         
         if let minLabel = dayStack.arrangedSubviews[1] as? UILabel {
@@ -124,6 +175,14 @@ extension UILabel {
     func changeText(to text: String, duration: Double, option: UIView.AnimationOptions) {
         UIView.transition(with: self, duration: duration, options: option, animations: {
             self.text = text
+        }, completion: nil)
+    }
+}
+
+extension UIImageView {
+    func changeImage(to image: UIImage, duration: Double, option: UIView.AnimationOptions) {
+        UIView.transition(with: self, duration: duration, options: option, animations: {
+            self.image = image
         }, completion: nil)
     }
 }

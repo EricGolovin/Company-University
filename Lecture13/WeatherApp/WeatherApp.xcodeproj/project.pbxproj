@@ -18,6 +18,7 @@
 		E927465524C4934F007216CF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927465424C4934F007216CF /* APIService.swift */; };
 		E927465824C4949D007216CF /* APIService+Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927465724C4949D007216CF /* APIService+Weather.swift */; };
 		E9FAF9BB24C59FF400F3140A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FAF9BA24C59FF400F3140A /* DateManager.swift */; };
+		E9FAF9BD24C5C53400F3140A /* ViewController+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FAF9BC24C5C53400F3140A /* ViewController+PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E927465424C4934F007216CF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E927465724C4949D007216CF /* APIService+Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Weather.swift"; sourceTree = "<group>"; };
 		E9FAF9BA24C59FF400F3140A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		E9FAF9BC24C5C53400F3140A /* ViewController+PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PickerView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				E927463724C49072007216CF /* AppDelegate.swift */,
 				E927463924C49072007216CF /* SceneDelegate.swift */,
 				E927463B24C49072007216CF /* ViewController.swift */,
+				E9FAF9BC24C5C53400F3140A /* ViewController+PickerView.swift */,
 				E927463D24C49072007216CF /* Main.storyboard */,
 				E927464024C49075007216CF /* Assets.xcassets */,
 				E927464224C49075007216CF /* LaunchScreen.storyboard */,
@@ -177,6 +180,7 @@
 				E9FAF9BB24C59FF400F3140A /* DateManager.swift in Sources */,
 				E927465524C4934F007216CF /* APIService.swift in Sources */,
 				E927465024C490D2007216CF /* LocationWeather.swift in Sources */,
+				E9FAF9BD24C5C53400F3140A /* ViewController+PickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
