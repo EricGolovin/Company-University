@@ -37,7 +37,10 @@ class ViewController: UIViewController {
         loadWeather()
     }
 
-
+    @IBAction func userDoubleTapped(_ sender: UITapGestureRecognizer) {
+        loadWeather()
+    }
+    
 }
 
 private extension ViewController {
@@ -46,30 +49,7 @@ private extension ViewController {
             switch result {
             case .success(let weather):
                 DispatchQueue.main.async {
-                    self.cityLabel.text = self.api.currentLocation?.name ?? "None"
-                    self.conditionLabel.text = "\(weather.data.first?.condition ?? "")"
-                    self.temperatureLabel.text = "\(Int(weather.data.first?.currentTemperature ?? 0.0))°"
-                    
-                    self.api.loadWeatherStateImage(abbriviation: weather.data.first!.stateImageID, size: .large, to: self.conditionImageView)
-                    self.dateLabel.text = self.getFormattedDate(from: weather.data.first!.date, output: "MMM dd")
-//                    getFormattedDate(from: weather.data.first!.date, format: ("yyyy-MM-dd", "MMM dd")) ?? "None"
-                    self.todayDayTemperature.text = "D: \(Int(weather.data.first?.maxTemperature ?? 0.0))"
-                    self.todayDayTemperature.textColor = .red
-                    self.todayNightTemperature.text = "N: \(Int(weather.data.first?.minTemperature ?? 0.0))"
-                    self.todayNightTemperature.textColor = .blue
-                    
-                    self.sunriseLabel.text = self.getFormattedDate(from: weather.sunriseDate, output: "H:m")
-//                    getFormattedDate(from: weather.sunriseTime, format: ("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", "H:m")) ?? "None"
-                    self.sunsetLabel.text = self.self.getFormattedDate(from: weather.sunsetDate, output: "H:m")
-//                    getFormattedDate(from: weather.sunsetTime, format: ("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", "H:m")) ?? "None"
-                    
-                    self.windSpeedLabel.text = "\(weather.data.first?.windDirection ?? "None") \(Int(weather.data.first?.windSpeed ?? 0.0)) km/h"
-                    self.humidityLabel.text = "\(weather.data.first?.humidity ?? 0)%"
-                    
-                    for (index, stack) in self.dayStackViews.enumerated() {
-                        print(index)
-                        self.set(weather: weather.data[index + 1], for: stack)
-                    }
+                    self.updateUI(with: weather)
                 }
             case .failure(let error):
                 print("Error: \(error)")
@@ -79,31 +59,71 @@ private extension ViewController {
 }
 
 private extension ViewController {
-    func getFormattedDate(from date: Date, output format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = format
+    
+    func updateUI(with weather: WeatherForDay) {
+        guard let data = weather.data.first,
+            let currentLocation = self.api.currentLocation else { return }
+        var formattedDate = ""
+        let animation: UIView.AnimationOptions = .transitionCrossDissolve
         
-        return dateFormatter.string(from: date)
+        conditionLabel.changeText(to: data.condition, duration: 2, option: animation)
+        temperatureLabel.changeText(to: "\(Int(data.currentTemperature))°", duration: 2, option: animation)
+        cityLabel.changeText(to: currentLocation.name, duration: 2, option: animation)
+        
+        api.loadWeatherStateImage(abbriviation: weather.data.first!.stateImageID, size: .large, to: conditionImageView)
+        
+        formattedDate = DateManager.getFormattedDate(from: weather.data.first!.date, output: "MMM dd")
+        dateLabel.changeText(to: formattedDate, duration: 2, option: animation)
+        
+        todayDayTemperature.changeText(to: "D: \(Int(data.maxTemperature))", duration: 2, option: animation)
+        todayDayTemperature.textColor = .red
+        
+        todayNightTemperature.changeText(to: "N: \(Int(data.minTemperature))", duration: 2, option: animation)
+        todayNightTemperature.textColor = .blue
+        
+        formattedDate = DateManager.getFormattedDate(from: weather.sunriseDate, output: "H:m")
+        sunriseLabel.changeText(to: formattedDate, duration: 2, option: animation)
+        
+        formattedDate = DateManager.getFormattedDate(from: weather.sunsetDate, output: "H:m")
+        sunsetLabel.changeText(to: formattedDate, duration: 2, option: animation)
+        
+        windSpeedLabel.changeText(to: "\(data.windDirection) \(Int(data.windSpeed)) km/h", duration: 2, option: animation)
+        humidityLabel.changeText(to: "\(data.humidity)%", duration: 2, option: animation)
+        
+        for (index, stack) in dayStackViews.enumerated() {
+            print(index)
+            set(weather: weather.data[index + 1], for: stack)
+        }
     }
     
     func set(weather: Weather, for dayStack: UIStackView) {
+        
+        let animation: UIView.AnimationOptions = .transitionFlipFromRight
+        
         if let stackView = dayStack.arrangedSubviews[0] as? UIStackView {
             guard let dayLabel = stackView.arrangedSubviews.first as? UILabel,
                 let dayConditionImageView = stackView.arrangedSubviews.last as? UIImageView else { return }
-            dayLabel.text = getFormattedDate(from: weather.date, output: "EEEE")
-                //getFormattedDate(from: weather.date, format: ("yyyy-MM-dd", "EEEE")) ?? "None"
+            let formattedDate = DateManager.getFormattedDate(from: weather.date, output: "EEEE")
+            dayLabel.changeText(to: formattedDate, duration: 2, option: animation)
             api.loadWeatherStateImage(abbriviation: weather.stateImageID, size: .small, to: dayConditionImageView)
         }
         
         if let minLabel = dayStack.arrangedSubviews[1] as? UILabel {
-            minLabel.text = "D: \(Int(weather.maxTemperature))"
+            minLabel.changeText(to: "D: \(Int(weather.maxTemperature))", duration: 2, option: animation)
             minLabel.textColor = .red
         }
         
         if let maxLabel = dayStack.arrangedSubviews[2] as? UILabel {
-            maxLabel.text = "N: \(Int(weather.maxTemperature))"
+            maxLabel.changeText(to: "N: \(Int(weather.maxTemperature))", duration: 2, option: animation)
             maxLabel.textColor = .blue
         }
+    }
+}
+
+extension UILabel {
+    func changeText(to text: String, duration: Double, option: UIView.AnimationOptions) {
+        UIView.transition(with: self, duration: duration, options: option, animations: {
+            self.text = text
+        }, completion: nil)
     }
 }

@@ -422,6 +422,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o4I-9F-Lgs" secondAttribute="bottom" constant="20" id="0Wf-iK-Hlw"/>
                             <constraint firstItem="ojN-xb-ih3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ZMf-8b-6pI"/>
@@ -432,6 +433,9 @@
                             <constraint firstItem="ojN-xb-ih3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xkj-yH-gtz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Ngb-ta-qqr" appends="YES" id="kAE-j9-k4X"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="cityLabel" destination="FIM-HA-RY9" id="6wh-b2-Ord"/>
@@ -453,6 +457,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Ngb-ta-qqr">
+                    <connections>
+                        <action selector="userDoubleTapped:" destination="BYZ-38-t0r" id="9Ap-74-qFI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>

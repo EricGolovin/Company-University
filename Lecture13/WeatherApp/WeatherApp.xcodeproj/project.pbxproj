@@ -17,6 +17,7 @@
 		E927465024C490D2007216CF /* LocationWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927464F24C490D2007216CF /* LocationWeather.swift */; };
 		E927465524C4934F007216CF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927465424C4934F007216CF /* APIService.swift */; };
 		E927465824C4949D007216CF /* APIService+Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E927465724C4949D007216CF /* APIService+Weather.swift */; };
+		E9FAF9BB24C59FF400F3140A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FAF9BA24C59FF400F3140A /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E927464F24C490D2007216CF /* LocationWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWeather.swift; sourceTree = "<group>"; };
 		E927465424C4934F007216CF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E927465724C4949D007216CF /* APIService+Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Weather.swift"; sourceTree = "<group>"; };
+		E9FAF9BA24C59FF400F3140A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				E927464D24C490C7007216CF /* Location.swift */,
 				E927464F24C490D2007216CF /* LocationWeather.swift */,
+				E9FAF9BA24C59FF400F3140A /* DateManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				E927463824C49072007216CF /* AppDelegate.swift in Sources */,
 				E927464E24C490C7007216CF /* Location.swift in Sources */,
 				E927463A24C49072007216CF /* SceneDelegate.swift in Sources */,
+				E9FAF9BB24C59FF400F3140A /* DateManager.swift in Sources */,
 				E927465524C4934F007216CF /* APIService.swift in Sources */,
 				E927465024C490D2007216CF /* LocationWeather.swift in Sources */,
 			);
