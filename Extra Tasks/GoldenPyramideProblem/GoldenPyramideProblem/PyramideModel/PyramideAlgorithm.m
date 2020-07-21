@@ -23,7 +23,7 @@
     weight = 0;
     
     NSMutableString *resultString = [NSMutableString string];
-    
+    NSDate *date = [NSDate date];
     if (pyramide.count > 0 && [[pyramide firstObject] isKindOfClass:[NSArray class]]) {
         
         [resultString appendString:[NSString stringWithFormat:@"%@ ", [[pyramide objectAtIndex:0] objectAtIndex:0]]];
@@ -51,6 +51,9 @@
                 q += 1;
             }
         }
+
+        NSLog(@"%f", [date timeIntervalSinceNow]);
+        
     }
     
     [resultString appendFormat:@" =sum= %i", weight];

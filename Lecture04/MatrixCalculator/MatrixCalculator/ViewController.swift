@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         self.queues = {
             var result = Array<DispatchQueue>()
             for i in 0..<self.numberOfQueues {
-                result.append(DispatchQueue(label: "queue\(i)", attributes: .concurrent))
+                result.append(DispatchQueue(label: "queue\(i)" ,attributes: .concurrent))
             }
             return result
         }()
@@ -119,38 +119,57 @@ class ViewController: UIViewController {
         timeLabel.text = "Previous Time: \(self.time)\n"
         
         time = CFAbsoluteTimeGetCurrent()
-        for (i, row) in matrixes.first.enumerated() {
-            for j in 0..<row.count {
-                for k in 0..<row.count {
-                    queues[k % queues.count].async {
-                        self.resultMatrix[i][j] += self.matrixes.first[i][k] * self.matrixes.second[k][j]
+        
+        let count = matrixes.first.count
+        let range = count / queues.count
+        var counter = 0
+        
+        for q in 0..<queues.count {
+            queues[q].async {
+                for i in (range * q)..<(range * q + 1) {
+                    for j in 0..<count {
+                        var sum = 0
+                        for k in 0..<count {
+                            sum += matrixes.first[i][k] * matrixes.second[k][j]
+                        }
+                        DispatchQueue.main.async {
+                            self.resultMatrix[i][j] = sum
+                        }
                     }
-                    //                    DispatchQueue(label: "some").async {
-                    //                        self.resultMatrix[i][j] += self.matrixes.first[i][k] * self.matrixes.second[k][j]
-                    //                    }
+                }
+                counter += 1
+                if counter == self.queues.count {
+                    self.time = CFAbsoluteTimeGetCurrent() - self.time
+                    DispatchQueue.main.async {
+                        self.timeLabel.text = "Time: \(self.time)"
+                        self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
+                        self.changeButtonsState()
+                    }
                 }
             }
         }
-        time = CFAbsoluteTimeGetCurrent() - time
+        
+        
+//        time = CFAbsoluteTimeGetCurrent() - time
         
         changeButtonsState()
         
-//        dispatchGroup.notify(queue: .main) {
-//            self.timeLabel.text! += "Current Time: \(self.time)"
+        //        dispatchGroup.notify(queue: .main) {
+        //            self.timeLabel.text! += "Current Time: \(self.time)"
+        //            self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
+        //            self.changeButtonsState()
+        //        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+//            self.timeLabel.text = "Time: \(self.time)"
 //            self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
 //            self.changeButtonsState()
-//        }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-                    self.timeLabel.text = "Time: \(self.time)"
-                    self.resultMatrixTextView.text = self.getStringMatrix(from: self.resultMatrix)
-                    self.changeButtonsState()
-                })
+//        })
     }
     
     @IBAction func userTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-        
+    
     @objc func textFieldDidChange(_ sender: UITextField) {
         self.linearButton.isEnabled = false
         self.gcdButton.isEnabled = false

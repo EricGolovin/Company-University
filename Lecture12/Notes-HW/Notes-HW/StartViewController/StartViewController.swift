@@ -38,10 +38,6 @@ class StartViewController: UIViewController {
         configureCollectionView()
         loadUserFromMemory()
         collectionView.reloadData()
-        
-        Range(0...10).forEach { num in print("+") }
-        print("FIX: When running from XCode, previous saved users do not load to collection view; Sign up view says that they exist and doesn't allow to create user with the same logins as existing ones")
-        Range(0...10).forEach { num in print("+") }
     }
     
     // MARK: - Actions
