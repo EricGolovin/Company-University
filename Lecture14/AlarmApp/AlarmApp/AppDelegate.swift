@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .criticalAlert], completionHandler: { [unowned self] _, _ in
+        
+        notification.notificationCenter.requestAuthorization(options: [.alert, .sound, .criticalAlert], completionHandler: { [unowned self] _, _ in
             
             self.notification.notificationCenter.delegate = self
 
