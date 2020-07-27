@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         notification.notificationCenter.requestAuthorization(options: [.alert, .sound, .criticalAlert], completionHandler: { [unowned self] _, _ in
             
-            self.notification.notificationCenter.delegate = self
+            self.notification.notificationCenter.delegate = notification
 
         })
         
