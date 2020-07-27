@@ -13,10 +13,12 @@ class ViewController: UIViewController {
         case alarm = "AlarmTableViewCell"
         case picker = "DatePickerTableViewCell"
     }
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     private let count = 4
+    
+    let notification = Notification.current
     
     lazy var alarms: [AlarmData] = {
         var result: [AlarmData] = []
@@ -25,6 +27,8 @@ class ViewController: UIViewController {
         }
         return result
     }()
+    
+    
     var datePickerIndexPath: IndexPath?
     
     override func viewDidLoad() {
@@ -37,45 +41,19 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "AlarmTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.alarm.rawValue)
         tableView.register(UINib(nibName: "DatePickerTableViewCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.picker.rawValue)
     }
-
+    
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         presentAlarm()
     }
     
     @IBAction func setAlarmTapped(_ sender: UIButton) {
         for alarm in alarms {
-            registerNotification(title: alarm.title, date: alarm.date)
+            notification.registerNotification(title: alarm.title, date: alarm.date)
         }
     }
-    
-    func registerNotification(title: String, date: Date) {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = "Alarm at \(date.getAlarmCellString())"
-        content.sound = .defaultCriticalSound(withAudioVolume: 1)
-        
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-
-        dateComponents.weekday = Calendar.current.component(.weekday, from: date)
-        dateComponents.hour = Calendar.current.component(.hour, from: date)
-        dateComponents.minute = Calendar.current.component(.minute, from: date)
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        
-        // Create the request
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-
-        // Schedule the request with the system.
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.add(request) { (error) in
-           if error != nil {
-              // Handle any errors.
-           }
-        }
+    @IBAction func removeAllAlarmsTapped(_ sender: UIButton) {
+        notification.removeAllNotificationRequests()
     }
-
 }
 
 

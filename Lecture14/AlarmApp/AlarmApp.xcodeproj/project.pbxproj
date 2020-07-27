@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9248F1B24CE561900A19088 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9248F1A24CE561900A19088 /* Notification.swift */; };
 		E92C349624C8DBD400A0FF4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C349524C8DBD400A0FF4F /* AppDelegate.swift */; };
 		E92C349824C8DBD400A0FF4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C349724C8DBD400A0FF4F /* SceneDelegate.swift */; };
 		E92C349A24C8DBD400A0FF4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C349924C8DBD400A0FF4F /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9248F1A24CE561900A19088 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E92C349224C8DBD400A0FF4F /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92C349524C8DBD400A0FF4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E92C349724C8DBD400A0FF4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				E9902D2624C8FA3B00E2C7E7 /* AlarmApp.entitlements */,
 				E92C349524C8DBD400A0FF4F /* AppDelegate.swift */,
+				E9248F1A24CE561900A19088 /* Notification.swift */,
 				E92C349724C8DBD400A0FF4F /* SceneDelegate.swift */,
 				E92C34B324C8E55D00A0FF4F /* TableViewCells */,
 				E92C349924C8DBD400A0FF4F /* ViewController.swift */,
@@ -172,6 +175,7 @@
 			files = (
 				E92C349A24C8DBD400A0FF4F /* ViewController.swift in Sources */,
 				E92C34AA24C8DFB000A0FF4F /* AlarmData.swift in Sources */,
+				E9248F1B24CE561900A19088 /* Notification.swift in Sources */,
 				E92C349624C8DBD400A0FF4F /* AppDelegate.swift in Sources */,
 				E92C34AC24C8E2E100A0FF4F /* ViewController+TableView.swift in Sources */,
 				E92C349824C8DBD400A0FF4F /* SceneDelegate.swift in Sources */,

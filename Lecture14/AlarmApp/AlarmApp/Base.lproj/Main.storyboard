@@ -33,17 +33,33 @@
                                             <constraint firstAttribute="height" constant="44" id="ex3-x6-dX5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" title="Set Alarm"/>
+                                        <state key="normal" title="Set Alarms"/>
                                         <connections>
                                             <action selector="setAlarmTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mmz-iB-yi2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4DV-1X-S7b">
+                                        <rect key="frame" x="20" y="225" width="374" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="XFz-k3-zfN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <state key="normal" title="Remove all Alarms">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="removeAllAlarmsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Akw-qc-fHw"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4DV-1X-S7b" secondAttribute="trailing" constant="20" id="1of-LG-xVt"/>
+                                    <constraint firstItem="4DV-1X-S7b" firstAttribute="leading" secondItem="Kw5-Cu-iCe" secondAttribute="leading" constant="20" id="AtR-NW-kB1"/>
                                     <constraint firstItem="a4E-ly-Hgp" firstAttribute="leading" secondItem="Kw5-Cu-iCe" secondAttribute="leading" constant="20" id="Dx6-V3-Wrp"/>
                                     <constraint firstItem="a4E-ly-Hgp" firstAttribute="centerY" secondItem="Kw5-Cu-iCe" secondAttribute="centerY" id="DxW-53-MYK"/>
                                     <constraint firstAttribute="trailing" secondItem="a4E-ly-Hgp" secondAttribute="trailing" constant="20" id="Sa2-dj-NY0"/>
+                                    <constraint firstItem="4DV-1X-S7b" firstAttribute="top" secondItem="a4E-ly-Hgp" secondAttribute="bottom" constant="40" id="cgz-Hd-wZ9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -97,6 +113,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
