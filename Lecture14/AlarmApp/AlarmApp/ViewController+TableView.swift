@@ -39,7 +39,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let pickerCell = tableView.cellForRow(at: pickerIndexPath) as! DatePickerTableViewCell
             alarms[pickerIndexPath.row - 1].date = pickerCell.selectedDate()
             datePickerIndexPath = nil
-            tableView.reloadData()
         } else {
             datePickerIndexPath = calculateDatePickerIndexPath(selectedIndexPath: indexPath)
             tableView.deselectRow(at: indexPath, animated: true)
