@@ -8,60 +8,81 @@
 import UIKit
 import NotificationCenter
 
-@main
+private let categoryIdentifier = "AcceptOrReject"
+
+private enum ActionIdentifier: String {
+    case accept, reject
+}
+
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    let notificationCenterDelegate = NotificationDelegate()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            guard error == nil else {
-                // Handle the error here.
-                return
-            }
-            
-            center.delegate = self.notificationCenterDelegate
-            
-            DispatchQueue.main.async {
-                application.registerForRemoteNotifications()
-            }
-        }
-        
-        
+        self.registerForPushNotifications(application: application)
         
         return true
     }
     
     // MARK: UISceneSession Lifecycle
-    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-    
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
     
 }
 
+// MARK: - Remote Notifications methods
 extension AppDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.hexEncodedString()
         
         print(token)
+        
+        registerCustomActions()
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         completionHandler(.newData)
     }
 
+}
+
+// MARK: - User Notification Center Delegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        defer { completionHandler() }
+        
+        let identity = response.notification.request.content.categoryIdentifier
+        guard identity == categoryIdentifier, let action = ActionIdentifier(rawValue: response.actionIdentifier) else {
+            return
+        }
+        
+        switch action {
+        case .accept:
+            Notification.Name.acceptButton.post()
+        case .reject:
+            Notification.Name.rejectButton.post()
+        }
+    }
+}
+
+
+// MARK: - Helper Methods
+extension AppDelegate {
+    private func registerCustomActions() {
+        let accept = UNNotificationAction(identifier: ActionIdentifier.accept.rawValue, title: "Accept")
+        
+        let reject = UNNotificationAction(identifier: ActionIdentifier.reject.rawValue, title: "Reject")
+        
+        let category = UNNotificationCategory(identifier: categoryIdentifier, actions: [accept, reject], intentIdentifiers: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+    }
 }
 
 extension Data {

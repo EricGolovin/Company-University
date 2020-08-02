@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TodayExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiley" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SOi-kc-lpT">
+                                <rect key="frame" x="0.0" y="0.5" width="320" height="86"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="SOi-kc-lpT" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="BJ7-1S-gpp"/>
+                            <constraint firstAttribute="bottom" secondItem="SOi-kc-lpT" secondAttribute="bottom" id="Fvg-nT-IeW"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="SOi-kc-lpT" secondAttribute="trailing" id="Lwz-g2-BOi"/>
+                            <constraint firstItem="SOi-kc-lpT" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="uRS-pR-lBn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="87"/>
+                    <connections>
+                        <outlet property="notificImageView" destination="SOi-kc-lpT" id="5bR-zX-mRB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="smiley" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

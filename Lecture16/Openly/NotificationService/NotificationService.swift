@@ -19,7 +19,7 @@ class NotificationService: UNNotificationServiceExtension {
         
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            print(bestAttemptContent)
+//            print(bestAttemptContent)
             bestAttemptContent.title = "Hello, my Master Coder"
             bestAttemptContent.body = "..."
             
@@ -54,7 +54,7 @@ class NotificationService: UNNotificationServiceExtension {
 
 extension NotificationService {
     private func downloadImageFrom(url: URL, with completionHandler: @escaping (UNNotificationAttachment?) -> Void) {
-        let task = URLSession.shared.downloadTask(with: url) { url, response, error in
+        let task = URLSession.shared.downloadTask(with: url) { [weak self] url, response, error in
             guard let url = url else {
                 completionHandler(nil)
                 return
@@ -62,13 +62,16 @@ extension NotificationService {
             
             var urlPath = URL(fileURLWithPath: NSTemporaryDirectory())
 
-            let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + ".jpg"
+            let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + ".png"
             urlPath = urlPath.appendingPathComponent(uniqueURLEnding)
             
+            self!.saveToShared(with: url)
             try? FileManager.default.moveItem(at: url, to: urlPath)
             
+            self!.saveToShared(with: urlPath)
+            
             do {
-                let attachment = try UNNotificationAttachment(identifier: "picture", url: url, options: nil)
+                let attachment = try UNNotificationAttachment(identifier: "picture", url: urlPath, options: nil)
                 completionHandler(attachment)
             } catch {
                 completionHandler(nil)
@@ -76,4 +79,30 @@ extension NotificationService {
         }
         task.resume()
     }
+    
+    func saveToShared(with url: URL) {
+        guard let defaults = UserDefaults(suiteName: "group.com.ericgolovin.Openly.demodata"),
+            let fileManagerDefautlsURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.ericgolovin.Openly.demodata"),
+            let data = try? Data(contentsOf: url) else {
+                fatalError("Error: Cannot get save image url")
+        }
+            
+            
+        let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + ".png"
+        let urlPath = fileManagerDefautlsURL.appendingPathComponent(uniqueURLEnding)
+        
+        do {
+            try data.write(to: urlPath)
+        } catch {
+            print("\(error): \(error.localizedDescription)")
+        }
+        
+        defaults.set(urlPath, forKey: "notificationImage")
+    }
 }
+
+// MARK: APS Request example
+/*
+ 
+ {"aps":{"alert":"Testing.. (3)","badge":1,"sound":"default", "category": "AcceptOrReject", "mutable-content": 1}, "data":{"image-url":"https://www.hello.com/img_/hellowithwaves.png"}}
+*/
