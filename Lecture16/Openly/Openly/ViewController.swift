@@ -30,20 +30,28 @@ class ViewController: UIViewController {
         Notification.Name.acceptButton.onPost { [weak self] _ in
             self?.numAccepted += 1
             
-            let defaults = UserDefaults(suiteName: "group.com.ericgolovin.Openly.demodata")
-                let imageURL = defaults!.url(forKey: "notificationImage")!
-                let data = try! Data(contentsOf: imageURL)
-                let _ = UIImage(data: data)// else { return }
+            if let self = self {
+                self.writeToDefauld(data: self.numAccepted, with: "numAccepted")
+            }
             
-            print("Yeas!")
         }
         
         Notification.Name.rejectButton.onPost { [weak self] _ in
             self?.numRejected += 1
+            
+            if let self = self {
+                self.writeToDefauld(data: self.numRejected, with: "numRejected")
+            }
         }
     }
+}
 
-    
-
+extension ViewController {
+    func writeToDefauld(data: Int, with key: String) {
+        guard let defaults = UserDefaults(suiteName: "group.com.ericgolovin.Openly.demodata") else {
+            return
+        }
+        defaults.set(data, forKey: key)
+    }
 }
 

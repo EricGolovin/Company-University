@@ -12,31 +12,76 @@
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TodayExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="256"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiley" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SOi-kc-lpT">
-                                <rect key="frame" x="0.0" y="0.5" width="320" height="86"/>
+                                <rect key="frame" x="0.0" y="41.5" width="320" height="214"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gbu-7s-CY8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K9F-dB-YGG">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👍" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QR3-2L-i04">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAj-sQ-Gi6">
+                                                <rect key="frame" x="82" y="0.0" width="74" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y9a-Be-yQR">
+                                        <rect key="frame" x="164" y="0.0" width="156" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👎" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNm-M8-OD1">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYD-zO-73m">
+                                                <rect key="frame" x="82" y="0.0" width="74" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="SOi-kc-lpT" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="BJ7-1S-gpp"/>
-                            <constraint firstAttribute="bottom" secondItem="SOi-kc-lpT" secondAttribute="bottom" id="Fvg-nT-IeW"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="SOi-kc-lpT" secondAttribute="trailing" id="Lwz-g2-BOi"/>
-                            <constraint firstItem="SOi-kc-lpT" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="uRS-pR-lBn"/>
+                            <constraint firstAttribute="bottom" secondItem="SOi-kc-lpT" secondAttribute="bottom" id="36o-lU-6xI"/>
+                            <constraint firstItem="SOi-kc-lpT" firstAttribute="top" secondItem="Gbu-7s-CY8" secondAttribute="bottom" id="SEL-zK-HIg"/>
+                            <constraint firstItem="Gbu-7s-CY8" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="Zra-Vr-aC4"/>
+                            <constraint firstItem="SOi-kc-lpT" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="efE-fa-PRG"/>
+                            <constraint firstItem="SOi-kc-lpT" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="mQ6-pL-cRF"/>
+                            <constraint firstItem="Gbu-7s-CY8" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="o0b-LK-j1a"/>
+                            <constraint firstAttribute="trailing" secondItem="Gbu-7s-CY8" secondAttribute="trailing" id="tF2-Nw-vC9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="87"/>
+                    <size key="freeformSize" width="320" height="256"/>
                     <connections>
+                        <outlet property="acceptCountLabel" destination="GAj-sQ-Gi6" id="3z9-Fr-ctm"/>
+                        <outlet property="labelsStackView" destination="Gbu-7s-CY8" id="mWN-9v-C8o"/>
                         <outlet property="notificImageView" destination="SOi-kc-lpT" id="5bR-zX-mRB"/>
+                        <outlet property="rejectCountLabel" destination="vYD-zO-73m" id="ljM-e9-mzw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="138"/>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
