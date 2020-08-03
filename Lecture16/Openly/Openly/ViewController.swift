@@ -27,21 +27,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let loadedData = getScoreFromDefaults() {
+            acceptLabel.text = "\(loadedData.accepted)"
+            regectLabel.text = "\(loadedData.rejected)"
+        }
+        
+        
         Notification.Name.acceptButton.onPost { [weak self] _ in
-            self?.numAccepted += 1
-            
-            if let self = self {
-                self.writeToDefauld(data: self.numAccepted, with: "numAccepted")
-            }
-            
+            guard let self = self else { return }
+            self.numAccepted += 1
+            self.writeToDefauld(data: self.numAccepted, with: "numAccepted")
         }
         
         Notification.Name.rejectButton.onPost { [weak self] _ in
-            self?.numRejected += 1
-            
-            if let self = self {
-                self.writeToDefauld(data: self.numRejected, with: "numRejected")
-            }
+            guard let self = self else { return }
+            self.numRejected += 1
+            self.writeToDefauld(data: self.numRejected, with: "numRejected")
         }
     }
 }
@@ -52,6 +53,15 @@ extension ViewController {
             return
         }
         defaults.set(data, forKey: key)
+    }
+    
+    func getScoreFromDefaults() -> (accepted: Int, rejected: Int)? {
+        guard let defaults = UserDefaults(suiteName: "group.com.ericgolovin.Openly.demodata") else { return nil }
+        
+        let accepted = defaults.integer(forKey: "numAccepted")
+        let regected = defaults.integer(forKey: "numRejected")
+        
+        return (accepted, regected)
     }
 }
 
